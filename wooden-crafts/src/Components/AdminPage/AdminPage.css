@@ -19,12 +19,6 @@
   border: 2px solid rgb(68, 0, 255);
 }
 
-.AdminPage .admin-container .admin-sidebar {
-  width: 15%;
-  border: 1px solid rgb(196, 0, 147);
-  /* margin: 5px; */
-}
-
 .AdminPage .admin-container .admin-products {
   width: 55%;
   border: 1px solid rgb(196, 0, 147);
@@ -37,7 +31,7 @@
   /* margin: 5px; */
 }
 
-.AdminPage .admin-container .admin-addproduct .add-product {
+.AdminPage .admin-container .heading {
   margin: 10px;
   font-size: 30px;
   font-weight: 700;
@@ -64,16 +58,11 @@
   background: rgb(255, 254, 254);
 }
 .AdminPage .admin-container .admin-addproduct .admin-form select {
-  -webkit-appearance: menulist-button;
   color: black;
   width: 90%;
   padding: 4px;
-  padding: 3px;
   border-radius: 5px;
   border: 1px solid gray;
-}
-.AdminPage .admin-container .admin-addproduct .admin-form select[required] {
-  color: red;
 }
 
 .AdminPage .admin-container .admin-addproduct .admin-form button {
@@ -89,4 +78,55 @@
 .AdminPage .admin-container .admin-addproduct .admin-form button:hover {
   background: #ff7017;
   color: white;
+}
+
+/* ================ Sidebar ================ */
+
+.AdminPage .admin-container .admin-sidebar {
+  width: 15%;
+  padding: 0 20px;
+  border: 1px solid rgb(196, 0, 147);
+  /* margin: 5px; */
+}
+
+.AdminPage .admin-container .admin-sidebar .sub-head {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.AdminPage .admin-container .admin-sidebar .filter {
+  display: flex;
+  margin: 10px;
+  gap: 3px;
+  flex-direction: column;
+  align-items: start;
+}
+
+.AdminPage .admin-container .admin-sidebar .filter-category div {
+  display: flex;
+  align-items: center;
+}
+
+.AdminPage .admin-container .admin-sidebar input {
+  height: 30px;
+  accent-color: rgb(251, 88, 88);
+  color: white;
+}
+.AdminPage .admin-container .admin-sidebar label:hover {
+  color: #fa8510;
+}
+
+.AdminPage .admin-container .admin-sidebar label {
+  margin-left: 10px;
+}
+
+.AdminPage .admin-container .admin-sidebar .sorting select {
+  border: 1px solid black;
+  width: 100%;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid gray;
 }

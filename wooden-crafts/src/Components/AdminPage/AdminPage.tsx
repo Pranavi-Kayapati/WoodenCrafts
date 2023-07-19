@@ -7,14 +7,104 @@ const AdminPage = () => {
       {/* ==============      Admin Main Container Start      ================= */}
       <div className="admin-container">
         {/* ==============      Admin Sidebar Start      ================= */}
-        <div className="admin-sidebar">side bar</div>
+        <div className="admin-sidebar">
+          <div>
+            <h2 className="heading">Filters</h2>
+            <div>
+              <h4 className="sub-head">Sort By Price</h4>
+              <div className="filter sorting">
+                <select name="">
+                  <option value="">Relevence</option>
+                  <option value="">Low to High</option>
+                  <option value="">High to Low</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="sub-head">By Category</h4>
+              <div className="filter filter-category">
+                <div>
+                  <input type="checkbox" />
+                  <label>Sofas</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Beds</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Kitchen&Dining</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Living</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Sofas</label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 className="sub-head">By Rating</h4>
+              <div className="filter filter-category">
+                <div>
+                  <input type="checkbox" />
+                  <label>Sofas</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Beds</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Kitchen&Dining</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Living</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Sofas</label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 className="sub-head">By Color</h4>
+              <div className="filter filter-category">
+                <div>
+                  <input type="checkbox" />
+                  <label>Sofas</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Beds</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Kitchen&Dining</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Living</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <label>Sofas</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* ==============      Admin Sidebar End      ================= */}
         {/* ==============      Admin Products Start      ================= */}
         <div className="admin-products">product container</div>
         {/* ==============      Admin Products End      ================= */}
         {/* ==============      Admin Add Products Start      ================= */}
         <div className="admin-addproduct">
-          <h2 className="add-product">Add/Edit Product</h2>
+          <h2 className="add-product heading">Add/Edit Product</h2>
           <div>
             <form className="admin-form">
               <input type="text" name="name" placeholder="Produt Name" />
