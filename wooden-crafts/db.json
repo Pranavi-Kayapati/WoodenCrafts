@@ -1,19 +1,69 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Henry 3 Seater Sofa",
+      "category": "sofa",
+      "fabric": "Velvet",
+      "color": "Brown",
+      "discount": "20%",
+      "img_url": "https://images.woodenstreet.de/image/cache/data%2Ffabric-sofa%2Fhenry-fabric-sofa%2Folive-gold%2Fupdated%2F1-810x702.jpg",
+      "price": 39999,
+      "rating": 4,
+      "Special offers": {
+        "Monsoon Sale": "Appy Coupon MONSooN & Get Upto 20% Off (price inclusive of discount",
+        "Store Discount": "Get upto 10% off on orders placed at your nearest experience stores",
+        "No Cost EMI": "Starting from Rs 3,564 on ICICI, Axis, Kotak, HDFC, SBI & More"
+      },
+      "reviews": [
+        {
+          "user": "johndoe",
+          "rating": 5,
+          "comment": "Absolutely gorgeous!"
+        },
+        {
+          "user": "janedoe",
+          "rating": 4,
+          "comment": "Beautiful Sofa, but a bit too expensive for my taste."
+        }
+      ]
     }
   ],
-  "comments": [
+  "users": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "email": "pranavi@gmail.com",
+      "password": "pranavi1234"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "cart": [
+    {
+      "id": 1,
+      "name": "Henry 3 Seater Sofa",
+      "category": "sofa",
+      "fabric": "Velvet",
+      "color": "Brown",
+      "discount": "20%",
+      "img_url": "https://images.woodenstreet.de/image/cache/data%2Ffabric-sofa%2Fhenry-fabric-sofa%2Folive-gold%2Fupdated%2F1-810x702.jpg",
+      "price": 39999,
+      "rating": 4,
+      "Special offers": {
+        "Monsoon Sale": "Appy Coupon MONSooN & Get Upto 20% Off (price inclusive of discount",
+        "Store Discount": "Get upto 10% off on orders placed at your nearest experience stores",
+        "No Cost EMI": "Starting from Rs 3,564 on ICICI, Axis, Kotak, HDFC, SBI & More"
+      },
+      "reviews": [
+        {
+          "user": "johndoe",
+          "rating": 5,
+          "comment": "Absolutely gorgeous!"
+        },
+        {
+          "user": "janedoe",
+          "rating": 4,
+          "comment": "Beautiful Sofa, but a bit too expensive for my taste."
+        }
+      ]
+    }
+  ]
 }
