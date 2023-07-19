@@ -50,49 +50,79 @@ const AdminPage = () => {
               <h4 className="sub-head">By Rating</h4>
               <div className="filter filter-category">
                 <div>
-                  <input type="checkbox" />
-                  <label>Sofas</label>
+                  <input type="checkbox" value={"1"} />
+                  <label>
+                    <span>{"\u2605 \u2606 \u2606 \u2606 \u2606"}</span>
+                  </label>
                 </div>
                 <div>
-                  <input type="checkbox" />
-                  <label>Beds</label>
+                  <input type="checkbox" value={"2"} />
+                  <label>
+                    <span>{"\u2605 \u2605 \u2606 \u2606 \u2606"}</span>
+                  </label>
                 </div>
                 <div>
-                  <input type="checkbox" />
-                  <label>Kitchen&Dining</label>
+                  <input type="checkbox" value={"3"} />
+                  <label>
+                    <span>{"\u2605 \u2605 \u2605 \u2606 \u2606"}</span>
+                  </label>
                 </div>
                 <div>
-                  <input type="checkbox" />
-                  <label>Living</label>
+                  <input type="checkbox" value={"4"} />
+                  <label>
+                    <span>{"\u2605 \u2605 \u2605 \u2605 \u2606"}</span>
+                  </label>
                 </div>
                 <div>
-                  <input type="checkbox" />
-                  <label>Sofas</label>
+                  <input type="checkbox" value={"5"} />
+                  <label>
+                    <span>{"\u2605 \u2605 \u2605 \u2605 \u2605"}</span>
+                  </label>
                 </div>
               </div>
             </div>
             <div>
               <h4 className="sub-head">By Color</h4>
-              <div className="filter filter-category">
+              <div className="filter filter-color">
                 <div>
                   <input type="checkbox" />
-                  <label>Sofas</label>
+                  <div className="color black"></div>
+                  <label>Black</label>
                 </div>
                 <div>
                   <input type="checkbox" />
-                  <label>Beds</label>
+                  <div className="color red"></div>
+                  <label>Red</label>
                 </div>
                 <div>
                   <input type="checkbox" />
-                  <label>Kitchen&Dining</label>
+                  <div className="color green"></div>
+                  <label>green</label>
                 </div>
                 <div>
                   <input type="checkbox" />
-                  <label>Living</label>
+                  <div className="color brown"></div>
+                  <label>Brown</label>
                 </div>
                 <div>
                   <input type="checkbox" />
-                  <label>Sofas</label>
+                  <div className="color blue"></div>
+                  <label>Blue</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <div className="color orange"></div>
+                  <label>orange</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <div className="color gray"></div>
+                  <label>gray</label>
+                </div>
+                <div>
+                  <input type="checkbox" />
+                  <div className="color pink"></div>
+                  <label>Pink</label>
                 </div>
               </div>
             </div>
