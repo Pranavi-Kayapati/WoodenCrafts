@@ -14,26 +14,20 @@
 .AdminPage .admin-container {
   width: 100%;
   background: #fbf9f6;
-  /* height: 90vh; */
+  height: 90vh;
   display: flex;
 }
 
-.AdminPage .admin-container .admin-products {
-  width: 55%;
-  border: 1px solid rgb(255, 158, 3);
-  /* margin: 5px; */
-}
-.AdminPage .admin-container .admin-addproduct {
-  width: 30%;
-  border: 1px solid rgb(255, 158, 3);
-  /* margin: 5px; */
+.AdminPage .admin-container .active {
+  display: flex;
+  width: 100%;
 }
 
 .AdminPage .admin-container .heading {
   margin: 10px;
   font-size: 30px;
   font-weight: 700;
-  color: #fa8510;
+  color: #e57200;
 }
 
 .AdminPage .admin-container .admin-addproduct .admin-form {
@@ -51,10 +45,9 @@
   padding: 4px;
   border-radius: 5px;
   border: 1px solid gray;
-}
-.AdminPage .admin-container .admin-addproduct .admin-form input:focus {
   background: rgb(255, 254, 254);
 }
+
 .AdminPage .admin-container .admin-addproduct .admin-form select {
   color: black;
   width: 90%;
@@ -64,8 +57,8 @@
 }
 
 .AdminPage .admin-container .admin-addproduct .admin-form button {
-  border: 1px solid rgb(219, 85, 36);
-  background: #ff7017;
+  border: none;
+  background: #e57200;
   color: white;
   padding: 3px;
   border-radius: 10px;
@@ -74,7 +67,7 @@
 }
 
 .AdminPage .admin-container .admin-addproduct .admin-form button:hover {
-  background: #ff7017;
+  background: #e57200;
   color: white;
 }
 
@@ -84,15 +77,21 @@
   width: 20%;
   padding: 0 20px;
   border: 1px solid rgb(255, 158, 3);
+  background: #fbf9f6;
   /* margin: 5px; */
 }
 
+.AdminPage .admin-container .admin-sidebar .padd-15 {
+  padding-left: 15px;
+}
+
 .AdminPage .admin-container .admin-sidebar .sub-head {
+  display: flex;
+  align-items: center;
   text-align: left;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 17px;
-  font-weight: 700;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .AdminPage .admin-container .admin-sidebar .filter {
@@ -110,18 +109,18 @@
 
 .AdminPage .admin-container .admin-sidebar input {
   height: 30px;
-  accent-color: rgb(251, 88, 88);
+  accent-color: #e57200;
   color: white;
 }
 .AdminPage .admin-container .admin-sidebar label:hover {
-  color: #fa8510;
+  color: #e57200;
 }
 
 .AdminPage .admin-container .admin-sidebar label {
   margin-left: 10px;
 }
 .AdminPage .admin-container .admin-sidebar label span {
-  color: #fa8510;
+  color: #e57200;
 }
 
 .AdminPage .admin-container .admin-sidebar .sorting select {
@@ -166,4 +165,70 @@
 }
 .AdminPage .admin-container .admin-sidebar .filter-color .pink {
   background: rgb(233, 23, 93);
+}
+
+/* ================    Admin Users      ======================*/
+
+/* .AdminPage .admin-container .admin-users-list {
+  display: flex;
+  padding-left: 20%;
+  width: 100%;
+} */
+
+.AdminPage .admin-container .admin-users {
+  width: 80%;
+  border: 1px solid rgb(255, 158, 3);
+  /* margin: 5px; */
+}
+.AdminPage .admin-container .admin-adduser {
+  width: 30%;
+  border: 1px solid rgb(255, 158, 3);
+  /* margin: 5px; */
+}
+.AdminPage .admin-container .admin-adduser .admin-user-form {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.AdminPage .admin-container .admin-adduser .admin-user-form input {
+  color: black;
+  width: 90%;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.AdminPage .admin-container .admin-adduser .admin-user-form button {
+  border: 1px solid rgb(219, 85, 36);
+  background: #e57200;
+  color: white;
+  padding: 3px;
+  border-radius: 10px;
+  width: 90%;
+  margin: 5px;
+}
+
+/* ================    Admin Products      ======================*/
+
+/* .AdminPage .admin-container .admin-product-list {
+  display: flex;
+  padding-left: 266px;
+  width: 100%;
+  border: 2px solid red;
+} */
+
+.AdminPage .admin-container .admin-products {
+  width: 80%;
+  border: 1px solid rgb(255, 158, 3);
+  /* margin: 5px; */
+}
+.AdminPage .admin-container .admin-addproduct {
+  width: 30%;
+  border: 1px solid rgb(255, 158, 3);
+  /* margin: 5px; */
 }
