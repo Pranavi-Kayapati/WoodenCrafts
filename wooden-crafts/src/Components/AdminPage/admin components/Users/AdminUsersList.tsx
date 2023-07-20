@@ -1,5 +1,5 @@
 import React from "react";
-import "../AdminPage.css";
+import "../../AdminPage.css";
 const AdminUsersList = () => {
   return (
     <div className="admin-users-list active">

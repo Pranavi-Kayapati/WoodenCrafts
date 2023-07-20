@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./AdminPage.css";
-import Sidebar from "./admin components/Sidebar";
-import AdminProductList from "./admin components/AdminProductList";
 import AdminSidebar from "./admin components/AdminSidebar";
-import AdminUsersList from "./admin components/AdminUsersList";
 import AdminDashboard from "./admin components/AdminDashboard";
 import AdminCart from "./admin components/AdminCart";
 import AdminOrders from "./admin components/AdminOrders";
+import AdminUsersList from "./admin components/Users/AdminUsersList";
+import AdminProductList from "./admin components/Products/AdminProductList";
 const AdminPage = () => {
   const [activeList, setActiveList] = useState("dashboord");
 
@@ -20,6 +19,7 @@ const AdminPage = () => {
       {/* ==============      Admin Main Container Start      ================= */}
       <div className="admin-container">
         <AdminSidebar setActiveList={setActiveList} />
+
         {activeList == "dashboard" ? (
           <AdminDashboard />
         ) : activeList == "products" ? (
