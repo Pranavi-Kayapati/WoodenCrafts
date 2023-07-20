@@ -6,7 +6,6 @@ import MainRoutes from "./Components/AllRoutes/MainRoutes";
 function App() {
   return (
     <div className="App">
-      <h1>Wooden Crafts</h1>
       <MainRoutes />
     </div>
   );
