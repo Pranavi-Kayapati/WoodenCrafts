@@ -45,10 +45,31 @@ const AdminProductList = () => {
     setProduct(newProduct);
   };
 
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   // console.log(product);
+  //   dispatch(postProduct(product));
+  //   setProduct(initialState);
+  // };
+
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   dispatch(postProduct(product))
+  //     .then(() => {
+  //       // After successful addition or update, reset the form
+  //       setProduct(initialState);
+  //     })
+  //     .catch((err: any) => {
+  //       console.log(err);
+  //     });
+  // };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(product);
+
     dispatch(postProduct(product));
+
     setProduct(initialState);
   };
 
@@ -56,7 +77,13 @@ const AdminProductList = () => {
     <div className="admin-product-list active">
       <div className="admin-products ">
         {store.products.map((product) => {
-          return <AdminProductCard key={product.id} item={product} />;
+          return (
+            <AdminProductCard
+              key={product.id}
+              item={product}
+              setProduct={setProduct}
+            />
+          );
         })}
       </div>
       <div className="admin-addproduct">

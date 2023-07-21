@@ -4,7 +4,13 @@ import { BiEdit } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { deleteProduct } from "../../../redux/adminReducer/action";
-const AdminProductCard = ({ item }: any) => {
+
+interface Props {
+  item: Product; // Include the 'item' prop in the Props interface
+  setProduct: (product: Product) => void;
+}
+
+const AdminProductCard = ({ item, setProduct }: Props) => {
   const {
     id,
     image,
@@ -21,6 +27,10 @@ const AdminProductCard = ({ item }: any) => {
 
   const handleDelete = (id: number) => {
     dispatch(deleteProduct(id));
+  };
+
+  const handleEdit = () => {
+    setProduct(item);
   };
 
   return (
@@ -52,7 +62,7 @@ const AdminProductCard = ({ item }: any) => {
         </p>
       </div>
       <div className="edit-delete-btn">
-        <button className="sub-head">
+        <button className="sub-head" onClick={handleEdit}>
           <BiEdit />
           <span className="padd-15">Edit</span>
         </button>

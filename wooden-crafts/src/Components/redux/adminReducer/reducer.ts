@@ -32,11 +32,22 @@ export const adminproductReducer = (
     case ADD_PRODUCT: {
       return { ...state, products: [...state.products, payload] };
     }
+    case EDIT_PRODUCT: {
+      const updatedProducts: Product[] = state.products.map((item) => {
+        if (item.id == (payload as Product).id) {
+          return (item = payload as Product);
+        } else {
+          return item;
+        }
+      });
+
+      return { ...state, products: updatedProducts };
+    }
+
     case DELETE_PRODUCT: {
       const updatedProducts: Product[] = state.products.filter(
         (item) => item.id !== (payload as Product).id
       );
-
       return { ...state, products: updatedProducts };
     }
     default: {
