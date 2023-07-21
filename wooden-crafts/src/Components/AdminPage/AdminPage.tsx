@@ -16,7 +16,11 @@ const AdminPage = () => {
 
   return (
     <IconContext.Provider
-      value={{ color: "#e57220", size: "20px", className: "global-class-name" }}
+      value={{
+        color: "#ef64000",
+        size: "20px",
+        className: "global-class-name",
+      }}
     >
       <div className="AdminPage">
         <div className="admin-nav">navbar</div>

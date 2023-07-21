@@ -22,7 +22,7 @@ const AdminProductCard = ({ item }: any) => {
       </div>
       <div className="product-card-details">
         <h3 className="product-title">{title}</h3>
-        <p>
+        <p className="product-brand">
           <span>Brand :</span>
           {brand}
         </p>
@@ -31,7 +31,7 @@ const AdminProductCard = ({ item }: any) => {
             <span>Category :</span>
             {category}
           </p>
-          <span>{`(${material})`}</span>
+          <span className="material">{` ( ${material} ) `}</span>
         </div>
 
         <p>
@@ -40,8 +40,7 @@ const AdminProductCard = ({ item }: any) => {
         </p>
         <p>
           <span>Price :</span>
-          <span>Rs.</span>
-          {price}
+          <span className="price">Rs.{price}</span>
         </p>
       </div>
       <div className="edit-delete-btn">
