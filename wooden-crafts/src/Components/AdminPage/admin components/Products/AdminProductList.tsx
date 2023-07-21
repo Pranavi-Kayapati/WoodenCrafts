@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../AdminPage.css";
+import { Dispatch } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../../redux/adminReducer/action";
+import { Product, ProductsState } from "../../../constrainsts/Type";
 
 const AdminProductList = () => {
+  const dispatch: Dispatch<any> = useDispatch();
+  const products: readonly Product[] = useSelector(
+    (state: ProductsState) => state.products
+  );
+
+  let paramsObj = {
+    params: {},
+  };
+
+  useEffect(() => {
+    dispatch(getProducts(paramsObj));
+    console.log("object", products);
+  }, []);
+
   return (
     <div className="admin-product-list active">
       <div className="admin-products ">Products</div>
