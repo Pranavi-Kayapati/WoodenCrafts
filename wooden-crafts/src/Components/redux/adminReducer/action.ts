@@ -1,6 +1,10 @@
 import axios from "axios";
-import { Product, ProductsState } from "../../constrainsts/Type";
-import { GET_PRODUCTS } from "../actionTypes";
+import {
+  Product,
+  ProductAdction,
+  ProductsState,
+} from "../../constrainsts/Type";
+import { ADD_PRODUCT, DELETE_PRODUCT, GET_PRODUCTS } from "../actionTypes";
 import { Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "../store";
@@ -11,25 +15,38 @@ interface GetProductsSuccessAction {
 }
 export type ProductActionType = GetProductsSuccessAction;
 
-// const productSucess = (payload) => {
-//   return { type: POST_PRODUCT_SUCCESS, payload };
-// };
-
 export const getProductsSuccess = (products: Product[]): ProductActionType => ({
   type: GET_PRODUCTS,
   payload: products,
 });
 
-// export const postProduct = (newProduct:Product) => (dispatch) => {
-//   axios
-//     .post("http://localhost:8080/products", newProduct)
-//     .then((res) => {
-//       dispatch(productSucess(res.data));
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+export const postProduct =
+  (newProduct: Product) => (dispatch: Dispatch<ProductAdction>) => {
+    axios
+      .post("https://all-products-wjqd.onrender.com/products", newProduct)
+      .then((res) => {
+        console.log(res.data);
+        alert("Product Added!");
+        dispatch({ type: ADD_PRODUCT, payload: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+export const deleteProduct =
+  (id: number) => (dispatch: Dispatch<ProductAdction>) => {
+    axios
+      .delete(`https://all-products-wjqd.onrender.com/products/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        alert("Product deleted successfully!");
+        dispatch({ type: DELETE_PRODUCT, payload: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
 export const getProducts =
   (paramsObj: any) => (dispatch: Dispatch<ProductActionType>) => {
@@ -40,7 +57,7 @@ export const getProducts =
       )
       .then((res) => {
         dispatch(getProductsSuccess(res.data));
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

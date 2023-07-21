@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { Product } from "../../../constrainsts/Type";
 import { BiEdit } from "react-icons/bi";
+import { useDispatch } from "react-redux";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { deleteProduct } from "../../../redux/adminReducer/action";
 const AdminProductCard = ({ item }: any) => {
   const {
     id,
@@ -14,6 +16,12 @@ const AdminProductCard = ({ item }: any) => {
     price,
     description,
   }: Product = item;
+
+  const dispatch: Dispatch<any> = useDispatch();
+
+  const handleDelete = (id: number) => {
+    dispatch(deleteProduct(id));
+  };
 
   return (
     <div className="product-card">
@@ -48,7 +56,10 @@ const AdminProductCard = ({ item }: any) => {
           <BiEdit />
           <span className="padd-15">Edit</span>
         </button>
-        <button className="sub-head">
+        <button
+          className="sub-head"
+          onClick={() => id !== undefined && handleDelete(id)}
+        >
           <RiDeleteBinLine />
           <span className="padd-15">Delete</span>
         </button>

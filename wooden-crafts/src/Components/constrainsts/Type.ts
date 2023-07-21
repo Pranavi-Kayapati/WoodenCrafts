@@ -31,6 +31,7 @@ export type ProductAdction = {
 export type AllProductsDispatchType = (
   args: AllProductAdction
 ) => AllProductAdction;
+
 export type ProductDispatchType = (args: ProductAdction) => ProductAdction;
 
 // User Type

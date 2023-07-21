@@ -29,6 +29,9 @@ export const adminproductReducer = (
     case GET_PRODUCTS: {
       return { ...state, products: payload };
     }
+    case ADD_PRODUCT: {
+      return { ...state, products: [...state.products, payload] };
+    }
     case DELETE_PRODUCT: {
       const updatedProducts: Product[] = state.products.filter(
         (item) => item.id !== (payload as Product).id

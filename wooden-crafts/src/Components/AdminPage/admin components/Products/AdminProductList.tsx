@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../AdminPage.css";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../../redux/adminReducer/action";
+import { getProducts, postProduct } from "../../../redux/adminReducer/action";
 import { Product, ProductsState } from "../../../constrainsts/Type";
 import { RootState } from "../../../redux/store";
 import AdminProductCard from "./AdminProductCard";
@@ -37,7 +37,7 @@ const AdminProductList = () => {
 
   useEffect(() => {
     dispatch(getProducts(paramsObj));
-  }, []);
+  }, [store]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { name, value } = e.target;
@@ -47,7 +47,8 @@ const AdminProductList = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(product);
+    // console.log(product);
+    dispatch(postProduct(product));
     setProduct(initialState);
   };
 
