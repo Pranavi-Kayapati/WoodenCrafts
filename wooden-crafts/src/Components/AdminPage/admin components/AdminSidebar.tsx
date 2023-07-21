@@ -21,59 +21,59 @@ const AdminSidebar = ({ setActiveList }: Props) => {
   };
 
   return (
-    <IconContext.Provider
-      value={{ color: "#e57220", size: "20px", className: "global-class-name" }}
-    >
-      <div className="admin-sidebar">
-        <h1 className="heading">Admin</h1>
-        <div className="admin-dashboard">
-          <button
-            className="sub-head"
-            value={"dashboard"}
-            onClick={handleChangeActive}
-          >
-            <LuLayoutDashboard />
-            <span className="padd-15">Dashboard</span>{" "}
-          </button>
-          <button
-            className="sub-head"
-            value={"products"}
-            onClick={handleChangeActive}
-          >
-            <LuLayoutList />
-            <span className="padd-15">Products</span>
-          </button>
-          <button
-            className="sub-head"
-            value={"users"}
-            onClick={handleChangeActive}
-          >
-            <FiUsers />
-            <span className="padd-15">Users</span>
-          </button>
-          <button
-            className="sub-head"
-            value={"cart"}
-            onClick={handleChangeActive}
-          >
-            <FiShoppingCart />
-            <span className="padd-15">Cart</span>
-          </button>
-          <button
-            className="sub-head"
-            value={"orders"}
-            onClick={handleChangeActive}
-          >
-            <BsClipboard2Check />
-            <span className="padd-15">Orders Placed</span>
-          </button>
-          <button className="sub-head">
-            <MdLogout />
-            <span className="padd-15">Logout</span>
-          </button>
-        </div>
+    // <IconContext.Provider
+    //   value={{ color: "#e57220", size: "20px", className: "global-class-name" }}
+    // >
+    <div className="admin-sidebar">
+      <h1 className="heading">Admin</h1>
+      <div className="admin-dashboard">
+        <button
+          className="sub-head"
+          value={"dashboard"}
+          onClick={handleChangeActive}
+        >
+          <LuLayoutDashboard />
+          <span className="padd-15">Dashboard</span>{" "}
+        </button>
+        <button
+          className="sub-head"
+          value={"products"}
+          onClick={handleChangeActive}
+        >
+          <LuLayoutList />
+          <span className="padd-15">Products</span>
+        </button>
+        <button
+          className="sub-head"
+          value={"users"}
+          onClick={handleChangeActive}
+        >
+          <FiUsers />
+          <span className="padd-15">Users</span>
+        </button>
+        <button
+          className="sub-head"
+          value={"cart"}
+          onClick={handleChangeActive}
+        >
+          <FiShoppingCart />
+          <span className="padd-15">Cart</span>
+        </button>
+        <button
+          className="sub-head"
+          value={"orders"}
+          onClick={handleChangeActive}
+        >
+          <BsClipboard2Check />
+          <span className="padd-15">Orders Placed</span>
+        </button>
+        <button className="sub-head">
+          <MdLogout />
+          <span className="padd-15">Logout</span>
+        </button>
       </div>
-    </IconContext.Provider>
+    </div>
+    // </IconContext.Provider>
   );
 };
 
