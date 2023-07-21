@@ -25,20 +25,6 @@ export const getProductsSuccess = (products: Product[]): ProductActionType => ({
   payload: products,
 });
 
-// export const postProduct =
-//   (newProduct: Product) => (dispatch: Dispatch<ProductAdction>) => {
-//     axios
-//       .post("https://all-products-wjqd.onrender.com/products", newProduct)
-//       .then((res) => {
-//         console.log(res.data);
-//         alert("Product Added!");
-//         dispatch({ type: ADD_PRODUCT, payload: res.data });
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-
 export const deleteProduct =
   (id: number) => (dispatch: Dispatch<ProductAdction>) => {
     axios
@@ -82,131 +68,6 @@ export const updateProduct =
       });
   };
 
-// export const postProduct =
-//   (newProduct: Product) => (dispatch: Dispatch<ProductAdction>) => {
-//     if (newProduct.id) {
-//       // If 'id' exists in the newProduct, it means we are editing an existing product
-//       return axios
-//         .patch<Product>(
-//           `https://all-products-wjqd.onrender.com/products/${newProduct.id}`,
-//           newProduct
-//         )
-//         .then((res) => {
-//           dispatch({ type: EDIT_PRODUCT, payload: res.data });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     } else {
-//       // If 'id' does not exist in the newProduct, it means we are adding a new product
-//       return axios
-//         .post<Product>(
-//           "https://all-products-wjqd.onrender.com/products",
-//           newProduct
-//         )
-//         .then((res) => {
-//           dispatch({ type: ADD_PRODUCT, payload: res.data });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     }
-//   };
-
-// export const postProduct = (newProduct: Product) => {
-//   if (newProduct.id) {
-//     // If 'id' exists in the newProduct, it means we are editing an existing product
-//     return axios
-//       .patch<Product>(
-//         `https://all-products-wjqd.onrender.com/products/${newProduct.id}`,
-//         newProduct
-//       )
-//       .then((res) => {
-//         return { type: EDIT_PRODUCT, payload: res.data } as const;
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   } else {
-//     // If 'id' does not exist in the newProduct, it means we are adding a new product
-//     return axios
-//       .post<Product>(
-//         "https://all-products-wjqd.onrender.com/products",
-//         newProduct
-//       )
-//       .then((res) => {
-//         return { type: ADD_PRODUCT, payload: res.data } as const;
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   }
-// };
-
-// Assuming this is your action creator for postProduct
-// export const postProduct =
-//   (newProduct: Product) => (dispatch: Dispatch<ProductActionType>) => {
-//     if (newProduct.id) {
-//       return axios
-//         .patch<Product>(
-//           `https://all-products-wjqd.onrender.com/products/${newProduct.id}`,
-//           newProduct
-//         )
-//         .then((res) => {
-//           dispatch({ type: EDIT_PRODUCT, payload: res.data });
-//           return res.data; // Return the resolved data from the Promise
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     } else {
-//       return axios
-//         .post<Product>(
-//           "https://all-products-wjqd.onrender.com/products",
-//           newProduct
-//         )
-//         .then((res) => {
-//           dispatch({ type: ADD_PRODUCT, payload: res.data });
-//           return res.data; // Return the resolved data from the Promise
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     }
-//   };
-
-// export const postProduct =
-//   (newProduct: Product) => (dispatch: Dispatch<ProductAdction>) => {
-//     if (newProduct.id) {
-//       // If 'id' exists in the newProduct, it means we are editing an existing product
-//       return axios
-//         .patch<Product>(
-//           `https://all-products-wjqd.onrender.com/products/${newProduct.id}`,
-//           newProduct
-//         )
-//         .then((res) => {
-//           dispatch({ type: EDIT_PRODUCT, payload: res.data });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     } else {
-//       // If 'id' does not exist in the newProduct, it means we are adding a new product
-//       return axios
-//         .post<Product>(
-//           "https://all-products-wjqd.onrender.com/products",
-//           newProduct
-//         )
-//         .then((res) => {
-//           dispatch({ type: ADD_PRODUCT, payload: res.data });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     }
-//   };
-// // This code will work correctly and dispatch the appropriate actions based on whether you are adding a new product or editing an existing one.
-
 export const postProduct =
   (newProduct: Product) =>
   async (dispatch: ThunkDispatch<RootState, undefined, ProductAdction>) => {
@@ -232,4 +93,3 @@ export const postProduct =
       console.error(error);
     }
   };
-// By setting up the store with the redux-thunk middleware and using the async function in the postProduct action creator, you can now use dispatch and perform asynchronous operations like API calls. Remember that you need to adjust the imports and typings based on your project's file structure and types.

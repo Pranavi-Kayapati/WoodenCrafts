@@ -6,7 +6,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { deleteProduct } from "../../../redux/adminReducer/action";
 
 interface Props {
-  item: Product; // Include the 'item' prop in the Props interface
+  item: Product;
   setProduct: (product: Product) => void;
 }
 

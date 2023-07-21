@@ -39,7 +39,6 @@ const AdminPage = () => {
           ) : (
             <AdminOrders />
           )}
-          {/* <AdminUsersList /> */}
         </div>
         {/* ==============      Admin Main Container End      ================= */}
       </div>

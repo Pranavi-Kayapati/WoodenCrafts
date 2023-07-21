@@ -294,10 +294,6 @@
   display: flex;
   align-items: center;
 }
-/* .AdminPage .admin-container .product-card .product-card-category p {
-  color: rgb(220, 0, 0);
-  border: 2px solid red;
-} */
 
 .AdminPage .admin-container .product-card .price {
   color: #e57200;

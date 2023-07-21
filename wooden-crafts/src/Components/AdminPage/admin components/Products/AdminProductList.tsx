@@ -45,26 +45,6 @@ const AdminProductList = () => {
     setProduct(newProduct);
   };
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   // console.log(product);
-  //   dispatch(postProduct(product));
-  //   setProduct(initialState);
-  // };
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   dispatch(postProduct(product))
-  //     .then(() => {
-  //       // After successful addition or update, reset the form
-  //       setProduct(initialState);
-  //     })
-  //     .catch((err: any) => {
-  //       console.log(err);
-  //     });
-  // };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

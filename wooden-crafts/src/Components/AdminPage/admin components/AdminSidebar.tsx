@@ -21,9 +21,6 @@ const AdminSidebar = ({ setActiveList }: Props) => {
   };
 
   return (
-    // <IconContext.Provider
-    //   value={{ color: "#e57220", size: "20px", className: "global-class-name" }}
-    // >
     <div className="admin-sidebar">
       <h1 className="heading">Admin</h1>
       <div className="admin-dashboard">
@@ -73,7 +70,6 @@ const AdminSidebar = ({ setActiveList }: Props) => {
         </button>
       </div>
     </div>
-    // </IconContext.Provider>
   );
 };
 
