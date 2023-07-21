@@ -1,6 +1,6 @@
 import React from "react";
 import { Product } from "../../../constrainsts/Type";
-import { MdEditNote } from "react-icons/md";
+import { BiEdit } from "react-icons/bi";
 import { RiDeleteBinLine } from "react-icons/ri";
 const AdminProductCard = ({ item }: any) => {
   const {
@@ -44,9 +44,9 @@ const AdminProductCard = ({ item }: any) => {
           {price}
         </p>
       </div>
-      <div>
+      <div className="edit-delete-btn">
         <button className="sub-head">
-          <MdEditNote />
+          <BiEdit />
           <span className="padd-15">Edit</span>
         </button>
         <button className="sub-head">

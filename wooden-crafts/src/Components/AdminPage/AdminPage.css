@@ -224,6 +224,8 @@
 
 .AdminPage .admin-container .admin-products {
   width: 80%;
+  overflow: auto;
+  scrollbar-color: red yellow;
   border: 1px solid rgb(255, 158, 3);
   /* margin: 5px; */
 }
@@ -233,7 +235,7 @@
   /* margin: 5px; */
 }
 
-/* ==============   Product Cart ================*/
+/* ==============   Product Card ================*/
 
 .AdminPage .admin-container .product-card {
   width: 98%;
@@ -255,5 +257,25 @@
 
 .AdminPage .admin-container .product-card .product-card-details {
   width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   border: 2px solid red;
+}
+
+.AdminPage .admin-container .product-card .edit-delete-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  border: 2px solid red;
+}
+.AdminPage .admin-container .product-card .edit-delete-btn button:nth-child(1) {
+  width: 110px;
+}
+
+.AdminPage .admin-container .product-card .edit-delete-btn .sub-head {
+  border: 2px solid #ff8000;
+  padding: 5px;
+  border-radius: 10px;
 }
