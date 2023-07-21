@@ -1,6 +1,6 @@
 // Products type
 
-export interface ProductState {
+export interface Product {
   id: number;
   image: string;
   category: string;
@@ -15,31 +15,31 @@ export interface ProductState {
 }
 
 export type ProductsState = {
-  products: ProductState[];
+  products: Product[];
 };
 
 export type ProductAdction = {
   type: string;
-  payload: ProductState;
+  payload: Product;
 };
 
 export type ProductDispatchType = (args: ProductAdction) => ProductAdction;
 
 // User Type
 
-export interface UserState {
+export interface User {
   username: string;
   email: string;
   password: string;
 }
 
 export type UsersState = {
-  users: ProductState[];
+  users: Product[];
 };
 
 export type UserAdction = {
   type: string;
-  payload: UserState;
+  payload: User;
 };
 
 export type userDispatchType = (args: UserAdction) => UserAdction;
