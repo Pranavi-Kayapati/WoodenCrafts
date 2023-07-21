@@ -1,11 +1,81 @@
 import React from "react";
+import "./ProductPage.css"
+import {useDispatch,useSelector,shallowEqual} from "react-redux"
+import {useEffect} from "react"
+import axios from "axios"
+import { RequestAction, RequestError, RequestSuccess } from "../redux/ProductReducer/action";
+import { ProductCard } from "./ProductCard";
+import {useState} from "react"
+import { useSearchParams } from "react-router-dom";
+import Sidebar from "./Sidebar";
+
+
 
 
 const ProductPage = () => {
+ let dispatch=useDispatch()
+ const [search,setSearch]=useSearchParams([])
  
+
+ const {isLoading,product,isError}=useSelector((item:any)=>{
+
+  return {
+    isLoading:item.productReducer.isLoading,
+    product:item.productReducer.product,
+    isError:item.productReducer.isError
+  }
+ },shallowEqual)
+
+
+ let paramsObj={
+  params:{
+    price:search.getAll("price"),
+    _sort:search.get("order") && "price",
+    _order:search.get("order")
+  }
+ }
+
+ const FetchData=()=>{
+  dispatch(RequestAction())
+  axios.get("https://all-products-wjqd.onrender.com/products",paramsObj)
+  .then((res)=>{
+    dispatch(RequestSuccess(res.data))
+    
+    
+  })
+  .catch((err)=>{
+    console.log(err);
+    dispatch(RequestError())
+  })
+
+ }
+
+
+useEffect(()=>{
+  FetchData()
+
+},[search])
+console.log(product);
+
+
+ if(isLoading){
+  return <h1>Loading...</h1>
+ }
+
 return (
-  <div>
-    <h1>Product page</h1>
+  <div className="product_container">
+    
+    {
+      product.map((ele:any)=>(
+          <ProductCard 
+          key={ele.id}
+          id={ele.id}
+          image={ele.image}
+          title={ele.title}
+          price={ele.price}
+          />
+      ))
+    }
     
     </div>
 )
