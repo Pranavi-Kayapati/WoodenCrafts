@@ -1,20 +1,27 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { styled } from "styled-components";
 import { BiMap } from "react-icons/bi";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux"
+import { getCartProducts } from "../redux/cartReducer/action";
 
 const CartPage = () => {
+
   const [quantity,setQunatity]=useState<number>(1)
 
+  const cart=useSelector((store:any)=>store.cartReducer.cart)
+  const dispatch:any=useDispatch()
+  console.log(cart)
 
-  const handleAdd=()=>{
-    setQunatity(prev=>prev+1)
-  }
 
-  const handleDec=()=>{
-    setQunatity(prev=>prev-1)
-  }
+  useEffect(()=>{
+    dispatch(getCartProducts()).then((res:any)=>{
+        console.log(res)
+    })
+  },[])
+
+
   return (
     <DIV>
 
@@ -43,11 +50,10 @@ const CartPage = () => {
           {/* -------------------------------------------------cart itme----------------------------------------------------- */}
 
        
+          <CartItem />
+           <CartItem/>
           <CartItem/>
-          <CartItem/>
-          <CartItem/>
-         
-
+          
 
           
 
