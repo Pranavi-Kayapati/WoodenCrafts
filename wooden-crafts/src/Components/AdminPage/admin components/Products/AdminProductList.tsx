@@ -4,25 +4,33 @@ import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../../redux/adminReducer/action";
 import { Product, ProductsState } from "../../../constrainsts/Type";
+import { RootState } from "../../../redux/store";
+import AdminProductCard from "./AdminProductCard";
 
 const AdminProductList = () => {
   const dispatch: Dispatch<any> = useDispatch();
-  const products: readonly Product[] = useSelector(
-    (state: ProductsState) => state.products
-  );
+  // const products: Product[] = useSelector(
+  //   (state: ProductsState)
+  // );
 
+  const store: ProductsState = useSelector(
+    (store: RootState) => store.adminproductReducer
+  );
   let paramsObj = {
     params: {},
   };
 
   useEffect(() => {
     dispatch(getProducts(paramsObj));
-    console.log("object", products);
   }, []);
 
   return (
     <div className="admin-product-list active">
-      <div className="admin-products ">Products</div>
+      <div className="admin-products ">
+        {store.products.map((product) => {
+          return <AdminProductCard key={product.id} item={product} />;
+        })}
+      </div>
       <div className="admin-addproduct">
         <h2 className="add-product heading">Add/Edit Product</h2>
         <div>
