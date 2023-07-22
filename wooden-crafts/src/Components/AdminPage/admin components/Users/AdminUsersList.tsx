@@ -4,6 +4,7 @@ import { User, UsersState } from "../../../constrainsts/Type";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { getUsers } from "../../../redux/adminReducer/action";
+import UserCard from "./UserCard";
 const initialState: User = {
   username: "",
   email: "",
@@ -14,7 +15,7 @@ const AdminUsersList = () => {
   const dispatch: Dispatch<any> = useDispatch();
   const [user, setUser] = useState(initialState);
   const store: UsersState = useSelector(
-    (store: RootState) => store.adminproductReducer
+    (store: RootState) => store.usersReducer
   );
 
   useEffect(() => {
@@ -23,7 +24,24 @@ const AdminUsersList = () => {
 
   return (
     <div className="admin-users-list active">
-      <div className="admin-users ">Users</div>
+      <div className="admin-users ">
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Passowrd</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {store.users.map((user) => {
+              return <UserCard key={user.id} item={user} setUser={setUser} />;
+            })}
+          </tbody>
+        </table>
+      </div>
       <div className="admin-adduser">
         <h2 className="add-product heading">Add/Edit User</h2>
         <div>

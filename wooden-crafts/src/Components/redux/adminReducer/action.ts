@@ -119,7 +119,7 @@ export const getUsers = () => (dispatch: Dispatch<UserActionType>) => {
     .get<User[]>("https://all-products-wjqd.onrender.com/users")
     .then((res) => {
       dispatch(getUsersSuccess(res.data));
-      console.log(res.data);
+      // console.log(res.data);
     })
     .catch((err) => {
       console.log(err);
