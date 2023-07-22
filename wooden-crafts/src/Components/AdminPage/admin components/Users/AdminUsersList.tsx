@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useState, useEffect, Dispatch } from "react";
 import "../../AdminPage.css";
+import { User, UsersState } from "../../../constrainsts/Type";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
+import { getUsers } from "../../../redux/adminReducer/action";
+const initialState: User = {
+  username: "",
+  email: "",
+  password: "",
+};
+
 const AdminUsersList = () => {
+  const dispatch: Dispatch<any> = useDispatch();
+  const [user, setUser] = useState(initialState);
+  const store: UsersState = useSelector(
+    (store: RootState) => store.adminproductReducer
+  );
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [store]);
+
   return (
     <div className="admin-users-list active">
       <div className="admin-users ">Users</div>
