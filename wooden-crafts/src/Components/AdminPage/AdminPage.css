@@ -320,6 +320,10 @@ table thead th {
 }
 
 /* Table Body Styles */
+
+table tbody ttr:nth-of-type(odd) {
+  background: #eee;
+}
 table tbody tr td {
   padding: 0px 16px;
   border-bottom: 1px solid #eee;
