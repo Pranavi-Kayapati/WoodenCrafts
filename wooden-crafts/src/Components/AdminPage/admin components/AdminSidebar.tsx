@@ -1,6 +1,6 @@
 import React from "react";
 import "../AdminPage.css";
-import { FiShoppingCart } from "react-icons/fi";
+import { BiSolidOffer } from "react-icons/bi";
 import { BsGraphUp } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { FiUsers } from "react-icons/fi";
@@ -60,8 +60,8 @@ const AdminSidebar = ({ setActiveList }: Props) => {
             value={"cart"}
             onClick={handleChangeActive}
           >
-            <FiShoppingCart color="white" />
-            <span className="padd-15">Cart</span>
+            <BiSolidOffer color="white" />
+            <span className="padd-15">Offers</span>
           </button>
         </div>
         <div className="active-btn">

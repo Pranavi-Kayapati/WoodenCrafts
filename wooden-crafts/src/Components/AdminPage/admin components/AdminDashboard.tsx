@@ -4,6 +4,7 @@ import {
   ShoppingCartOutlined,
   ShoppingOutlined,
   UserOutlined,
+  TagFilled,
 } from "@ant-design/icons";
 import { Card, Space, Statistic, Table, Typography } from "antd";
 import { Bar } from "react-chartjs-2";
@@ -95,13 +96,28 @@ const AdminDashboard: React.FC = () => {
             <Space direction="horizontal">
               <DashboardCard
                 icon={
+                  <TagFilled
+                    style={{
+                      color: "orange",
+                      backgroundColor: "rgba(255, 221, 0, 0.25)",
+                      borderRadius: 20,
+                      fontSize: 30,
+                      padding: 10,
+                    }}
+                  />
+                }
+                title={"Orders"}
+                value={"4000"}
+              />
+              <DashboardCard
+                icon={
                   <ShoppingCartOutlined
                     style={{
                       color: "green",
                       backgroundColor: "rgba(0,255,0,0.25)",
                       borderRadius: 20,
-                      fontSize: 24,
-                      padding: 8,
+                      fontSize: 30,
+                      padding: 10,
                     }}
                   />
                 }
@@ -115,8 +131,8 @@ const AdminDashboard: React.FC = () => {
                       color: "blue",
                       backgroundColor: "rgba(0,0,255,0.25)",
                       borderRadius: 20,
-                      fontSize: 24,
-                      padding: 8,
+                      fontSize: 30,
+                      padding: 10,
                     }}
                   />
                 }
@@ -130,8 +146,8 @@ const AdminDashboard: React.FC = () => {
                       color: "purple",
                       backgroundColor: "rgba(0,255,255,0.25)",
                       borderRadius: 20,
-                      fontSize: 24,
-                      padding: 8,
+                      fontSize: 30,
+                      padding: 10,
                     }}
                   />
                 }
@@ -145,8 +161,8 @@ const AdminDashboard: React.FC = () => {
                       color: "red",
                       backgroundColor: "rgba(255,0,0,0.25)",
                       borderRadius: 20,
-                      fontSize: 24,
-                      padding: 8,
+                      fontSize: 30,
+                      padding: 10,
                     }}
                   />
                 }
@@ -171,7 +187,7 @@ export default AdminDashboard;
 
 function DashboardCard({ title, value, icon }: any) {
   return (
-    <Card>
+    <Card style={{ width: "200px" }}>
       <Space direction="horizontal">
         {icon}
         <Statistic title={title} value={value} />
