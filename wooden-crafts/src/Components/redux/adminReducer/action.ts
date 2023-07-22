@@ -80,7 +80,6 @@ export const postProduct =
   async (dispatch: ThunkDispatch<RootState, undefined, ProductAdction>) => {
     try {
       if (newProduct.id) {
-        // If 'id' exists in the newProduct, it means we are editing an existing product
         const response = await axios.patch<Product>(
           `https://all-products-wjqd.onrender.com/products/${newProduct.id}`,
           newProduct
@@ -88,7 +87,6 @@ export const postProduct =
         dispatch({ type: EDIT_PRODUCT, payload: response.data });
         alert("Product Updated");
       } else {
-        // If 'id' does not exist in the newProduct, it means we are adding a new product
         const response = await axios.post<Product>(
           "https://all-products-wjqd.onrender.com/products",
           newProduct

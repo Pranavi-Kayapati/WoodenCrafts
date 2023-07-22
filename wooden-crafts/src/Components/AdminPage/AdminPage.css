@@ -74,11 +74,26 @@
 /* ================ Sidebar ================ */
 
 .AdminPage .admin-container .admin-sidebar {
+  background: #ea5200;
   width: 20%;
-  padding: 0 20px;
   border: 1px solid rgb(255, 158, 3);
-  background: #fbf9f6;
+  color: white;
+  /* padding: 0 20px; */
+  /* background: #fbf9f6; */
   /* margin: 5px; */
+}
+
+.AdminPage .admin-container .admin-sidebar .Admin-heading {
+  padding: 10px;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.AdminPage .admin-container .admin-sidebar .active-btn {
+  margin: 40px 0;
+  /* border: 2px solid red; */
+  border-radius: 10px;
+  border-bottom: 1px solid rgb(187, 164, 164);
 }
 
 .AdminPage .admin-container .padd-15 {
@@ -414,54 +429,8 @@ table tbody tr .action button:last-child {
   width: 100%;
 }
 
-/* .AdminPage .admin-container .admin-main-dashboard .dashboard-container {
-  border: 3px solid green;
-  width: 100%;
-} */
-/* .AdminPage
-  .admin-container
-  .admin-main-dashboard
-  .dashboard-container
-  .dashboard-stats {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-} */
+/*==========    Admin Cart    =====*/
 
-/* .AdminPage
-  .admin-container
-  .admin-main-dashboard
-  .dashboard-container
-  .dashboard-stats
-  div {
-  border: 2px solid black;
-  height: 100px;
-  width: 25%;
-} */
-
-.AdminPage
-  .admin-container
-  .admin-main-dashboard
-  .dashboard-container
-  .dashboard-stats
-  .stats-products {
-  background: red;
-}
-
-.AdminPage
-  .admin-container
-  .admin-main-dashboard
-  .dashboard-container
-  .dashboard-stats
-  .stats-users {
-  background: rgb(0, 255, 21);
-}
-
-.AdminPage
-  .admin-container
-  .admin-main-dashboard
-  .dashboard-container
-  .dashboard-stats
-  .stats-orders {
-  background: rgb(0, 30, 255);
+.AdminPage .admin-container .admin-cart {
+  border: 1px solid #e57200;
 }
