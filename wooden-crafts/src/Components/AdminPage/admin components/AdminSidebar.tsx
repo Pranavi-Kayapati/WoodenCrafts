@@ -1,7 +1,7 @@
 import React from "react";
 import "../AdminPage.css";
 import { FiShoppingCart } from "react-icons/fi";
-import { LuLayoutDashboard } from "react-icons/lu";
+import { BsGraphUp } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { FiUsers } from "react-icons/fi";
 import { BsClipboard2Check } from "react-icons/bs";
@@ -29,7 +29,7 @@ const AdminSidebar = ({ setActiveList }: Props) => {
           value={"dashboard"}
           onClick={handleChangeActive}
         >
-          <LuLayoutDashboard />
+          <BsGraphUp />
           <span className="padd-15">Dashboard</span>{" "}
         </button>
         <button
