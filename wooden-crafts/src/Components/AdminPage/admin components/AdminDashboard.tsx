@@ -106,8 +106,8 @@ const AdminDashboard: React.FC = () => {
                     }}
                   />
                 }
-                title={"Orders"}
-                value={"4000"}
+                title={"Products"}
+                value={"10000"}
               />
               <DashboardCard
                 icon={
