@@ -151,7 +151,7 @@ const AdminDashboard: React.FC = () => {
                   />
                 }
                 title={"Revenue"}
-                value={"5000"}
+                value={"10000"}
               />
             </Space>
             <br />
