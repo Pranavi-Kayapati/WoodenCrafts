@@ -35,9 +35,9 @@
   width: 100%;
   padding: 10px;
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
 }
 .AdminPage .admin-container .admin-addproduct .admin-form input {
@@ -47,7 +47,7 @@
   height: 35px;
   border-radius: 5px;
   border: 1px solid gray;
-  background: rgb(255, 254, 254);
+  /* background: rgb(255, 254, 254); */
 }
 
 .AdminPage .admin-container .admin-addproduct .admin-form select {
@@ -60,12 +60,12 @@
 
 .AdminPage .admin-container .admin-addproduct .admin-form button {
   border: none;
-  background: #e57200;
+  background: #ea5200;
   color: white;
   padding: 3px;
-  border-radius: 10px;
+  border-radius: 25px;
   width: 90%;
-  margin: 5px;
+  margin: 35px 5px;
 }
 
 .AdminPage .admin-container .admin-addproduct .admin-form button:hover {
@@ -206,15 +206,15 @@
   width: 100%;
   padding: 10px;
   display: flex;
-  gap: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
 }
 
 .AdminPage .admin-container .admin-adduser .admin-user-form input {
   color: black;
   width: 90%;
+  height: 35px;
   padding: 4px;
   border-radius: 5px;
   border: 1px solid gray;
@@ -222,12 +222,12 @@
 
 .AdminPage .admin-container .admin-adduser .admin-user-form button {
   border: 1px solid rgb(219, 85, 36);
-  background: #e57200;
+  background: #ea5200;
   color: white;
   padding: 3px;
-  border-radius: 10px;
+  border-radius: 25px;
   width: 90%;
-  margin: 5px;
+  margin: 30px 5px;
 }
 
 /* ================    Admin Products      ======================*/
