@@ -2,18 +2,44 @@ import "./ProductCard.css"
 import { Box,Badge,Image, Button} from '@chakra-ui/react'
 import {StarIcon} from "@chakra-ui/icons"
 import { Link } from '@chakra-ui/react'
+import { addToCart } from "../redux/cartReducer/action"
+import { Dispatch } from "redux"
+import { useDispatch,useSelector } from "react-redux"
 import { Navigate } from "react-router-dom"
+import axios from "axios"
+import { RequestAction,RequestError } from "../redux/ProductReducer/action"
+export let ProductCard=({product}:any)=>{
+  
+  const dispatch:Dispatch<any> = useDispatch();
 
-
-export let ProductCard=({image,title,price,id}:any)=>{
-     
+  const FetchData=()=>{
+    
+    console.log(product)
+    
+    dispatch(RequestAction())
+    axios.post("https://all-products-wjqd.onrender.com/cart",{product})
+    .then((res)=>{
+      alert("product is added successfully")
+      console.log(res.data)
+      dispatch(addToCart(product))
+    })
+    .catch((err)=>{
+      console.log(err);
+      dispatch(RequestError())
+    })
+  
+   }
+   
+  const handleAddToCart = () => {
+    FetchData()
+  };
     return (
         <div>
         <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'  w="95%">
          
         
           <Box p='6' >
-          <Link href={`/product/${id}`}><Image src={image}  w="300px" h="200px"/></Link>
+          <Link href={`/product/${product.id}`}><Image src={product.image}  w="300px" h="200px"/></Link>
     
             <Box
               mt='1'
@@ -22,7 +48,7 @@ export let ProductCard=({image,title,price,id}:any)=>{
               lineHeight='tight'
               noOfLines={1}
             >
-              {title}
+              {product.title}
             </Box>
                 <p style={{color:"gray"}}>Wooden Street</p>
             
@@ -40,7 +66,7 @@ export let ProductCard=({image,title,price,id}:any)=>{
             </Box>
             
             <Box mr="200px" mt="3">
-              Rs {price}
+              Rs {product.price}
               
             </Box>
             </div>
