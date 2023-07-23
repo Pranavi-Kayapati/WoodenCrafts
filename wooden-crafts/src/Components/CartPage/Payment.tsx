@@ -1,35 +1,114 @@
-import React from 'react'
+
+
+import React, { useEffect, useState,SetStateAction } from 'react'
+import {  useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
+
+type initState={
+    fullName:string;
+    email:string;
+    mobile:number;
+    postalCoded:string;
+    area:string;
+    landmark?:string;
+    state?:string;
+}
+
+const addresDetail={
+    fullName:"",
+    email:"",
+    mobile:91,
+    postalCoded:"",
+    area:"",
+    landmark:"",
+    state:"",
+}
+
 
 
 export const Payment = () => {
+   
+
+
+    const [total,setTotal]=useState<SetStateAction<undefined>>()
+    const [item,setItme]=useState<string>()
+   
+
+    const [address,setAddress]=useState<initState>(
+        addresDetail
+    )
+
+    const [check,setChekc]=useState<boolean>(false)
+
+    const navigate=useNavigate()
+
+    const hanndleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+        const {name,value}=e.target;
+        setAddress((prev)=>{
+            return {...prev,[name]:value}
+        })
+    }
+
+    const handleSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
+        e.preventDefault();
+        console.log(address)
+       if(!address.fullName || address.mobile===91 || address.email=="" || !address.postalCoded || !address.mobile){
+        alert("Please fill all the field")
+       }else{
+        
+        alert("Your data is saved click on Save")
+        setChekc(true)
+        setAddress(addresDetail)
+       }
+
+    }
+
+    const handleChekcOut=()=>{
+        if(check){
+            navigate("/checkout")
+        }else{
+            alert("please fill the detail")
+        }
+       
+    }
+
+    let storedValue = localStorage.getItem('total')
+    let length = localStorage.getItem('totalItem');
+
+
+    useEffect(()=>{
+       
+      
+    },[])
 
     return (
-        <DIV>
+        <DIV >
 
             <div className="cart">
 
-                <div className="cartleft1">
-                    <div className='deliveryADD'><b>Delivery & Billing Address</b></div>
-                    <hr />
-                    
-                    <form>
-                        <span><span className='detail'>Full Name*</span><input placeholder='eg Sharad Paradhi'/></span>
-                        <span><span className='detail'>Email*</span><input placeholder='eg Sharad Paradhi'/></span>
-                        <span><span className='detail'>Mobile Number*</span><input placeholder='eg Sharad Paradhi'/></span>
-                        <span><span className='detail'>Postal Code*</span><input placeholder='eg Sharad Paradhi'/></span>
-                        <span><span className='detail'>Area*</span><input placeholder='eg Sharad Paradhi'/></span>
-                        <span><span className='detail'>LanndMark</span><input placeholder='eg Sharad Paradhi'/></span>
-                        <span><span className='detail'>State</span><input placeholder='eg Sharad Paradhi'/></span>
-
-                    </form>
-
           
+ 
+               
+               <div className="cartleft1">
+               <div className='deliveryADD'><b>Delivery & Billing Address</b></div>
+               {/* <hr /> */}
+               
+               <form onSubmit={handleSubmit}>
+                   <span><span className='detail'>Full Name*</span><input value={address.fullName} name='fullName' placeholder='eg Sharad Paradhi' onChange={(e)=>hanndleChange(e)}/></span>
+                   <span><span className='detail'>Email*</span><input value={address.email} name='email' placeholder='eg shard@gmail.com'  onChange={(e)=>hanndleChange(e)}/></span>
+                   <span><span className='detail'>Mobile Number*</span><input type='number' name='mobile' value={address.mobile} 
+                    maxLength={10} placeholder='eg 7377727'  onChange={(e)=>hanndleChange(e)}/></span>
+                   <span><span className='detail'>Postal Code*</span><input name='postalCoded' value={address.postalCoded} placeholder='eg spahle'  onChange={(e)=>hanndleChange(e)}/></span>
+                   <span><span className='detail'>Area*</span><input value={address.area} name='area' placeholder='eg palghar'  onChange={(e)=>hanndleChange(e)}/></span>
+                   <span><span className='detail'>LanndMark</span><input value={address.landmark} name='landmark' placeholder='eg pargoan'  onChange={(e)=>hanndleChange(e)}/></span>
+                   <span><span className='detail'>State</span><input value={address.state}name='state' placeholder='eg maharashtra'
+                    onChange={(e)=>hanndleChange(e)}/></span>
+                    <button className='submitBtn' type='submit'>Submit</button>
 
+               </form>
 
-
-
-                </div>
+           </div>
+               
 
 
                 {/* ---------------------------------------------cart right side--------------------------------------------------- */}
@@ -44,13 +123,13 @@ export const Payment = () => {
                     <hr />
 
                     <div className="priceDetail">
-                        <h1><b>Price Detail (3 items)</b></h1>
+                        <h1><b>Price Detail ({length})</b></h1>
                         <hr />
-                        <span>MRP</span><span className="priceright">Rs 2324</span>
+                        <span>MRP</span><span className="priceright">Rs {storedValue}</span>
                         <hr />
                         <span>Discount</span><span className="priceright"><span className="green">-Rs 2324</span></span>
                         <hr />
-                        <span><b>Total Paybale</b></span><span className="priceright">Rs 2324</span>
+                        <span><b>Total Paybale</b></span><span className="priceright">Rs {storedValue}</span>
                         <hr />
                         <span className="green">Congratulations! You’ve just saved Rs 3,288 on your order.</span>
                     </div>
@@ -58,7 +137,7 @@ export const Payment = () => {
                         <button>No Cost EMI available. EMI starting Rs 1,483/month</button>
                     </div>
                     <div>
-                        <button className="placeOrder" >Save Continue</button>
+                        <button className="placeOrder" onClick={handleChekcOut}>Save Continue</button>
 
                     </div>
                 </div>
@@ -120,10 +199,19 @@ const DIV = styled.div`
   form input{
    
     border:1px solid grey;
-    padding: 10px;
-   
+    padding:20px;
+    margin-top: 17px;
     width: 65%;
     
+  }
+
+  .submitBtn{
+    margin:auto;
+    background-color: orange;
+    color:white;
+    width: 40%;
+    padding: 5px;
+    border-radius:5px;
   }
 
 
@@ -150,8 +238,9 @@ const DIV = styled.div`
   }
                                     .cupon input{
                                         width: 70%;
-                                    padding: 5px;
+                                    height: 5px;
                                     border: 1px solid grey;
+                                    outline: none;
   }
                                     .cupon button{
                                         width: 30%;
@@ -179,6 +268,9 @@ const DIV = styled.div`
                                     background-color:orange;
                                     color:white;
                                     border-radius:3px;
+  }
+  .saveData h1{
+    color:green;
   }
 
 

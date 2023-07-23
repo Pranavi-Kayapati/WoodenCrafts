@@ -1,71 +1,128 @@
-import React,{useEffect, useState} from "react";
-import { styled } from "styled-components";
-import { BiMap } from "react-icons/bi";
+import React, { useEffect, useState } from "react";
+import { useSelector,useDispatch } from "react-redux";
+import { RootState } from "../redux/cartReducer/cartReducer";
 import CartItem from "./CartItem";
+import { Product } from "../constrainsts/Type";
 import { Link } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux"
-import { getCartProducts } from "../redux/cartReducer/action";
-
-const CartPage = () => {
-
-  const [quantity,setQunatity]=useState<number>(1)
-
-  const cart=useSelector((store:any)=>store.cartReducer.cart)
-  const dispatch:any=useDispatch()
-  console.log(cart)
+import styled from "styled-components";
+import axios from "axios";
+import { RequestAction,RequestError } from "../redux/ProductReducer/action";
+import { getCartProduct } from "../redux/cartReducer/action";
 
 
-  useEffect(()=>{
-    dispatch(getCartProducts()).then((res:any)=>{
-        console.log(res)
+
+
+// Helper function to calculate the total price of all items in the cart
+
+// function calculateTotalPrice(data: { product: Product; quantity: number }[]): number {
+//   let total = 0;
+//   data.forEach((item) => {
+//     const price = parseInt(item.product.price.replace(",", ""));
+//     total += price * item.quantity;
+//   });
+//   return total;
+// }
+
+
+
+
+const CartPage: React.FC = () => {
+  const [data,setData]=useState<any>()
+  const [total,setTotal]=useState<any>(0)
+  //const [qunatity,setQuantity]=useState<any>(1)
+  
+
+  // const cart = useSelector((store:any) => {
+  //   console.log(store)
+  //   return store.cartReducer.cart
+  // })
+
+  let dispatch=useDispatch()
+
+
+  const FetchData=()=>{
+
+    console.log("reach")
+    
+    dispatch(RequestAction())
+    axios.get("https://all-products-wjqd.onrender.com/cart")
+    .then((res)=>{
+     
+      console.log(res)
+      console.log(res.data)
+      dispatch(getCartProduct(res.data))
+      setData(res.data)
     })
-  },[])
+    .catch((err)=>{
+      console.log(err);
+      dispatch(RequestError())
+    })
+  
+   }
 
+   useEffect(()=>{
+    FetchData()
+    localStorage.setItem('total', JSON.stringify(total));
+    localStorage.setItem("totalItem",JSON.stringify(data?.length))
+
+   },[total])
+
+  
+   console.log(total)
 
   return (
     <DIV>
 
       <div className="cart">
 
+
         <div className="cartleft1">
 
           <div className="cartLeft">
+
             <div >
-              <h2><b>My Cart (0)</b></h2>
+              <h2><b>My Cart ({data?.length})</b></h2>
             </div>
 
             <div className="cl2">
               {/* <BiMap/> */}
-             <span className="deliver">Deliver to
+              <span className="deliver">Deliver to
               </span>
               <span className="check">
                 <input placeholder="Enter PinCode" />
                 <button>CHECK</button>
               </span>
             </div>
-          </div> 
-       
-         
+          </div>
+
+
 
           {/* -------------------------------------------------cart itme----------------------------------------------------- */}
 
-       
-          <CartItem />
-           <CartItem/>
-          <CartItem/>
-          
 
-          
+
+
+          {data?.map((item:any,ind:any) => (
+            <CartItem key={ind}
+             product={item.product} 
+             quantity={1} 
+            setTotal={setTotal}
+            id={item.id}
+            setData={setData}
+            />
+          ))}
+         
+
 
         </div>
 
 
-{/* ---------------------------------------------cart right side--------------------------------------------------- */}
+        {/* ---------------------------------------------cart right side--------------------------------------------------- */}
         <div className="cartRight">
           <div>
             <span>Have a Coupon Code ?</span>
             <div className="cupon">
-              <input placeholder="Cupan Code" />
+              <input className="cuponCode" value={""} placeholder="Cupan Code" />
               <button>Apply</button>
             </div>
           </div>
@@ -73,13 +130,13 @@ const CartPage = () => {
           <hr />
 
           <div className="priceDetail">
-            <h1><b>Price Detail (3 items)</b></h1>
+            <h1><b>Price Detail {data?.length}</b></h1>
             <hr />
             <span>MRP</span><span className="priceright">Rs 2324</span>
             <hr />
             <span>Discount</span><span className="priceright"><span className="green">-Rs 2324</span></span>
             <hr />
-            <span><b>Total Paybale</b></span><span className="priceright">Rs 2324</span>
+            <span><b>Total Paybale</b></span><span className="priceright">Rs {total}</span>
             <hr />
             <span className="green">Congratulations! You’ve just saved Rs 3,288 on your order.</span>
           </div>
@@ -88,7 +145,7 @@ const CartPage = () => {
           </div>
           <div>
             <button className="placeOrder" ><Link to="/order">Place Order</Link></button>
-            
+
           </div>
         </div>
       </div>
@@ -106,6 +163,7 @@ const DIV = styled.div`
    
   }
   .cart{
+    margin-top:300px;
     display: flex;
     width: 80%;
     margin: auto;
@@ -119,6 +177,7 @@ const DIV = styled.div`
     padding: 15px;
     border:1px solid grey;
     position: relative;
+    overflow-wrap:none;
   }
 
  .cartLeft{
@@ -169,15 +228,21 @@ const DIV = styled.div`
     width:max-content;
   }
   .cupon input{
-    width: 70%;
+  width: 70%;
+  padding:15px;
+  border: 1px solid grey;
+  }
+  .cuponCode{
+  width: 70%;
   padding: 5px;
   border: 1px solid grey;
   }
   .cupon button{
     width: 30%;
     border: 1px solid grey;
+    margin-top:4px;
     color:white;
-    padding:5px;
+    padding:4px;
     background-color:orange;
    
   }
@@ -190,7 +255,10 @@ const DIV = styled.div`
     color:green;
   }
   hr{
-    margin:5px;
+    
+    margin: auto;
+    margin: 7px;
+    width: 90%;
   }
   .placeOrder{
     text-align: center;
