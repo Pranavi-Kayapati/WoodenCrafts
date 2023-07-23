@@ -5,8 +5,7 @@ import {Product} from "../constrainsts/Type";
 import styled from "styled-components"
 import { Dispatch } from "redux";
 import axios from "axios"
-
-
+        
 interface CartItemProps {
   id:number;
   product: Product;
@@ -14,8 +13,7 @@ interface CartItemProps {
   setTotal:(a:any)=>void;
   setData:(b:any)=>void;
 }
-
-
+        
 const del=(id:number)=>{
   axios.delete(`https://all-products-wjqd.onrender.com/cart/${id}`)
     .then((res)=>{
@@ -27,13 +25,6 @@ const del=(id:number)=>{
     })
     
 }
-
-
-
-
-
-
-
 const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setData}) => {
  
   const [count,setCount]=useState<number>(1)
@@ -42,17 +33,9 @@ const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setDat
   let price:any=product.price.split(",")
   
    price=Number(price[0]+price[1])
-
-   
-   
-   
-   
-   
-
-  useEffect(()=>{
-    setTotal((prev:any)=>prev+price)
-   
     
+  useEffect(()=>{
+    setTotal((prev:any)=>prev+price)    
   },[count,price])
 
  
@@ -118,7 +101,7 @@ const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setDat
     <DIV>
          <hr/>
 
-<div className="cartItem">
+       <div className="cartItem">
             <div className="cartItemimage">
               <img src={product.image} alt="ErrorImage"/>
             </div>
@@ -133,121 +116,106 @@ const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setDat
                <span className="cuponCode"><span className="saving">Save Rs 119 </span><h1>After applying coupon "MONSOON"</h1></span></span>
                </div>
               <div className="cartButton"><span className="saveforlater">Save for later</span> <span className="remove" onClick={handleRemoveFromCart}>Remove</span></div>
-              
-            </div>
-          </div>
-
     </DIV>
-    
-  )
-}
+  );
+};
 
-export default CartItem
+export default CartItem;
 
-const DIV=styled.div`
-    
-    
-  
-.cartItem{
-  margin-top:15px;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  gap:10px;
- 
-}
+const DIV = styled.div`
+  .cartItem {
+    margin-top: 15px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    gap: 10px;
+  }
 
-.cartItemimage{
-  width: 30%;
-  justify-content:center;
-  align-items:center;
-  position: relative;
- 
-}
-.cartItemimage img{
-  position: absolute;
-  left: 0px;
-  top:20px;
-}
-.cartItemdetail{
-  width:70%;
-  position: relative;
-}
- 
-.cartItemdetail div{
-  position: absolute;
-  left: 0px;
-  
-}
+  .cartItemimage {
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .cartItemimage img {
+    position: absolute;
+    left: 0px;
+    top: 20px;
+  }
+  .cartItemdetail {
+    width: 70%;
+    position: relative;
+  }
 
-.cartTitle{
-  position:absolute;
-  top:20px;
-}
+  .cartItemdetail div {
+    position: absolute;
+    left: 0px;
+  }
 
-.cartQantity{
-  position:absolute;
-  top:80px;
-  
-}
-.cartButton{
-  position:absolute;
-  bottom:20px;
-}
+  .cartTitle {
+    position: absolute;
+    top: 20px;
+  }
 
-.qant{
-  padding: 0px;
-  margin-left:15px;
-  margin-right:10px;
-  border:1px solid grey;
-  padding:4px;
-}
+  .cartQantity {
+    position: absolute;
+    top: 80px;
+  }
+  .cartButton {
+    position: absolute;
+    bottom: 20px;
+  }
 
-.incDec{
-  margin: 10px;
-  border: 1px solid grey;
-  width: 30px;
-  padding: 5px;
-}
-.incDec button{
-  margin-left:10px;
-  margin-right:10px;
-  padding-left:2px;
-  padding-right:2px;
+  .qant {
+    padding: 0px;
+    margin-left: 15px;
+    margin-right: 10px;
+    border: 1px solid grey;
+    padding: 4px;
+  }
 
-}
+  .incDec {
+    margin: 10px;
+    border: 1px solid grey;
+    width: 30px;
+    padding: 5px;
+  }
+  .incDec button {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
 
-.incDec button:hover{
-  color: #FF9800;
-}
-.qauntity{
-  border:1px solid gray;
-  padding:5px 7px;
+  .incDec button:hover {
+    color: #ff9800;
+  }
+  .qauntity {
+    border: 1px solid gray;
+    padding: 5px 7px;
+  }
+  .price {
+    margin-left: 5px;
+  }
+  .discount {
+    margin-left: 5px;
+  }
+  .cuponCode {
+    margin-left: 15px;
+  }
+  .saving {
+    color: orange;
+  }
+  .cuponCode h1 {
+    position: absolute;
+    right: -130px;
+  }
 
-}
-.price{
-  margin-left:5px;
-}
-.discount{
-  margin-left:5px;
-}
-.cuponCode{
-  margin-left:15px;
-}
-.saving{
-  color:orange
-}
-.cuponCode h1{
-  position: absolute;
-  right: -130px;
-}
+  .remove {
+    margin-left: 50px;
+  }
+  .remove:hover {
+    color: orange;
+  }
+`;
 
-.remove{
-  margin-left:50px;
-  cursor: pointer;
-}
-.remove:hover{
-  color:orange
-}
-
-`

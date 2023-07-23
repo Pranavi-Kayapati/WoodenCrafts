@@ -7,15 +7,15 @@ import { RequestAction, RequestError, RequestSuccess } from "../redux/ProductRed
 import { ProductCard } from "./ProductCard";
 import {useState} from "react"
 import { useSearchParams } from "react-router-dom";
-import Sidebar from "./Sidebar";
-
+import { useLocation } from "react-router-dom";
 
 
 
 const ProductPage = () => {
  let dispatch=useDispatch()
  const [search,setSearch]=useSearchParams([])
- 
+ const location = useLocation();
+
 
  const {isLoading,product,isError}=useSelector((item:any)=>{
 
@@ -29,6 +29,11 @@ const ProductPage = () => {
 
  let paramsObj={
   params:{
+   
+    priceRange:search.getAll("priceRange"),
+    brand:search.getAll("brand"),
+    color:search.getAll("color"),
+    material:search.getAll("material"),
     price:search.getAll("price"),
     _sort:search.get("order") && "price",
     _order:search.get("order")
@@ -40,8 +45,6 @@ const ProductPage = () => {
   axios.get("https://all-products-wjqd.onrender.com/products",paramsObj)
   .then((res)=>{
     dispatch(RequestSuccess(res.data))
-    
-    
   })
   .catch((err)=>{
     console.log(err);

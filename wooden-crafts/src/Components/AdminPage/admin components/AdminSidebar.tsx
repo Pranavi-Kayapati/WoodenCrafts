@@ -1,7 +1,7 @@
 import React from "react";
 import "../AdminPage.css";
-import { FiShoppingCart } from "react-icons/fi";
-import { LuLayoutDashboard } from "react-icons/lu";
+import { BiSolidOffer } from "react-icons/bi";
+import { BsGraphUp } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { FiUsers } from "react-icons/fi";
 import { BsClipboard2Check } from "react-icons/bs";
@@ -22,52 +22,64 @@ const AdminSidebar = ({ setActiveList }: Props) => {
 
   return (
     <div className="admin-sidebar">
-      <h1 className="heading">Admin</h1>
+      <h1 className="Admin-heading">Admin</h1>
       <div className="admin-dashboard">
-        <button
-          className="sub-head"
-          value={"dashboard"}
-          onClick={handleChangeActive}
-        >
-          <LuLayoutDashboard />
-          <span className="padd-15">Dashboard</span>{" "}
-        </button>
-        <button
-          className="sub-head"
-          value={"products"}
-          onClick={handleChangeActive}
-        >
-          <LuLayoutList />
-          <span className="padd-15">Products</span>
-        </button>
-        <button
-          className="sub-head"
-          value={"users"}
-          onClick={handleChangeActive}
-        >
-          <FiUsers />
-          <span className="padd-15">Users</span>
-        </button>
-        <button
-          className="sub-head"
-          value={"cart"}
-          onClick={handleChangeActive}
-        >
-          <FiShoppingCart />
-          <span className="padd-15">Cart</span>
-        </button>
-        <button
-          className="sub-head"
-          value={"orders"}
-          onClick={handleChangeActive}
-        >
-          <BsClipboard2Check />
-          <span className="padd-15">Orders Placed</span>
-        </button>
-        <button className="sub-head">
-          <MdLogout />
-          <span className="padd-15">Logout</span>
-        </button>
+        <div className="active-btn">
+          <button
+            className="sub-head"
+            value={"dashboard"}
+            onClick={handleChangeActive}
+          >
+            <BsGraphUp color="white" />
+            <span className="padd-15">Dashboard</span>{" "}
+          </button>
+        </div>
+        <div className="active-btn">
+          <button
+            className="sub-head"
+            value={"products"}
+            onClick={handleChangeActive}
+          >
+            <LuLayoutList color="white" />
+            <span className="padd-15">Products</span>
+          </button>
+        </div>
+        <div className="active-btn">
+          <button
+            className="sub-head"
+            value={"users"}
+            onClick={handleChangeActive}
+          >
+            <FiUsers color="white" />
+            <span className="padd-15">Users</span>
+          </button>
+        </div>
+        <div className="active-btn">
+          <button
+            className="sub-head"
+            value={"cart"}
+            onClick={handleChangeActive}
+          >
+            <BiSolidOffer color="white" />
+            <span className="padd-15">Offers</span>
+          </button>
+        </div>
+        <div className="active-btn">
+          <button
+            className="sub-head"
+            value={"orders"}
+            onClick={handleChangeActive}
+          >
+            <BsClipboard2Check color="white" />
+            <span className="padd-15">Orders Placed</span>
+          </button>
+        </div>
+        <div className="active-btn">
+          <button className="sub-head">
+            <MdLogout color="white" />
+            <span className="padd-15">Logout</span>
+          </button>
+        </div>
       </div>
     </div>
   );

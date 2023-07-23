@@ -1,20 +1,19 @@
 import {  applyMiddleware, combineReducers, legacy_createStore } from "redux";
 import { reducer as authReducer } from "./authReducer/reducer";
 import { reducer as productReducer } from "./ProductReducer/reducer";
-import cartReducer from "./cartReducer/cartReducer";
-
+import { cartReducer } from "./cartReducer/cartReducer";
 import thunk from "redux-thunk";
-
+import { adminproductReducer, usersReducer } from "./adminReducer/reducer";
 
 
 export type RootState = ReturnType<typeof rootReducer>;
 
 const rootReducer = combineReducers({
-  authReducer,
+  adminproductReducer,
+  usersReducer,
+  cartReducer,
   productReducer,
-  cartReducer
-
 });
 
+export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
 
-export const store = legacy_createStore(rootReducer,applyMiddleware(thunk));
