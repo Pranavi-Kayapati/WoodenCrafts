@@ -4,7 +4,7 @@ import "./MainProduct.css"
 let MainProduct=()=>{
 
     return (
-        <div className="container">
+        <div id="container">
             <div className="sidebar">
             <Sidebar/>
             </div>

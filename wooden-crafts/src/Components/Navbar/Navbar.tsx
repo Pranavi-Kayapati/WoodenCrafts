@@ -7,14 +7,30 @@ import logo2 from './logo/logo2.png'
 import { BiUserCircle} from 'react-icons/bi';
 import { AiOutlineHeart} from 'react-icons/ai';
 import { BiCartAlt} from 'react-icons/bi';
-import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
+import {  useState } from 'react';
+import {  useDispatch, useSelector } from 'react-redux';
+import { RootState } from "../redux/store";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuGroup,
+  MenuDivider
+ 
+} from '@chakra-ui/react'
+import { LogoutSuccess } from '../redux/authReducer/action';
 
 export const Navbar = () => {
   const navigate=useNavigate()
-
+ 
+  const isAuth:any=useSelector((store:RootState)=>store.authReducer.isAuth)
+  const user:any=useSelector((store:RootState)=>store.authReducer.data)
+  console.log(isAuth)
+  console.log(user)
+ 
   const [searchvalue,setSearchvalue]=useState("")
+  const dispatch=useDispatch()
   const handleSearch=(e:any):void=>{
      setSearchvalue(e.target.value)
   }
@@ -27,6 +43,15 @@ export const Navbar = () => {
       setSearchvalue('Input cannot be empty !!')
     } 
     
+  }
+  const handleLogin=()=>{
+    navigate('/login')
+  }
+  const handleLogout=()=>{
+    dispatch(LogoutSuccess())
+  }
+  const handleSignUp=()=>{
+    navigate('/signup')
   }
   return (
   <>
@@ -42,7 +67,20 @@ export const Navbar = () => {
         <div className='react-icons'>
 
         <Link to='/login'><BiUserCircle  className='icon' size={"25px"} color='#fba720' opacity={0.8}/></Link>
-        <Link to='/login'><p>Profile</p></Link>
+        {/* <Link to='/login'><p>{isAuth?user.username:'Sign In'}</p></Link> */}
+        <Menu>
+            <MenuButton fontWeight={isAuth?'bold':'normal'} color={isAuth?'#f9a92c':'black'} marginTop={'-20px'}>
+            {isAuth?user.username:' Profile'}
+            </MenuButton>
+            <MenuList>
+              <MenuGroup color={isAuth?'red':'black'} fontWeight={'bold'} title={isAuth?`Welcome back ${user.username} !!`:' Profile'}>
+                <MenuItem color={'#f9a92c'} onClick={isAuth?handleLogout:handleLogin}>{isAuth?'Sign Out':'Sign In'}</MenuItem>
+              </MenuGroup>
+              <MenuDivider />
+               <Heading  size={'xs'} style={{marginLeft:'10px'}}>New User ?</Heading>
+            <MenuItem color={'#f9a92c'} onClick={handleSignUp}>Sign Up</MenuItem>
+           </MenuList>
+        </Menu>
         <Link to='/cart'><AiOutlineHeart  className='icon' size={"25px"} color='#fba720'/></Link>
         <Link to='/cart'><p>Wishlist</p></Link>
         <Link to='cart'><BiCartAlt className='icon'  size={"25px"} color='#fba720'/></Link>
@@ -486,111 +524,57 @@ export const Navbar = () => {
         <li>
           <Link to="/product" className="menu-item-8">Lamp & Lighting</Link>
           <div className="mega-menu">
-            <div className="content4">
+            <div className="content">
               <div className="col">
                 <section>
-                  <h2 className="item-5-heading">Makeup</h2>
+                  <h2 className="item-1-heading">LAMPS</h2>
                   <ul className="mega-links">
-                    <li><Link to="/product">Lipstick</Link></li>
-                    <li><Link to="/product">Lip Gloss</Link></li>
-                    <li><Link to="/product">Lip Liner</Link></li>
-                    <li><Link to="/product">Mascara</Link></li>
-                    <li><Link to="/product">Eyeliner</Link></li>
-                    <li><Link to="/product">Kajal</Link></li>
-                    <li><Link to="/product">Eyeshadow</Link></li>
-                    <li><Link to="/product">Foundation</Link></li>
-                    <li><Link to="/product">Primer</Link></li>
-                    <li><Link to="/product">Concealer</Link></li>
-                    <li><Link to="/product">Compact</Link></li>
-                    <li><Link to="/product">Nail Polish</Link></li>
+                    <li><Link to="/product">Table Lamps</Link></li>
+                    <li><Link to="/product">Study Lamps</Link></li>
+                    <li><Link to="/product">Floor Lamps</Link></li>
+                    <li><Link to="/product">Tripod Lamps</Link></li>
+                    <li><Link to="/product">Lamp Shades</Link></li>
                   </ul>
                 </section>
               </div>
               <div className="col">
                 <section>
-                  <h2 className="item-5-heading">Skincare, Bath & Body</h2>
+                  <h2 className="item-1-heading">SEATING</h2>
                   <ul className="mega-links">
-                    <li><Link to="/product">Face Moisturiser</Link></li>
-                    <li><Link to="/product">Cleanser</Link></li>
-                    <li><Link to="/product">Masks & Peel</Link></li>
-                    <li><Link to="/product">Sunscreen</Link></li>
-                    <li><Link to="/product">Serum</Link></li>
-                    <li><Link to="/product">Face Wash</Link></li>
-                    <li><Link to="/product">Lip Balm</Link></li>
-                    <li><Link to="/product">Body Lotion</Link></li>
-                    <li><Link to="/product">Body Wash</Link></li>
-                    <li><Link to="/product">Body Scrub</Link></li>
-                    <li><Link to="/product">Hand Cream</Link></li>
+                    <li><Link to="/product">Wingback Chairs</Link></li>
+                    <li><Link to="/product">Loungue Chairs</Link></li>
+                    <li><Link to="/product">Love Seats</Link></li>
+                    <li><Link to="/product">Ottoman</Link></li>
+                    <li><Link to="/product">Accent Chairs</Link></li>
+                    <li><Link to="/product">Arm Chairs</Link></li>
+                    <li><Link to="/product">Message Chairs</Link></li>
+                    <li><Link to="/product">Bean Bags</Link></li>
+                    <li><Link to="/product">Stool</Link></li>
+                    <li><Link to="/product">Benches</Link></li>
                   </ul>
-                  <h2 className="item-5-heading">Baby Care</h2>
-                  <h2 className="item-5-heading">Masks</h2>
                 </section>
               </div>
               <div className="col">
                 <section>
-                  <h2 className="item-5-heading">Hair Carer</h2>
+                  <h2 className="item-1-heading">SOFA CUM BED</h2>
                   <ul className="mega-links">
-                    <li><Link to="/product">Shampoo</Link></li>
-                    <li><Link to="/product">Conditoner</Link></li>
-                    <li><Link to="/product">Hair Cream</Link></li>
-                    <li><Link to="/product">Hair Oil</Link></li>
-                    <li><Link to="/product">Hair Gel</Link></li>
-                    <li><Link to="/product">Hair Color</Link></li>
-                    <li><Link to="/product">Hair Serum</Link></li>
-                    <li><Link to="/product">Hair Accessory</Link></li>
+                    <li><Link to="/product">Wooden Sofa cum Bed</Link></li>
+                    <li><Link to="/product">Fabric Sofa cum Bed</Link></li>
+                    <li><Link to="/product">Sofa cum Bed</Link></li>
                   </ul>
-                  <h2 className="item-5-heading">Fragrances</h2>
-                  {/* <ul className="mega-links">
-                      <li><Link to="/product">Perfume</Link></li>
-                      <li><Link to="/product">Deodrant</Link></li>
-                      <li><Link to="/product">Body Mist</Link></li>
+                  <h2 className="item-1-heading">RECLINERS</h2>
+                  <ul className="mega-links">
+                    <li><Link to="/product">1 Seater Recliners</Link></li>
+                    <li><Link to="/product">2 Seater Recliners</Link></li>
+                    <li><Link to="/product">3 Seater Recliners</Link></li>
+                    <li><Link to="/product">L Shaped Recliners</Link></li>
+                  </ul>
                 </section>
               </div>
               <div className="col">
-                <section>
-                  <h2 className="item-5-heading">Appliances</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Hair Straightner</Link></li>
-                    <li><Link to="/product">Hair Dryer</Link></li>
-                    <li><Link to="/product">Epilator</Link></li>
-                  </ul>
-                  <h2 className="item-5-heading">Men's Grooming</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Trimmers</Link></li>
-                    <li><Link to="/product">Beard Oil</Link></li>
-                    <li><Link to="/product">Hair Wax</Link></li>
-                  </ul>
-                  <h2 className="item-5-heading">Beauty Gift & Makeup Set</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Beauty Gift</Link></li>
-                    <li><Link to="/product">Makeup Kit</Link></li>
-                  </ul> */}
-                  <h2 className="item-5-heading">Premium Beauty</h2>
-                  <h2 className="item-5-heading">Wellness & Hygiene</h2>
-                </section>
-              </div>
-
-              <div className="col">
-                <section>
-                  <h2 className="item-5-heading">Top Brands</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Lakme</Link></li>
-                    <li><Link to="/product">Maybelline</Link></li>
-                    <li><Link to="/product">LOreal</Link></li>
-                    <li><Link to="/product">Philips</Link></li>
-                    <li><Link to="/product">Bath & Body Works</Link></li>
-                    <li><Link to="/product">THE BODY SHOP</Link></li>
-                    <li><Link to="/product">Biotique</Link></li>
-                    <li><Link to="/product">Mamaearth</Link></li>
-                    <li><Link to="/product">MCaffeine</Link></li>
-                    <li><Link to="/product">Nivea</Link></li>
-                    <li><Link to="/product">Lotus Herbals</Link></li>
-                    <li><Link to="/product">LOreal Professionnel</Link></li>
-                    <li><Link to="/product">KAMA AYURVEDA</Link></li>
-                    <li><Link to="/product">M.A.C</Link></li>
-                    <li><Link to="/product">Forest Essentials</Link></li>
-                  </ul>
-                </section>
+                <section >
+                   <img className='navimage' src='https://images.woodenstreet.de/image/cache/data%2FSapphire%2Fcontemporary-fabric-shade-shelf-floor-lamp-with-wood-base%2Fbeige%2F1-810x702.jpg'></img>
+                   </section>
               </div>
             </div>
           </div>
@@ -598,111 +582,63 @@ export const Navbar = () => {
         <li>
           <Link to="/product" className="menu-item-9">Furnishing</Link>
           <div className="mega-menu">
-            <div className="content4">
+            <div className="content">
               <div className="col">
                 <section>
-                  <h2 className="item-5-heading">Makeup</h2>
+                  <h2 className="item-1-heading">SOFA SETS</h2>
                   <ul className="mega-links">
-                    <li><Link to="/product">Lipstick</Link></li>
-                    <li><Link to="/product">Lip Gloss</Link></li>
-                    <li><Link to="/product">Lip Liner</Link></li>
-                    <li><Link to="/product">Mascara</Link></li>
-                    <li><Link to="/product">Eyeliner</Link></li>
-                    <li><Link to="/product">Kajal</Link></li>
-                    <li><Link to="/product">Eyeshadow</Link></li>
-                    <li><Link to="/product">Foundation</Link></li>
-                    <li><Link to="/product">Primer</Link></li>
-                    <li><Link to="/product">Concealer</Link></li>
-                    <li><Link to="/product">Compact</Link></li>
-                    <li><Link to="/product">Nail Polish</Link></li>
+                    <li><Link to="/product">Fabric Sofas</Link></li>
+                    <li><Link to="/product">Sofa cum Bed</Link></li>
+                    <li><Link to="/product">Wooden Sofa</Link></li>
+                    <li><Link to="/product">5 Seater Sofas</Link></li>
+                    <li><Link to="/product">3 Seater Sofas</Link></li>
+                    <li><Link to="/product">2 Seater Sofas</Link></li>
+                    <li><Link to="/product">Single Seater Sofas</Link></li>
+                    <li><Link to="/product">L Shaped Sofas</Link></li>
+                    <li><Link to="/product">Leather Sofas</Link></li>
+                    <li><Link to="/product">Office Sofas</Link></li>
+                    <li><Link to="/product">Outdoor Sofas</Link></li>
                   </ul>
                 </section>
               </div>
               <div className="col">
                 <section>
-                  <h2 className="item-5-heading">Skincare, Bath & Body</h2>
+                  <h2 className="item-1-heading">SEATING</h2>
                   <ul className="mega-links">
-                    <li><Link to="/product">Face Moisturiser</Link></li>
-                    <li><Link to="/product">Cleanser</Link></li>
-                    <li><Link to="/product">Masks & Peel</Link></li>
-                    <li><Link to="/product">Sunscreen</Link></li>
-                    <li><Link to="/product">Serum</Link></li>
-                    <li><Link to="/product">Face Wash</Link></li>
-                    <li><Link to="/product">Lip Balm</Link></li>
-                    <li><Link to="/product">Body Lotion</Link></li>
-                    <li><Link to="/product">Body Wash</Link></li>
-                    <li><Link to="/product">Body Scrub</Link></li>
-                    <li><Link to="/product">Hand Cream</Link></li>
+                    <li><Link to="/product">Wingback Chairs</Link></li>
+                    <li><Link to="/product">Loungue Chairs</Link></li>
+                    <li><Link to="/product">Love Seats</Link></li>
+                    <li><Link to="/product">Ottoman</Link></li>
+                    <li><Link to="/product">Accent Chairs</Link></li>
+                    <li><Link to="/product">Arm Chairs</Link></li>
+                    <li><Link to="/product">Message Chairs</Link></li>
+                    <li><Link to="/product">Bean Bags</Link></li>
+                    <li><Link to="/product">Stool</Link></li>
+                    <li><Link to="/product">Benches</Link></li>
                   </ul>
-                  <h2 className="item-5-heading">Baby Care</h2>
-                  <h2 className="item-5-heading">Masks</h2>
                 </section>
               </div>
               <div className="col">
                 <section>
-                  <h2 className="item-5-heading">Hair Carer</h2>
+                  <h2 className="item-1-heading">SOFA CUM BED</h2>
                   <ul className="mega-links">
-                    <li><Link to="/product">Shampoo</Link></li>
-                    <li><Link to="/product">Conditoner</Link></li>
-                    <li><Link to="/product">Hair Cream</Link></li>
-                    <li><Link to="/product">Hair Oil</Link></li>
-                    <li><Link to="/product">Hair Gel</Link></li>
-                    <li><Link to="/product">Hair Color</Link></li>
-                    <li><Link to="/product">Hair Serum</Link></li>
-                    <li><Link to="/product">Hair Accessory</Link></li>
+                    <li><Link to="/product">Wooden Sofa cum Bed</Link></li>
+                    <li><Link to="/product">Fabric Sofa cum Bed</Link></li>
+                    <li><Link to="/product">Sofa cum Bed</Link></li>
                   </ul>
-                  <h2 className="item-5-heading">Fragrances</h2>
-                  {/* <ul className="mega-links">
-                      <li><Link to="/product">Perfume</Link></li>
-                      <li><Link to="/product">Deodrant</Link></li>
-                      <li><Link to="/product">Body Mist</Link></li>
+                  <h2 className="item-1-heading">RECLINERS</h2>
+                  <ul className="mega-links">
+                    <li><Link to="/product">1 Seater Recliners</Link></li>
+                    <li><Link to="/product">2 Seater Recliners</Link></li>
+                    <li><Link to="/product">3 Seater Recliners</Link></li>
+                    <li><Link to="/product">L Shaped Recliners</Link></li>
+                  </ul>
                 </section>
               </div>
               <div className="col">
-                <section>
-                  <h2 className="item-5-heading">Appliances</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Hair Straightner</Link></li>
-                    <li><Link to="/product">Hair Dryer</Link></li>
-                    <li><Link to="/product">Epilator</Link></li>
-                  </ul>
-                  <h2 className="item-5-heading">Men's Grooming</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Trimmers</Link></li>
-                    <li><Link to="/product">Beard Oil</Link></li>
-                    <li><Link to="/product">Hair Wax</Link></li>
-                  </ul>
-                  <h2 className="item-5-heading">Beauty Gift & Makeup Set</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Beauty Gift</Link></li>
-                    <li><Link to="/product">Makeup Kit</Link></li>
-                  </ul> */}
-                  <h2 className="item-5-heading">Premium Beauty</h2>
-                  <h2 className="item-5-heading">Wellness & Hygiene</h2>
-                </section>
-              </div>
-
-              <div className="col">
-                <section>
-                  <h2 className="item-5-heading">Top Brands</h2>
-                  <ul className="mega-links">
-                    <li><Link to="/product">Lakme</Link></li>
-                    <li><Link to="/product">Maybelline</Link></li>
-                    <li><Link to="/product">LOreal</Link></li>
-                    <li><Link to="/product">Philips</Link></li>
-                    <li><Link to="/product">Bath & Body Works</Link></li>
-                    <li><Link to="/product">THE BODY SHOP</Link></li>
-                    <li><Link to="/product">Biotique</Link></li>
-                    <li><Link to="/product">Mamaearth</Link></li>
-                    <li><Link to="/product">MCaffeine</Link></li>
-                    <li><Link to="/product">Nivea</Link></li>
-                    <li><Link to="/product">Lotus Herbals</Link></li>
-                    <li><Link to="/product">LOreal Professionnel</Link></li>
-                    <li><Link to="/product">KAMA AYURVEDA</Link></li>
-                    <li><Link to="/product">M.A.C</Link></li>
-                    <li><Link to="/product">Forest Essentials</Link></li>
-                  </ul>
-                </section>
+                <section >
+                   <img className='navimage' src='https://images.woodenstreet.de/image/cache/data%2Fpresto-bazaar%2Forange-black-and-grey-color-geometric-hand-tufted-round-wool-carpet-4-4-feet%2F1-810x702.jpg'></img>
+                   </section>
               </div>
             </div>
           </div>

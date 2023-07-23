@@ -90,10 +90,10 @@ const Sidebar=()=>{
 
             <div onChange={HandleChange}>
                 <input type="radio" value={"asc"} name="order" defaultChecked={initOrder=="asc"}/>
-                <label htmlFor="">Price (Low to High)</label>
+                <label htmlFor="">Price (Low to High)
                 
-                <br />
                 <input type="radio" value={"desc"} name="order" defaultChecked={initOrder=="desc"}/>
+                </label>
                 <label >Price (High to Low)</label>
             </div>
             <br />

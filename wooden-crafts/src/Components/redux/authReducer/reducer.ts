@@ -1,9 +1,9 @@
-import { Login_Error, Login_Request, Login_Success, Post_Success } from "../actionTypes";
+import { Login_Error, Login_Request, Login_Success, Logout_Success, Post_Success } from "../actionTypes";
 
 interface val{
     isLoading:boolean,
     isError:boolean,
-   isAuth:false
+   isAuth:boolean
    data:[]
 }
 
@@ -28,6 +28,9 @@ export const reducer = (state=init,{type,payload}:any) => {
         }
         case Login_Error:{
             return {...state,isError:true}
+        }
+        case Logout_Success:{
+            return {...state,isAuth:false,data:[]}
         }
         default:{
             return state

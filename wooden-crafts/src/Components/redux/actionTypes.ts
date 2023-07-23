@@ -13,6 +13,7 @@ export let Login_Request="Login_Request";
 export let Login_Success="Login_Success";
 export let Login_Error="Login_Error";
 export let Post_Success="Post_Sucess";
+export let Logout_Success='Logout_Success'
 
 
 export const GET_PRODUCTS = "GET_PRODUCTS";
