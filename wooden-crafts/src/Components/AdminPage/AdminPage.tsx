@@ -27,9 +27,8 @@ const AdminPage = () => {
         {/* ==============      Admin Main Container Start      ================= */}
         <div className="admin-container">
           <AdminSidebar setActiveList={setActiveList} />
-
-          {activeList == "dashboard" ? (
-            <AdminDashboard />
+          {activeList == "orders" ? (
+            <AdminOrders />
           ) : activeList == "products" ? (
             <AdminProductList />
           ) : activeList == "users" ? (
@@ -37,7 +36,7 @@ const AdminPage = () => {
           ) : activeList == "cart" ? (
             <AdminCart />
           ) : (
-            <AdminOrders />
+            <AdminDashboard />
           )}
         </div>
         {/* ==============      Admin Main Container End      ================= */}
