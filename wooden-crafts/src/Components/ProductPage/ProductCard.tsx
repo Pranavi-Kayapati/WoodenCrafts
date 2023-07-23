@@ -1,3 +1,4 @@
+
 import "./ProductCard.css";
 import { Box, Badge, Image, Button } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
@@ -58,6 +59,7 @@ export let ProductCard = ({ product }: any) => {
 
           <div style={{ position: "relative", top: "10px" }}>
             <Box display="flex" mt="2" alignItems="center">
+
               {Array(5)
                 .fill("")
                 .map((_, i) => (
