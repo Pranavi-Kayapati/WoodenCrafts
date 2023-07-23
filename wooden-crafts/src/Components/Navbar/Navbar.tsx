@@ -1,5 +1,5 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Heading, Center, Container } from '@chakra-ui/react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css';
 import logo2 from './logo/logo2.png'
 import { BiUserCircle} from 'react-icons/bi';
@@ -18,11 +18,13 @@ export const Navbar = () => {
         <input className="search-div" type="text" placeholder="Search for Products and more"/>
         <div className='react-icons'>
         <BiUserCircle  className='icon' size={"25px"} color='#fba720' opacity={0.8}/>
+        
         <p>Profile</p>
         <AiOutlineHeart  className='icon' size={"25px"} color='#fba720'/>
         <p>Wishlist</p>
         <BiCartAlt className='icon'  size={"25px"} color='#fba720'/>
-        <p>Cart</p>
+        <Link to="/cart"><p>Cart</p></Link>
+        
         </div>
       </div>
       <ul className="menu-items">

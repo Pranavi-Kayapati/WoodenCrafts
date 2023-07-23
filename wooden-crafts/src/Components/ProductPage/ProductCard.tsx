@@ -8,14 +8,15 @@ import { useDispatch,useSelector } from "react-redux"
 import { Navigate } from "react-router-dom"
 import axios from "axios"
 import { RequestAction,RequestError } from "../redux/ProductReducer/action"
+
+
+
 export let ProductCard=({product}:any)=>{
   
   const dispatch:Dispatch<any> = useDispatch();
 
   const FetchData=()=>{
-    
     console.log(product)
-    
     dispatch(RequestAction())
     axios.post("https://all-products-wjqd.onrender.com/cart",{product})
     .then((res)=>{
@@ -27,12 +28,12 @@ export let ProductCard=({product}:any)=>{
       console.log(err);
       dispatch(RequestError())
     })
-  
    }
    
   const handleAddToCart = () => {
     FetchData()
   };
+
     return (
         <div>
         <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'  w="95%">
@@ -72,7 +73,8 @@ export let ProductCard=({product}:any)=>{
             </div>
             <div style={{position:"relative",bottom:"30px"}}>
             <Box ml="150px" >
-            <Link href={`/product/${id}`}><Button background="#F3601E" color="white" w="19vh" h="6vh" >View Products</Button></Link>
+            {/* <Link href={`/product/${product.id}`}><Button background="#F3601E" color="white" w="19vh" h="6vh" >View Products</Button></Link> */}
+            <Button background="#F3601E" color="white" w="19vh" h="6vh" onClick={handleAddToCart}>Add To Cart</Button>
             </Box>
             </div>
           </Box>
