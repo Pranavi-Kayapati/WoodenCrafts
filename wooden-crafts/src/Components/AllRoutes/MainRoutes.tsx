@@ -8,6 +8,9 @@ import NotFoundPage from "../HomePage/NotFoundPage";
 import CartPage from "../CartPage/CartPage";
 import { Payment } from "../CartPage/Payment";
 import MainProduct from "../ProductPage/MainProduct";
+import CheckOut from "../CartPage/CheckOut";
+import SignUp from "../Login-SignupPage/SignupPage";
+
 
 const MainRoutes = () => {
   return (
@@ -18,8 +21,10 @@ const MainRoutes = () => {
         <Route path="/product" element={<MainProduct />} />
         <Route path="/product/:id" element={<SingleProductPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUp/>}/>
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/order" element={<Payment />} />
+        <Route path="/order" element={<Payment/>}/>
+        <Route path="/checkout" element={<CheckOut/>}/>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

@@ -85,67 +85,38 @@ const CartItem: React.FC<CartItemProps> = ({
     //   console.log(res.data)
     //   dispatch(increaseQuantity(res.data))
 
-    // })
-    // .catch((err)=>{
-    //   console.log(err);
-
-    // })
-
-    setCount((prev) => prev + 1);
-    price = price * count;
-    setTotal((prev: any) => prev + price);
-
+    setCount(prev=>prev+1)
+    price=price*count
+    setTotal((prev:any)=>prev+price)
     //dispatch(increaseQuantity(product.id));
   };
 
   const handleDecreaseQuantity = () => {
-    setCount((prev) => prev - 1);
-    setTotal((prev: any) => prev - price);
-    // dispatch(decreaseQuantity(product.id));
+
+
+    setCount(prev=>prev-1)
+    setTotal((prev:any)=>prev-price)
+   // dispatch(decreaseQuantity(product.id));
   };
   return (
     <DIV>
-      <hr />
+         <hr/>
 
-      <div className="cartItem">
-        <div className="cartItemimage">
-          <img src={product.image} alt="ErrorImage" />
-        </div>
-        <div className="cartItemdetail">
-          <div className="cartTitle">
-            <h1>
-              <b>{product.title}</b>
-            </h1>
-          </div>
-          <div className="cartQantity">
-            <span>
-              Quantity
-              <span className="incDec">
-                <button disabled={count === 1} onClick={handleDecreaseQuantity}>
-                  -
-                </button>
-                <span className="qauntity">{count}</span>
-                <button disabled={count === 5} onClick={handleIncreaseQuantity}>
-                  +
-                </button>
-              </span>
-              <span className="price">
-                <b>{`Rs ${price}`}</b> <span className="discount">Rs 100</span>
-              </span>
-              <span className="cuponCode">
-                <span className="saving">Save Rs 119 </span>
-                <h1>After applying coupon "MONSOON"</h1>
-              </span>
-            </span>
-          </div>
-          <div className="cartButton">
-            <span className="saveforlater">Save for later</span>{" "}
-            <span className="remove" onClick={handleRemoveFromCart}>
-              Remove
-            </span>
-          </div>
-        </div>
-      </div>
+       <div className="cartItem">
+            <div className="cartItemimage">
+              <img src={product.image} alt="ErrorImage"/>
+            </div>
+            <div className="cartItemdetail">
+              <div className="cartTitle"><h1><b>{product.title}</b></h1></div>
+              <div className="cartQantity"><span>Quantity
+               <span className="incDec">
+                <button disabled={count===1} onClick={handleDecreaseQuantity}>-</button><span className="qauntity">{count}</span>
+                <button disabled={count===5} onClick={handleIncreaseQuantity}>+</button>
+               </span>
+               <span className="price"><b>{`Rs ${price}`}</b> <span className="discount">Rs 100</span></span>
+               <span className="cuponCode"><span className="saving">Save Rs 119 </span><h1>After applying coupon "MONSOON"</h1></span></span>
+               </div>
+              <div className="cartButton"><span className="saveforlater">Save for later</span> <span className="remove" onClick={handleRemoveFromCart}>Remove</span></div>
     </DIV>
   );
 };
@@ -248,3 +219,4 @@ const DIV = styled.div`
     color: orange;
   }
 `;
+
