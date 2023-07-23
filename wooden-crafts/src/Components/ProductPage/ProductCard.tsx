@@ -2,10 +2,11 @@ import "./ProductCard.css"
 import { Box,Badge,Image, Button} from '@chakra-ui/react'
 import {StarIcon} from "@chakra-ui/icons"
 import { Link } from '@chakra-ui/react'
+import { Navigate } from "react-router-dom"
 
 
 export let ProductCard=({image,title,price,id}:any)=>{
-
+     
     return (
         <div>
         <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'  w="95%">
@@ -45,7 +46,7 @@ export let ProductCard=({image,title,price,id}:any)=>{
             </div>
             <div style={{position:"relative",bottom:"30px"}}>
             <Box ml="150px" >
-                <Button background="#F3601E" color="white" w="18vh" h="6vh">Add To Cart</Button>
+            <Link href={`/product/${id}`}><Button background="#F3601E" color="white" w="19vh" h="6vh" >View Products</Button></Link>
             </Box>
             </div>
           </Box>
