@@ -1,7 +1,7 @@
 import React from "react";
 import "../AdminPage.css";
-import { FiShoppingCart } from "react-icons/fi";
-import { LuLayoutDashboard } from "react-icons/lu";
+import { BiSolidOffer } from "react-icons/bi";
+import { BsGraphUp } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { FiUsers } from "react-icons/fi";
 import { BsClipboard2Check } from "react-icons/bs";
@@ -21,59 +21,67 @@ const AdminSidebar = ({ setActiveList }: Props) => {
   };
 
   return (
-    <IconContext.Provider
-      value={{ color: "#e57220", size: "20px", className: "global-class-name" }}
-    >
-      <div className="admin-sidebar">
-        <h1 className="heading">Admin</h1>
-        <div className="admin-dashboard">
+    <div className="admin-sidebar">
+      <h1 className="Admin-heading">Admin</h1>
+      <div className="admin-dashboard">
+        <div className="active-btn">
           <button
             className="sub-head"
             value={"dashboard"}
             onClick={handleChangeActive}
           >
-            <LuLayoutDashboard />
+            <BsGraphUp color="white" />
             <span className="padd-15">Dashboard</span>{" "}
           </button>
+        </div>
+        <div className="active-btn">
           <button
             className="sub-head"
             value={"products"}
             onClick={handleChangeActive}
           >
-            <LuLayoutList />
+            <LuLayoutList color="white" />
             <span className="padd-15">Products</span>
           </button>
+        </div>
+        <div className="active-btn">
           <button
             className="sub-head"
             value={"users"}
             onClick={handleChangeActive}
           >
-            <FiUsers />
+            <FiUsers color="white" />
             <span className="padd-15">Users</span>
           </button>
+        </div>
+        <div className="active-btn">
           <button
             className="sub-head"
             value={"cart"}
             onClick={handleChangeActive}
           >
-            <FiShoppingCart />
-            <span className="padd-15">Cart</span>
+            <BiSolidOffer color="white" />
+            <span className="padd-15">Offers</span>
           </button>
+        </div>
+        <div className="active-btn">
           <button
             className="sub-head"
             value={"orders"}
             onClick={handleChangeActive}
           >
-            <BsClipboard2Check />
+            <BsClipboard2Check color="white" />
             <span className="padd-15">Orders Placed</span>
           </button>
+        </div>
+        <div className="active-btn">
           <button className="sub-head">
-            <MdLogout />
+            <MdLogout color="white" />
             <span className="padd-15">Logout</span>
           </button>
         </div>
       </div>
-    </IconContext.Provider>
+    </div>
   );
 };
 
