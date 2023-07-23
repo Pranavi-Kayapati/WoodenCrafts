@@ -1,3 +1,22 @@
+
+
+
+export type cartProps={
+    id: number;
+    image: string;
+    category: string;
+    material: string;
+    color: string;
+    brand: string;
+    title: string;
+    price: string;
+    description: {
+        "Monsoon Sale": string;
+        "Store Discount": string;
+        "No Cost EMI": string;
+    }
+};
+
 // Products type
 
 export interface Product {
@@ -60,3 +79,4 @@ export type UserAdction = {
 export type AllUsersDispatchType = (args: AllUserAdction) => AllUserAdction;
 
 export type userDispatchType = (args: UserAdction) => UserAdction;
+

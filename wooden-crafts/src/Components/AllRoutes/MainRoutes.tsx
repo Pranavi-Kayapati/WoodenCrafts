@@ -6,8 +6,8 @@ import SingleProductPage from "../SingleProductPage/SingleProductPage";
 import LoginPage from "../Login-SignupPage/LoginPage";
 import NotFoundPage from "../HomePage/NotFoundPage";
 import CartPage from "../CartPage/CartPage";
-import MainProduct from "../ProductPage/MainProduct";
 import { Payment } from "../CartPage/Payment";
+import MainProduct from "../ProductPage/MainProduct";
 
 const MainRoutes = () => {
   return (

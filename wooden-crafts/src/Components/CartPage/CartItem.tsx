@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+
+
 const CartItem = () => {
   const [quantity, setQunatity] = useState<number>(1);
 
