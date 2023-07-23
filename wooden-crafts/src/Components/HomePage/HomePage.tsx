@@ -5,8 +5,11 @@ import {Scroll} from "./Scroll";
 import { DataItem } from './Scroll';
 import homepage from '../Navbar/logo/homepage.png'
 import customerdata from '../Navbar/logo/customerdata.png'
+import  {Footer } from './Footer';
+
 
 const HomePage = () => {
+  
   const bestSeller: DataItem[] = [
     {
       imageUrl: 'https://images.woodenstreet.de/image/cache/data%2Fbed-with-storage%2Fwalken-bed-with-storage%2Fupdated%2Fupdated%2Fhoney%2F1-810x702.jpg',
@@ -105,12 +108,12 @@ const HomePage = () => {
   ];
 
   return (
-    <>
+    <div id='homepage'>
     <Container  maxW='container.2xl'>
     <GridSlider/>
       <Heading  textAlign={"center"} marginBottom={"20px"}>Top Picks For You</Heading>
       <Text  textAlign={"center"} fontSize='2xl'>Impressive Collection For Your Dream Home</Text>
-<SimpleGrid border={'2px solid green'} maxWidth={"80%"} margin={"auto"} marginTop={"30px"} columns={[2, null, 6]} spacing='40px'>
+<SimpleGrid  maxWidth={"80%"} margin={"auto"} marginTop={"30px"} columns={[2, null, 6]} spacing='40px'>
   <VStack>
   <Box  marginBottom={"50px"} height='100px'><img src="https://www.woodenstreet.com/images/home-new1/icon1.jpg" alt='broken'  ></img></Box>
   <Text fontSize='sm' marginTop={"20px"} >Sofa Sets</Text>
@@ -160,7 +163,7 @@ const HomePage = () => {
   <Text fontSize='sm' marginTop={"20px"} >Lamp & Lighing</Text>
   </VStack>
 </SimpleGrid>
-<hr style={{ marginTop:"50px"}}/>
+<hr style={{ marginTop:"80px", width:"100%"}}/>
 <Heading  textAlign={"center"} marginTop={"50px"} marginBottom={"20px"}>India's Finest Online Furniture Brand</Heading>
 <Container maxW='container.xl'>
 <Text  textAlign={"center"} fontSize='lg'>Buy Furniture Online from our extensive collection of wooden furniture units to give your home an elegant touch at affordable prices.
@@ -168,7 +171,7 @@ const HomePage = () => {
   offerings or get it customized to match your requirements. Buy furniture online and find the features, functionality, dimensions of the products, all with great ease. You can also avail the exciting deals and discount offers on our online furniture store. </Text>
 </Container>
 
-<SimpleGrid border={'2px solid yellow'} columns={[2, null, 3]} maxW={"90%"} margin={"auto"} marginTop={"40px"} spacing='40px'>
+<SimpleGrid columns={[2, null, 3]} maxW={"90%"} margin={"auto"} marginTop={"40px"} spacing='40px'>
   <Box  ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/beds-banner.jpg?v=19"}></img></Box>
   <Box ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/wfh-banner.jpg?v=2"}></img></Box>
   <Box ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/space-save-banner.jpg?v=19"}></img></Box>
@@ -176,11 +179,11 @@ const HomePage = () => {
   <Box ><img className="zoom"  alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/wooden-sofa-banner.jpg?v=19"}></img></Box>
   <Box> <img  className="zoom" alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/dressing-table-banner.jpg?v=19"}></img></Box>
 </SimpleGrid>
-<hr style={{ marginTop:"80px"}}/>
+<hr style={{ marginTop:"80px", width:"100%"}}/>
 
 <Heading  marginTop={"50px"} marginBottom={"20px"}>Best-Sellers Of The 2eason</Heading>
 <Scroll data={bestSeller} /> 
-<hr style={{ marginTop:"80px"}}/>
+<hr style={{ marginTop:"80px", width:"100%"}}/>
 <Heading  marginTop={"60px"} marginBottom={"20px"}>Living Room Furniture</Heading>
 <Flex gap={'20px'} >
     <Box   width={'50%'}><img  alt='broken' style={{height:'640px'}} src="https://www.woodenstreet.com/images/furniture-new/living-furniture1.jpg"></img></Box>
@@ -193,13 +196,13 @@ const HomePage = () => {
 </SimpleGrid>
     </Box>
   </Flex>
-  <hr style={{ marginTop:"80px"}}/>
+  <hr style={{ marginTop:"80px", width:"100%"}}/>
   <Heading  marginTop={"50px"} marginBottom={"20px"}>Sofa Cum Beds</Heading>
    <Scroll data={SofaCumBed}/> 
-   <hr style={{ marginTop:"80px"}}/>
+   <hr style={{ marginTop:"80px", width:"100%"}}/>
    <Heading  marginTop={"50px"} marginBottom={"20px"}>New Launches</Heading>
    <Scroll data={NewLaunches}/> 
-   <hr style={{ marginTop:"80px"}}/>
+   <hr style={{ marginTop:"80px", width:"100%"}}/>
    <img style={{marginTop:'50px'}} src={homepage}></img>
    <Heading  marginTop={"60px"} marginBottom={"20px"}>Dining Room Furniture</Heading>
 <Flex gap={'20px'} >
@@ -213,15 +216,16 @@ const HomePage = () => {
 </SimpleGrid>
     </Box>
   </Flex>
-  <hr style={{ marginTop:"80px"}}/>
+  <hr style={{ marginTop:"80px", width:"100%"}}/>
    <Heading  marginTop={"50px"} marginBottom={"20px"}>Need Buying Guidance?</Heading>
    <Scroll data={BuyingGuidance}/> 
-   <hr style={{ marginTop:"80px"}}/>
+   <hr style={{ marginTop:"80px", width:"100%"}}/>
    <img style={{marginTop:'20px'}} src={customerdata}></img>
-   <hr style={{ marginTop:"20px"}}/>
+   <hr style={{ marginTop:"80px", width:"100%"}}/>
 </Container>
+<Footer/>
 
-    </>
+    </div>
   );
 };
 

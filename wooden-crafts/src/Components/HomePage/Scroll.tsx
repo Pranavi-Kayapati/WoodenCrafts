@@ -35,24 +35,17 @@ export const Scroll: React.FC<ScrollProps> = ({ data }) => {
   };
 
   return (
-    <div style={{ marginTop: "30px" }}>
-      <Carousel responsive={responsive}>
-        {data.map((ele: any) => (
-          <>
-            <img
-              style={{ height: "400px", width: "95%" }}
-              src={ele.imageUrl}
-            ></img>
-            <p style={{ marginTop: "10px", fontSize: "20px" }}>
-              Buy Now And Get <span style={{ color: "red" }}>40% </span>Off
-            </p>
-            <p
-              className="blink"
-              style={{ marginTop: "5px", fontSize: "20px", color: "red" }}
-            >
-              Hurray !! Sale Ends on Sunday
-            </p>
-          </>
+
+      <div style={{marginTop:'30px'}}>
+<Carousel  responsive={responsive}>
+        {data.map((ele:any)=>(
+            <>
+            <img style={{height:'300px',width:'90%'}}  src={ele.imageUrl}></img>
+            <p  style={{marginTop:'10px',fontSize:'20px'}}>Buy Now And Get <span style={{color:'red'}}>40% </span>Off</p>
+            <p className="blink"style={{marginTop:'5px',fontSize:'20px',color:'red'}} >Hurray !! Sale Ends on Sunday</p>
+            </>
+            
+
         ))}
       </Carousel>
     </div>
