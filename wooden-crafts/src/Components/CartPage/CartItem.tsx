@@ -1,57 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { decreaseQuantity, increaseQuantity, removeProduct} from "../redux/cartReducer/action";
-import {Product} from "../constrainsts/Type";
-import styled from "styled-components"
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeProduct,
+} from "../redux/cartReducer/action";
+import { Product } from "../constrainsts/Type";
+import styled from "styled-components";
 import { Dispatch } from "redux";
-import axios from "axios"
-
+import axios from "axios";
 
 interface CartItemProps {
-  id:number;
+  id: number;
   product: Product;
   quantity: number;
-  setTotal:(a:any)=>void;
-  setData:(b:any)=>void;
+  setTotal: (a: any) => void;
+  setData: (b: any) => void;
 }
 
-
-const del=(id:number)=>{
-  axios.delete(`https://all-products-wjqd.onrender.com/cart/${id}`)
-    .then((res)=>{
-      console.log("product is Removed")
-      return res
+const del = (id: number) => {
+  axios
+    .delete(`https://all-products-wjqd.onrender.com/cart/${id}`)
+    .then((res) => {
+      console.log("product is Removed");
+      return res;
     })
-    .catch((err)=>{
+    .catch((err) => {
       console.log(err);
+
     })
     
 }
-
-
-
-
-
-
 
 const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setData}) => {
  
   const [count,setCount]=useState<number>(1)
  
   const dispatch = useDispatch();
-  console.log(product.price)
+  console.log(product.price);
 
-  let price:any=product.price.split(",")
-  
-   price=Number(price[0]+price[1])
+  let price: any = product.price.split(",");
 
    console.log(price)
-   
-   
-   
-   
-   
-
   useEffect(()=>{
     setTotal((prev:any)=>prev+price)
   },[count,price])
@@ -71,11 +61,9 @@ const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setDat
     })
   
    }
-  
 
-  const handleRemoveFromCart = async() => {
+  const handleRemoveFromCart = async () => {
     //del(id)
-
     axios.delete(`https://all-products-wjqd.onrender.com/cart/${id}`)
     .then((res)=>{
       FetchData()
@@ -88,30 +76,22 @@ const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setDat
   };
 
   const handleIncreaseQuantity = () => {
-
     // axios.patch(`https://all-products-wjqd.onrender.com/cart/${id}`,{"price":price})
     // .then((res)=>{
-     
+
     //   console.log(res.data)
     //   dispatch(increaseQuantity(res.data))
-     
-    // })
-    // .catch((err)=>{
-    //   console.log(err);
-     
-    // })
-
 
     setCount(prev=>prev+1)
     price=price*count
     setTotal((prev:any)=>prev+price)
-
     //dispatch(increaseQuantity(product.id));
   };
 
   const handleDecreaseQuantity = () => {
     console.log("work")
     console.log(price)
+
     setCount(prev=>prev-1)
     setTotal((prev:any)=>prev-price)
    // dispatch(decreaseQuantity(product.id));

@@ -1,3 +1,4 @@
+
 import "./ProductCard.css"
 import { Box,Badge,Image, Button} from '@chakra-ui/react'
 import {StarIcon} from "@chakra-ui/icons"
@@ -29,9 +30,9 @@ export let ProductCard=({product}:any)=>{
       dispatch(RequestError())
     })
    }
-   
+
   const handleAddToCart = () => {
-    FetchData()
+    FetchData();
   };
 
     return (
@@ -55,31 +56,29 @@ export let ProductCard=({product}:any)=>{
             
             <div style={{position:"relative",top:"10px"}}>
             <Box display='flex' mt='2' alignItems='center' >
+
               {Array(5)
-                .fill('')
+                .fill("")
                 .map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    color={ '#F3601E'}
-                  />
+                  <StarIcon key={i} color={"#F3601E"} />
                 ))}
-              
             </Box>
-            
+
             <Box mr="200px" mt="3">
               Rs {product.price}
-              
             </Box>
-            </div>
-            <div style={{position:"relative",bottom:"30px"}}>
-            <Box ml="150px" >
-            {/* <Link href={`/product/${product.id}`}><Button background="#F3601E" color="white" w="19vh" h="6vh" >View Products</Button></Link> */}
-            <Button background="#F3601E" color="white" w="19vh" h="6vh" onClick={handleAddToCart}>Add To Cart</Button>
+          </div>
+          <div style={{ position: "relative", bottom: "30px" }}>
+            <Box ml="150px">
+              <Link href={`/product/${product.id}`}>
+                <Button background="#F3601E" color="white" w="19vh" h="6vh">
+                  View Products
+                </Button>
+              </Link>
             </Box>
-            </div>
-          </Box>
-         
+          </div>
         </Box>
-        </div>
-      )
-}
+      </Box>
+    </div>
+  );
+};

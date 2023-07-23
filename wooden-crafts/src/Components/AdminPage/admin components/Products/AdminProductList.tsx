@@ -53,6 +53,10 @@ const AdminProductList = () => {
     setProduct(initialState);
   };
 
+  if (store.products.length == 0) {
+    <h1>Loading...</h1>;
+  }
+
   return (
     <div className="admin-product-list active">
       <div className="admin-products ">

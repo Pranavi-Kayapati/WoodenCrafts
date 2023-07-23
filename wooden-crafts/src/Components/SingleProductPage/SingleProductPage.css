@@ -1,5 +1,5 @@
 .single-product-container {
-  padding: 30px 50px;
+  width: 100%;
 }
 .single-product-container .single-product {
   background: rgb(241, 240, 240);
@@ -7,6 +7,8 @@
   display: flex;
 }
 .single-product-container .single-product .product-img {
+  margin: 30px auto;
+  margin-left: 30px;
   width: 50%;
 }
 
@@ -174,8 +176,9 @@
 
 .single-product-container .single-product .add-to-cart {
   border: 1px solid gray;
-  width: 100%;
-  margin: 20px 10px;
+  text-align: center;
+  width: 80%;
+  margin: 20px auto;
   color: white;
   background-color: #ff5702;
   padding: 7px;
