@@ -8,6 +8,7 @@ import NotFoundPage from "../HomePage/NotFoundPage";
 import CartPage from "../CartPage/CartPage";
 import MainProduct from "../ProductPage/MainProduct";
 import SignUp from "../Login-SignupPage/SignupPage";
+import PrivateRoute from "./PrivateRoute";
 
 const MainRoutes = () => {
   return (
@@ -16,7 +17,7 @@ const MainRoutes = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/product" element={<MainProduct/>} />
-        <Route path="/product/:id" element={<SingleProductPage />} />
+        <Route path="/product/:id" element={<PrivateRoute><SingleProductPage /></PrivateRoute>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/cart" element={<CartPage />} />

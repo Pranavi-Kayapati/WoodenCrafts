@@ -46,7 +46,7 @@ else {
 
     return (
         <div>
-          <div style={{ backgroundImage: "url('https://www.woodenstreet.com/images/wall-art/banner-d1.jpg?v=19')" ,width:"100%",height:"630px"}}>
+          <div style={{ backgroundImage: "url('https://i.pinimg.com/originals/49/16/ba/4916baf0575b121dac9bb85e23f80c21.jpg')" ,width:"100%",height:"630px"}}>
             {/* Your content here */}
            
             <div className={styles.logo}>
