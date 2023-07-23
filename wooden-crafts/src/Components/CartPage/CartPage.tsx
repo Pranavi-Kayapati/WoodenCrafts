@@ -1,25 +1,73 @@
-import React,{useEffect, useState} from "react";
-import { styled } from "styled-components";
-import { BiMap } from "react-icons/bi";
+import React, { useEffect, useState } from "react";
+import { useSelector,useDispatch } from "react-redux";
+import { RootState } from "../redux/cartReducer/cartReducer";
 import CartItem from "./CartItem";
+import { Product } from "../constrainsts/Type";
 import { Link } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux"
-import { getCartProducts } from "../redux/cartReducer/action";
-
-const CartPage = () => {
-
-  const [quantity,setQunatity]=useState<number>(1)
-
-  const cart=useSelector((store:any)=>store.cartReducer.cart)
-  const dispatch:any=useDispatch()
-  console.log(cart)
+import styled from "styled-components";
+import axios from "axios";
+import { RequestAction,RequestError } from "../redux/ProductReducer/action";
+import { getCartProduct } from "../redux/cartReducer/action";
 
 
-  useEffect(()=>{
-    dispatch(getCartProducts()).then((res:any)=>{
-        console.log(res)
+
+
+// Helper function to calculate the total price of all items in the cart
+
+function calculateTotalPrice(data: { product: Product; quantity: number }[]): number {
+  let total = 0;
+  data.forEach((item) => {
+    const price = parseInt(item.product.price.replace(",", ""));
+    total += price * item.quantity;
+  });
+  return total;
+}
+
+
+
+
+const CartPage: React.FC = () => {
+  const [data,setData]=useState<any>()
+  const [total,setTotal]=useState<any>(0)
+  const [qunatity,setQuantity]=useState<any>(1)
+  
+
+  // const cart = useSelector((store:any) => {
+  //   console.log(store)
+  //   return store.cartReducer.cart
+  // })
+
+  let dispatch=useDispatch()
+
+
+  const FetchData=()=>{
+
+    console.log("reach")
+    
+    dispatch(RequestAction())
+    axios.get("https://all-products-wjqd.onrender.com/cart")
+    .then((res)=>{
+     
+      console.log(res)
+      console.log(res.data)
+      dispatch(getCartProduct(res.data))
+      setData(res.data)
     })
-  },[])
+    .catch((err)=>{
+      console.log(err);
+      dispatch(RequestError())
+    })
+  
+   }
+
+   useEffect(()=>{
+    FetchData()
+   },[])
+
+  
+ 
+console.log(total)
+
 
 
   return (
@@ -27,40 +75,45 @@ const CartPage = () => {
 
       <div className="cart">
 
+
         <div className="cartleft1">
 
           <div className="cartLeft">
+
             <div >
-              <h2><b>My Cart (0)</b></h2>
+              <h2><b>My Cart ({data?.length})</b></h2>
             </div>
 
             <div className="cl2">
               {/* <BiMap/> */}
-             <span className="deliver">Deliver to
+              <span className="deliver">Deliver to
               </span>
               <span className="check">
                 <input placeholder="Enter PinCode" />
                 <button>CHECK</button>
               </span>
             </div>
-          </div> 
-       
-         
+          </div>
+
+
 
           {/* -------------------------------------------------cart itme----------------------------------------------------- */}
 
-       
-          <CartItem />
-           <CartItem/>
-          <CartItem/>
-          
 
-          
+
+
+          {data?.map((item:any,ind:any) => (
+            <CartItem key={ind} product={item.product} quantity={qunatity} 
+            setTotal={setTotal}
+            />
+          ))}
+         
+
 
         </div>
 
 
-{/* ---------------------------------------------cart right side--------------------------------------------------- */}
+        {/* ---------------------------------------------cart right side--------------------------------------------------- */}
         <div className="cartRight">
           <div>
             <span>Have a Coupon Code ?</span>
@@ -73,7 +126,7 @@ const CartPage = () => {
           <hr />
 
           <div className="priceDetail">
-            <h1><b>Price Detail (3 items)</b></h1>
+            <h1><b>Price Detail {data?.length}</b></h1>
             <hr />
             <span>MRP</span><span className="priceright">Rs 2324</span>
             <hr />
@@ -88,7 +141,7 @@ const CartPage = () => {
           </div>
           <div>
             <button className="placeOrder" ><Link to="/order">Place Order</Link></button>
-            
+
           </div>
         </div>
       </div>

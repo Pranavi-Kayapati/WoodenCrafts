@@ -1,38 +1,63 @@
-import React ,{useState}from 'react'
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { decreaseQuantity, increaseQuantity, removeProduct} from "../redux/cartReducer/action";
+import {Product} from "../constrainsts/Type";
 import styled from "styled-components"
+import { Dispatch } from "redux";
 
 
+interface CartItemProps {
+  product: Product;
+  quantity: number;
+  setTotal:(a:any)=>void
+}
 
-const CartItem = () => {
-    const [quantity,setQunatity]=useState<number>(1)
 
+const CartItem:React.FC<CartItemProps> = ({product,quantity=1,setTotal}) => {
+ 
+  const dispatch = useDispatch();
+  console.log(product.id)
 
-  const handleAdd=()=>{
-    setQunatity(prev=>prev+1)
-  }
+  useEffect(()=>{
+    setTotal((prev:any)=>prev+Number(product.price))
+  },[])
 
-  const handleDec=()=>{
-    setQunatity(prev=>prev-1)
-  }
+ 
+  
+
+  const handleRemoveFromCart = () => {
+    if (quantity !== undefined) {
+      //dispatch(removeProduct(product.id));
+    };
+  };
+
+  const handleIncreaseQuantity = () => {
+    console.log(product.id,product.price)
+    //dispatch(increaseQuantity(product.id));
+  };
+
+  const handleDecreaseQuantity = () => {
+   // dispatch(decreaseQuantity(product.id));
+  };
   return (
     <DIV>
          <hr/>
 
 <div className="cartItem">
             <div className="cartItemimage">
-              <img src="https://5.imimg.com/data5/ANDROID/Default/2023/6/321246373/NV/SP/GU/114532791/product-jpeg-500x500.jpeg" alt="ErrorImage"/>
+              <img src={product.image} alt="ErrorImage"/>
             </div>
             <div className="cartItemdetail">
-              <div className="cartTitle"><h1><b>bed come sofas kdijfiajia</b></h1></div>
+              <div className="cartTitle"><h1><b>{product.title}</b></h1></div>
               <div className="cartQantity"><span>Quantity
                <span className="incDec">
-                <button onClick={handleDec}>-</button><span className="qauntity">{quantity}</span>
-                <button onClick={handleAdd}>+</button>
+                <button onClick={handleDecreaseQuantity}>-</button><span className="qauntity">{quantity}</span>
+                <button onClick={handleIncreaseQuantity}>+</button>
                </span>
-               <span className="price"><b>Rs 7999</b> <span className="discount">Rs 100</span></span>
+               <span className="price"><b>{`Rs ${product.price}`}</b> <span className="discount">Rs 100</span></span>
                <span className="cuponCode"><span className="saving">Save Rs 119 </span><h1>After applying coupon "MONSOON"</h1></span></span>
                </div>
-              <div className="cartButton"><span className="saveforlater">Save for later</span> <span className="remove">Remove</span></div>
+              <div className="cartButton"><span className="saveforlater">Save for later</span> <span className="remove" onClick={handleRemoveFromCart}>Remove</span></div>
               
             </div>
           </div>

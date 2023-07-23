@@ -69,10 +69,7 @@ return (
       product.map((ele:any)=>(
           <ProductCard 
           key={ele.id}
-          id={ele.id}
-          image={ele.image}
-          title={ele.title}
-          price={ele.price}
+          product={ele}
           />
       ))
     }

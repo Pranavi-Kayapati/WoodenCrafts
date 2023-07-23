@@ -8,6 +8,7 @@ import NotFoundPage from "../HomePage/NotFoundPage";
 import CartPage from "../CartPage/CartPage";
 import { Payment } from "../CartPage/Payment";
 import MainProduct from "../ProductPage/MainProduct";
+import CheckOut from "../CartPage/CheckOut";
 
 
 const MainRoutes = () => {
@@ -21,6 +22,7 @@ const MainRoutes = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/order" element={<Payment/>}/>
+        <Route path="/checkout" element={<CheckOut/>}/>
         <Route path="*" element={<NotFoundPage />} />
         
       </Routes>
