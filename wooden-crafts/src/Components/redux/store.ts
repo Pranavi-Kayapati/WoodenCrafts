@@ -8,12 +8,12 @@ import { adminproductReducer } from "./adminReducer/reducer";
 
 
 
-const rootReducer = combineReducers({ cartReducer });
+// const rootReducer = combineReducers({  });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
 const rootReducer = combineReducers({
-  adminproductReducer,
+  adminproductReducer,cartReducer
 });
 
 

@@ -1,0 +1,36 @@
+.zoom:hover {
+
+    transform: scale(1.05); 
+  }
+  .blink {
+    animation: blinker 2s linear infinite;
+  }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+.image-box {
+    position: relative;
+    /* margin: 10px auto; */
+    overflow: hidden;
+    /* width: 540px; */
+}
+ .border-box{
+     border: 8px solid #fff;
+     box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.4);
+
+ }  
+.image-box img {
+    max-width: 100%;
+    transition: all 0.3s;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+}
+
+.image-box:hover img {
+    transform: scale(1.1);
+}
