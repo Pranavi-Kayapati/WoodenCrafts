@@ -1,38 +1,37 @@
-
-<<<<<<< HEAD
 import "./ProductCard.css";
 import { Box, Badge, Image, Button } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/react";
-// import { addToCart } from "../redux/cartReducer/action";
+import { addToCart } from "../redux/cartReducer/action";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { RequestAction, RequestError } from "../redux/ProductReducer/action";
+
 export let ProductCard = ({ product }: any) => {
   const dispatch: Dispatch<any> = useDispatch();
 
-  // const FetchData = () => {
-  //   console.log(product);
+  const FetchData = () => {
+    console.log(product);
+    dispatch(RequestAction());
+    axios
+      .post("https://all-products-wjqd.onrender.com/cart", { product })
+      .then((res) => {
+        alert("product is added successfully");
+        console.log(res.data);
+        dispatch(addToCart(product));
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(RequestError());
+      });
+  };
 
-  //   dispatch(RequestAction());
-  //   axios
-  //     .post("https://all-products-wjqd.onrender.com/cart", { product })
-  //     .then((res) => {
-  //       alert("product is added successfully");
-  //       console.log(res.data);
-  //       dispatch(addToCart(product));
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       dispatch(RequestError());
-  //     });
-  // };
+  const handleAddToCart = () => {
+    FetchData();
+  };
 
-  // const handleAddToCart = () => {
-  //   FetchData();
-  // };
   return (
     <div>
       <Box
@@ -46,66 +45,20 @@ export let ProductCard = ({ product }: any) => {
           <Link href={`/product/${product.id}`}>
             <Image src={product.image} w="300px" h="200px" />
           </Link>
-=======
-import "./ProductCard.css"
-import { Box,Badge,Image, Button} from '@chakra-ui/react'
-import {StarIcon} from "@chakra-ui/icons"
-import { Link } from '@chakra-ui/react'
-import { addToCart } from "../redux/cartReducer/action"
-import { Dispatch } from "redux"
-import { useDispatch,useSelector } from "react-redux"
-import { Navigate } from "react-router-dom"
-import axios from "axios"
-import { RequestAction,RequestError } from "../redux/ProductReducer/action"
 
+          <Box
+            mt="1"
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            noOfLines={1}
+          >
+            {product.title}
+          </Box>
+          <p style={{ color: "gray" }}>Wooden Street</p>
 
-
-export let ProductCard=({product}:any)=>{
-  
-  const dispatch:Dispatch<any> = useDispatch();
-
-  const FetchData=()=>{
-    console.log(product)
-    dispatch(RequestAction())
-    axios.post("https://all-products-wjqd.onrender.com/cart",{product})
-    .then((res)=>{
-      alert("product is added successfully")
-      console.log(res.data)
-      dispatch(addToCart(product))
-    })
-    .catch((err)=>{
-      console.log(err);
-      dispatch(RequestError())
-    })
-   }
-
-  const handleAddToCart = () => {
-    FetchData();
-  };
->>>>>>> 8551049c333adadc5d2b416dc3a666d1bc558d9f
-
-    return (
-        <div>
-        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'  w="95%">
-         
-        
-          <Box p='6' >
-          <Link href={`/product/${product.id}`}><Image src={product.image}  w="300px" h="200px"/></Link>
-    
-            <Box
-              mt='1'
-              fontWeight='semibold'
-              as='h4'
-              lineHeight='tight'
-              noOfLines={1}
-            >
-              {product.title}
-            </Box>
-                <p style={{color:"gray"}}>Wooden Street</p>
-            
-            <div style={{position:"relative",top:"10px"}}>
-            <Box display='flex' mt='2' alignItems='center' >
-
+          <div style={{ position: "relative", top: "10px" }}>
+            <Box display="flex" mt="2" alignItems="center">
               {Array(5)
                 .fill("")
                 .map((_, i) => (
