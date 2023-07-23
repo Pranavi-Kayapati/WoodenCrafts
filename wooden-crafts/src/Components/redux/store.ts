@@ -5,6 +5,7 @@ import { cartReducer } from "./cartReducer/cartReducer";
 import thunk from "redux-thunk";
 import { adminproductReducer, usersReducer } from "./adminReducer/reducer";
 
+
 export type RootState = ReturnType<typeof rootReducer>;
 
 const rootReducer = combineReducers({
