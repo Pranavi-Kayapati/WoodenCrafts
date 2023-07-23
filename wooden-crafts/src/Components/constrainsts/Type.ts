@@ -60,19 +60,27 @@ export type ProductDispatchType = (args: ProductAdction) => ProductAdction;
 // User Type
 
 export interface User {
+  id?: number;
   username: string;
   email: string;
   password: string;
 }
 
 export type UsersState = {
-  users: Product[];
+  users: User[];
+};
+
+export type AllUserAdction = {
+  type: string;
+  payload: User[];
 };
 
 export type UserAdction = {
   type: string;
   payload: User;
 };
+
+export type AllUsersDispatchType = (args: AllUserAdction) => AllUserAdction;
 
 export type userDispatchType = (args: UserAdction) => UserAdction;
 

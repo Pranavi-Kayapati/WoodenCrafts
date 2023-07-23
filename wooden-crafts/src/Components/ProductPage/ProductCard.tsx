@@ -5,17 +5,15 @@ import { Link } from '@chakra-ui/react'
 import { addToCart } from "../redux/cartReducer/action"
 import { Dispatch } from "redux"
 import { useDispatch,useSelector } from "react-redux"
+import { Navigate } from "react-router-dom"
 import axios from "axios"
 import { RequestAction,RequestError } from "../redux/ProductReducer/action"
-
-
 export let ProductCard=({product}:any)=>{
-
-
+  
   const dispatch:Dispatch<any> = useDispatch();
 
-const FetchData=()=>{
-
+  const FetchData=()=>{
+    
     console.log(product)
     
     dispatch(RequestAction())
@@ -31,16 +29,10 @@ const FetchData=()=>{
     })
   
    }
-  
-  
-  
-  
-  const handleAddToCart = () => {
-
-    FetchData()
    
+  const handleAddToCart = () => {
+    FetchData()
   };
-
     return (
         <div>
         <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'  w="95%">
@@ -80,7 +72,7 @@ const FetchData=()=>{
             </div>
             <div style={{position:"relative",bottom:"30px"}}>
             <Box ml="150px" >
-                <Button background="#F3601E" color="white" w="18vh" h="6vh" onClick={handleAddToCart}>Add To Cart</Button>
+            <Link href={`/product/${id}`}><Button background="#F3601E" color="white" w="19vh" h="6vh" >View Products</Button></Link>
             </Box>
             </div>
           </Box>
