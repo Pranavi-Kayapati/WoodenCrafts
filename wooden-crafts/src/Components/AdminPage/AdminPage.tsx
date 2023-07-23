@@ -27,7 +27,6 @@ const AdminPage = () => {
         {/* ==============      Admin Main Container Start      ================= */}
         <div className="admin-container">
           <AdminSidebar setActiveList={setActiveList} />
-
           {activeList == "orders" ? (
             <AdminOrders />
           ) : activeList == "products" ? (

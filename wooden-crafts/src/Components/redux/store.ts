@@ -5,17 +5,12 @@ import { cartReducer } from "./cartReducer/cartReducer";
 import thunk from "redux-thunk";
 import { adminproductReducer, usersReducer } from "./adminReducer/reducer";
 
-
-
-
-const rootReducer = combineReducers({ cartReducer });
-
 export type RootState = ReturnType<typeof rootReducer>;
 
 const rootReducer = combineReducers({
   adminproductReducer,
   usersReducer,
+  cartReducer,
 });
-
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
