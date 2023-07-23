@@ -23,7 +23,6 @@ const AdminPage = () => {
       }}
     >
       <div className="AdminPage">
-        <div className="admin-nav">navbar</div>
         {/* ==============      Admin Main Container Start      ================= */}
         <div className="admin-container">
           <AdminSidebar setActiveList={setActiveList} />

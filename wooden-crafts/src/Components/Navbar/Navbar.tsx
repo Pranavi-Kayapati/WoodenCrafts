@@ -1,5 +1,7 @@
+
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Heading, Center, Container, Button } from '@chakra-ui/react'
 import { Link, NavLink, Navigate, useNavigate, useSearchParams } from 'react-router-dom'
+
 import './Navbar.css';
 import logo2 from './logo/logo2.png'
 import { BiUserCircle} from 'react-icons/bi';
@@ -38,6 +40,7 @@ export const Navbar = () => {
         onChange={handleSearch} placeholder="Search for Products and more"/>
         <button style={{backgroundColor:'#f9a92c',color:'white',height:'34px',width:'100px',marginTop:'30px',marginLeft:'-50px'}} onClick={handleClick}>Search</button>
         <div className='react-icons'>
+
         <Link to='/login'><BiUserCircle  className='icon' size={"25px"} color='#fba720' opacity={0.8}/></Link>
         <Link to='/login'><p>Profile</p></Link>
         <Link to='/cart'><AiOutlineHeart  className='icon' size={"25px"} color='#fba720'/></Link>

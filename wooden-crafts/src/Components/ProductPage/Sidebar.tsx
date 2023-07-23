@@ -84,7 +84,7 @@ const Sidebar=()=>{
       
     return (
         <div className="Product_container">
-            <h3>Sort by</h3>
+            <h2 style={{padding:"10px"}}>Sort by</h2>
             <hr />
             
 
@@ -99,7 +99,7 @@ const Sidebar=()=>{
             <br />
             
             <hr />
-            <h3>Filter</h3>
+            <h2  style={{padding:"10px"}}>Filter</h2>
             <hr />
             <br />
             <h2>PRICE RANGE</h2>
@@ -127,7 +127,7 @@ const Sidebar=()=>{
             <br />
             <hr />
             <br />
-            <h3>MATERIAL</h3>
+            <h2>MATERIAL</h2>
             <br />
             <div>
                 <input type="checkbox" value={"Velvet"} checked={material.includes("Velvet")} onChange={HandelMa}/> 
@@ -144,7 +144,7 @@ const Sidebar=()=>{
             <br />
             <hr />
             <br />
-            <h3>COLOR</h3>
+            <h2>COLOR</h2>
             <br />
             <div style={{position:"relative",top:"33px"}}>
                 <input style={{marginRight:"11px"}} type="checkbox" value={"Cream"} onChange={Handelcolor} checked={color.includes("Cream")}/> 
@@ -164,7 +164,7 @@ const Sidebar=()=>{
             <br />
             <hr />
             <br />
-            <h3>BRAND</h3>
+            <h2>BRAND</h2>
             <br />
             <div>
                 <input type="checkbox" value={"Wooden Street"} onChange={HandleBrand} checked={brand.includes("Wooden Street")}/> 
@@ -178,7 +178,7 @@ const Sidebar=()=>{
                 <input type="checkbox" value={"Arra"} onChange={HandleBrand} checked={brand.includes("Arra")}/> 
                 <label >Arra</label>
             </div>
-            <div>
+            <div style={{marginBottom:"15px"}}>
                 <input type="checkbox" value={"Spacewood"} onChange={HandleBrand} checked={brand.includes("Spacewood")}/> 
                 <label >Spacewood</label>
             </div>
