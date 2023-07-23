@@ -41,6 +41,7 @@ const CheckOut = () => {
 
     const handlePlace=()=>{
         alert("Are sure continue paument click ok")
+        alert("Thank You! continue shoping")
         navigate("/product")
     }
 

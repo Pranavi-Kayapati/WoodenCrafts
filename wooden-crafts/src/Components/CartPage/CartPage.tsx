@@ -29,7 +29,7 @@ function calculateTotalPrice(data: { product: Product; quantity: number }[]): nu
 const CartPage: React.FC = () => {
   const [data,setData]=useState<any>()
   const [total,setTotal]=useState<any>(0)
-  const [qunatity,setQuantity]=useState<any>(1)
+  //const [qunatity,setQuantity]=useState<any>(1)
   
 
   // const cart = useSelector((store:any) => {
@@ -62,13 +62,13 @@ const CartPage: React.FC = () => {
 
    useEffect(()=>{
     FetchData()
-   },[])
+    localStorage.setItem('total', JSON.stringify(total));
+    localStorage.setItem("totalItem",JSON.stringify(data?.length))
+
+   },[total])
 
   
  
-console.log(total)
-
-
 
   return (
     <DIV>
@@ -103,8 +103,12 @@ console.log(total)
 
 
           {data?.map((item:any,ind:any) => (
-            <CartItem key={ind} product={item.product} quantity={qunatity} 
+            <CartItem key={ind}
+             product={item.product} 
+             quantity={1} 
             setTotal={setTotal}
+            id={item.id}
+            setData={setData}
             />
           ))}
          
@@ -118,7 +122,7 @@ console.log(total)
           <div>
             <span>Have a Coupon Code ?</span>
             <div className="cupon">
-              <input placeholder="Cupan Code" />
+              <input className="cuponCode" value={""} placeholder="Cupan Code" />
               <button>Apply</button>
             </div>
           </div>
@@ -132,7 +136,7 @@ console.log(total)
             <hr />
             <span>Discount</span><span className="priceright"><span className="green">-Rs 2324</span></span>
             <hr />
-            <span><b>Total Paybale</b></span><span className="priceright">Rs 2324</span>
+            <span><b>Total Paybale</b></span><span className="priceright">Rs {total}</span>
             <hr />
             <span className="green">Congratulations! You’ve just saved Rs 3,288 on your order.</span>
           </div>
@@ -172,6 +176,7 @@ const DIV = styled.div`
     padding: 15px;
     border:1px solid grey;
     position: relative;
+    overflow-wrap:none;
   }
 
  .cartLeft{
@@ -222,15 +227,21 @@ const DIV = styled.div`
     width:max-content;
   }
   .cupon input{
-    width: 70%;
+  width: 70%;
+  padding:15px 0px;
+  border: 1px solid grey;
+  }
+  .cuponCode{
+  width: 70%;
   padding: 5px;
   border: 1px solid grey;
   }
   .cupon button{
     width: 30%;
     border: 1px solid grey;
+    margin-top:2px;
     color:white;
-    padding:5px;
+    padding:4px;
     background-color:orange;
    
   }
@@ -243,7 +254,10 @@ const DIV = styled.div`
     color:green;
   }
   hr{
-    margin:5px;
+    
+    margin: auto;
+    margin: 7px;
+    width: 90%;
   }
   .placeOrder{
     text-align: center;

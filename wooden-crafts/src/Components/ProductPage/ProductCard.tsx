@@ -14,7 +14,7 @@ export let ProductCard=({product}:any)=>{
 
   const dispatch:Dispatch<any> = useDispatch();
 
-  const FetchData=()=>{
+const FetchData=()=>{
 
     console.log(product)
     

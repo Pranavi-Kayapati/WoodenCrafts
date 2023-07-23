@@ -1,42 +1,117 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { decreaseQuantity, increaseQuantity, removeProduct} from "../redux/cartReducer/action";
 import {Product} from "../constrainsts/Type";
 import styled from "styled-components"
 import { Dispatch } from "redux";
+import axios from "axios"
 
 
 interface CartItemProps {
+  id:number;
   product: Product;
   quantity: number;
-  setTotal:(a:any)=>void
+  setTotal:(a:any)=>void;
+  setData:(b:any)=>void;
 }
 
 
-const CartItem:React.FC<CartItemProps> = ({product,quantity=1,setTotal}) => {
+const del=(id:number)=>{
+  axios.delete(`https://all-products-wjqd.onrender.com/cart/${id}`)
+    .then((res)=>{
+      console.log("product is Removed")
+      return res
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    
+}
+
+
+
+
+
+
+
+const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setData}) => {
+ 
+  const [count,setCount]=useState<number>(1)
  
   const dispatch = useDispatch();
-  console.log(product.id)
+  let price:any=product.price.split(",")
+  
+   price=Number(price[0]+price[1])
+
+   
+   
+   
+   
+   
 
   useEffect(()=>{
-    setTotal((prev:any)=>prev+Number(product.price))
-  },[])
+    setTotal((prev:any)=>prev+price)
+   
+    
+  },[count,price])
 
  
+  const FetchData=()=>{
+ 
+    axios.get("https://all-products-wjqd.onrender.com/cart")
+    .then((res)=>{
+      console.log(res.data)
+      setData(res.data)
+     
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  
+   }
   
 
-  const handleRemoveFromCart = () => {
-    if (quantity !== undefined) {
-      //dispatch(removeProduct(product.id));
-    };
+  const handleRemoveFromCart = async() => {
+    //del(id)
+
+    axios.delete(`https://all-products-wjqd.onrender.com/cart/${id}`)
+    .then((res)=>{
+      console.log("product is Removed")
+      FetchData()
+      return res
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+   
   };
 
   const handleIncreaseQuantity = () => {
-    console.log(product.id,product.price)
+
+    // axios.patch(`https://all-products-wjqd.onrender.com/cart/${id}`,{"price":price})
+    // .then((res)=>{
+     
+    //   console.log(res.data)
+    //   dispatch(increaseQuantity(res.data))
+     
+    // })
+    // .catch((err)=>{
+    //   console.log(err);
+     
+    // })
+
+
+    setCount(prev=>prev+1)
+    price=price*count
+    setTotal((prev:any)=>prev+price)
+
     //dispatch(increaseQuantity(product.id));
   };
 
   const handleDecreaseQuantity = () => {
+
+    setCount(prev=>prev-1)
+    setTotal((prev:any)=>prev-price)
    // dispatch(decreaseQuantity(product.id));
   };
   return (
@@ -51,10 +126,10 @@ const CartItem:React.FC<CartItemProps> = ({product,quantity=1,setTotal}) => {
               <div className="cartTitle"><h1><b>{product.title}</b></h1></div>
               <div className="cartQantity"><span>Quantity
                <span className="incDec">
-                <button onClick={handleDecreaseQuantity}>-</button><span className="qauntity">{quantity}</span>
-                <button onClick={handleIncreaseQuantity}>+</button>
+                <button disabled={count===1} onClick={handleDecreaseQuantity}>-</button><span className="qauntity">{count}</span>
+                <button disabled={count===5} onClick={handleIncreaseQuantity}>+</button>
                </span>
-               <span className="price"><b>{`Rs ${product.price}`}</b> <span className="discount">Rs 100</span></span>
+               <span className="price"><b>{`Rs ${price}`}</b> <span className="discount">Rs 100</span></span>
                <span className="cuponCode"><span className="saving">Save Rs 119 </span><h1>After applying coupon "MONSOON"</h1></span></span>
                </div>
               <div className="cartButton"><span className="saveforlater">Save for later</span> <span className="remove" onClick={handleRemoveFromCart}>Remove</span></div>
@@ -169,6 +244,7 @@ const DIV=styled.div`
 
 .remove{
   margin-left:50px;
+  cursor: pointer;
 }
 .remove:hover{
   color:orange

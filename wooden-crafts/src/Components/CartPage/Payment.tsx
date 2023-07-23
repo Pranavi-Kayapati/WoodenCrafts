@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react'
+
+import React, { useEffect, useState,SetStateAction } from 'react'
 import {  useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
@@ -16,7 +17,7 @@ type initState={
 const addresDetail={
     fullName:"",
     email:"",
-    mobile:0,
+    mobile:91,
     postalCoded:"",
     area:"",
     landmark:"",
@@ -26,6 +27,13 @@ const addresDetail={
 
 
 export const Payment = () => {
+   
+
+
+    const [total,setTotal]=useState<SetStateAction<undefined>>()
+    const [item,setItme]=useState<string>()
+   
+
     const [address,setAddress]=useState<initState>(
         addresDetail
     )
@@ -43,11 +51,13 @@ export const Payment = () => {
 
     const handleSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-       if(!address.fullName && !address.mobile && !address.email && !address.postalCoded && !address.mobile){
+        console.log(address)
+       if(!address.fullName || address.mobile===91 || address.email=="" || !address.postalCoded || !address.mobile){
         alert("Please fill all the field")
        }else{
-        console.log(address)
-        setChekc(!check)
+        
+        alert("Your data is saved click on Save")
+        setChekc(true)
         setAddress(addresDetail)
        }
 
@@ -62,18 +72,26 @@ export const Payment = () => {
        
     }
 
+    let storedValue = localStorage.getItem('total')
+    let length = localStorage.getItem('totalItem');
+
+
+    useEffect(()=>{
+       
+      
+    },[])
+
     return (
         <DIV >
 
             <div className="cart">
 
-               {check && <h1 className='savdData'>Your Data has beem Submited Please click on Save and Contiue</h1>}
-
-               {check===false && 
+          
+ 
                
                <div className="cartleft1">
                <div className='deliveryADD'><b>Delivery & Billing Address</b></div>
-               <hr />
+               {/* <hr /> */}
                
                <form onSubmit={handleSubmit}>
                    <span><span className='detail'>Full Name*</span><input value={address.fullName} name='fullName' placeholder='eg Sharad Paradhi' onChange={(e)=>hanndleChange(e)}/></span>
@@ -90,7 +108,7 @@ export const Payment = () => {
                </form>
 
            </div>
-               }
+               
 
 
                 {/* ---------------------------------------------cart right side--------------------------------------------------- */}
@@ -105,13 +123,13 @@ export const Payment = () => {
                     <hr />
 
                     <div className="priceDetail">
-                        <h1><b>Price Detail (3 items)</b></h1>
+                        <h1><b>Price Detail ({length})</b></h1>
                         <hr />
-                        <span>MRP</span><span className="priceright">Rs 2324</span>
+                        <span>MRP</span><span className="priceright">Rs {storedValue}</span>
                         <hr />
                         <span>Discount</span><span className="priceright"><span className="green">-Rs 2324</span></span>
                         <hr />
-                        <span><b>Total Paybale</b></span><span className="priceright">Rs 2324</span>
+                        <span><b>Total Paybale</b></span><span className="priceright">Rs {storedValue}</span>
                         <hr />
                         <span className="green">Congratulations! You’ve just saved Rs 3,288 on your order.</span>
                     </div>
@@ -220,8 +238,9 @@ const DIV = styled.div`
   }
                                     .cupon input{
                                         width: 70%;
-                                    padding: 5px;
+                                    height: 5px;
                                     border: 1px solid grey;
+                                    outline: none;
   }
                                     .cupon button{
                                         width: 30%;
