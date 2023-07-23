@@ -163,6 +163,7 @@ const DIV = styled.div`
    
   }
   .cart{
+    margin-top:300px;
     display: flex;
     width: 80%;
     margin: auto;
@@ -228,7 +229,7 @@ const DIV = styled.div`
   }
   .cupon input{
   width: 70%;
-  padding:15px 0px;
+  padding:15px;
   border: 1px solid grey;
   }
   .cuponCode{
@@ -239,7 +240,7 @@ const DIV = styled.div`
   .cupon button{
     width: 30%;
     border: 1px solid grey;
-    margin-top:2px;
+    margin-top:4px;
     color:white;
     padding:4px;
     background-color:orange;
