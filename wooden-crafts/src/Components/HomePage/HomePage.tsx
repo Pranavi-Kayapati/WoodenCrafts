@@ -6,6 +6,7 @@ import { DataItem } from './Scroll';
 import homepage from '../Navbar/logo/homepage.png'
 import customerdata from '../Navbar/logo/customerdata.png'
 import  {Footer } from './Footer';
+import { Link } from 'react-router-dom';
 
 
 const HomePage = () => {
@@ -111,7 +112,7 @@ const HomePage = () => {
     <div id='homepage'>
     <Container  maxW='container.2xl'>
     <GridSlider/>
-      <Heading  textAlign={"center"} marginBottom={"20px"}>Top Picks For You</Heading>
+      <Heading  size='xl' textAlign={"center"} marginBottom={"20px"}>Top Picks For You</Heading>
       <Text  textAlign={"center"} fontSize='2xl'>Impressive Collection For Your Dream Home</Text>
 <SimpleGrid  maxWidth={"80%"} margin={"auto"} marginTop={"30px"} columns={[2, null, 6]} spacing='40px'>
   <VStack>
@@ -164,7 +165,7 @@ const HomePage = () => {
   </VStack>
 </SimpleGrid>
 <hr style={{ marginTop:"80px", width:"100%"}}/>
-<Heading  textAlign={"center"} marginTop={"50px"} marginBottom={"20px"}>India's Finest Online Furniture Brand</Heading>
+<Heading  size='xl' textAlign={"center"} marginTop={"50px"} marginBottom={"20px"}>India's Finest Online Furniture Brand</Heading>
 <Container maxW='container.xl'>
 <Text  textAlign={"center"} fontSize='lg'>Buy Furniture Online from our extensive collection of wooden furniture units to give your home an elegant touch at affordable prices.
  We offer a wide range of wooden furniture online to suit your home interiors. You can either buy furniture carved out of solid wood material from our
@@ -172,19 +173,20 @@ const HomePage = () => {
 </Container>
 
 <SimpleGrid columns={[2, null, 3]} maxW={"90%"} margin={"auto"} marginTop={"40px"} spacing='40px'>
-  <Box  ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/beds-banner.jpg?v=19"}></img></Box>
-  <Box ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/wfh-banner.jpg?v=2"}></img></Box>
-  <Box ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/space-save-banner.jpg?v=19"}></img></Box>
-  <Box ><img className="zoom"  alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/dining-set-banner.jpg?v=19"}></img></Box>
-  <Box ><img className="zoom"  alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/wooden-sofa-banner.jpg?v=19"}></img></Box>
-  <Box> <img  className="zoom" alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/dressing-table-banner.jpg?v=19"}></img></Box>
+  <Box  > <Link to={'/product'} > <img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/beds-banner.jpg?v=19"}></img></Link></Box>
+  <Box > <Link to={'/product'} > <img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/wfh-banner.jpg?v=2"}></img></Link></Box>
+  <Box > <Link to={'/product'} ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/space-save-banner.jpg?v=19"}></img></Link> </Box>
+  <Box > <Link to={'/product'} > <img className="zoom"  alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/dining-set-banner.jpg?v=19"}></img></Link></Box>
+  <Box > <Link to={'/product'} ><img className="zoom"  alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/wooden-sofa-banner.jpg?v=19"}></img></Link> </Box>
+  <Box>  <Link to={'/product'} > <img  className="zoom" alt='broken'  src={"https://www.woodenstreet.com/images/home-new1/dressing-table-banner.jpg?v=19"}></img></Link></Box>
 </SimpleGrid>
 <hr style={{ marginTop:"80px", width:"100%"}}/>
 
-<Heading  marginTop={"50px"} marginBottom={"20px"}>Best-Sellers Of The 2eason</Heading>
+<Heading  marginTop={"50px"} size='xl' marginBottom={"20px"}>Best-Sellers Of The Season</Heading>
 <Scroll data={bestSeller} /> 
 <hr style={{ marginTop:"80px", width:"100%"}}/>
-<Heading  marginTop={"60px"} marginBottom={"20px"}>Living Room Furniture</Heading>
+<Heading  size='xl'  marginTop={"60px"} marginBottom={"10px"}>Living Room Furniture</Heading>
+<Text fontSize='lg' marginBottom={'20px'}>Let’s Brew N Binge</Text>
 <Flex gap={'20px'} >
     <Box   width={'50%'}><img  alt='broken' style={{height:'640px'}} src="https://www.woodenstreet.com/images/furniture-new/living-furniture1.jpg"></img></Box>
     <Box  width={'50%'}>
@@ -197,14 +199,18 @@ const HomePage = () => {
     </Box>
   </Flex>
   <hr style={{ marginTop:"80px", width:"100%"}}/>
-  <Heading  marginTop={"50px"} marginBottom={"20px"}>Sofa Cum Beds</Heading>
+  <Heading  size='xl' marginTop={"50px"} marginBottom={"20px"}>Sofa Cum Beds</Heading>
+  <Text fontSize='lg' marginBottom={'20px'}>Explore Our Handpicked Collections Of Luxury Furniture</Text>
    <Scroll data={SofaCumBed}/> 
    <hr style={{ marginTop:"80px", width:"100%"}}/>
-   <Heading  marginTop={"50px"} marginBottom={"20px"}>New Launches</Heading>
+   <Heading  size='xl' marginTop={"50px"} marginBottom={"20px"}>New Launches</Heading>
+   <Text fontSize='lg' marginBottom={'20px'}>These Are "Add To Cart" Kinda Products!</Text>
    <Scroll data={NewLaunches}/> 
    <hr style={{ marginTop:"80px", width:"100%"}}/>
    <img style={{marginTop:'50px'}} src={homepage}></img>
-   <Heading  marginTop={"60px"} marginBottom={"20px"}>Dining Room Furniture</Heading>
+   <Heading  size='xl'  marginTop={"60px"} marginBottom={"20px"}>Dining Room Furniture</Heading>
+   <Text fontSize='lg' marginBottom={'20px'}>To Experience The Luxury Dining</Text>
+  
 <Flex gap={'20px'} >
     <Box   width={'50%'}><img  alt='broken' style={{height:'640px'}} src="https://www.woodenstreet.com/images/furniture-new/dining-furniture1.jpg"></img></Box>
     <Box  width={'50%'}>
@@ -217,7 +223,7 @@ const HomePage = () => {
     </Box>
   </Flex>
   <hr style={{ marginTop:"80px", width:"100%"}}/>
-   <Heading  marginTop={"50px"} marginBottom={"20px"}>Need Buying Guidance?</Heading>
+   <Heading  size='xl' marginTop={"50px"} marginBottom={"20px"}>Need Buying Guidance?</Heading>
    <Scroll data={BuyingGuidance}/> 
    <hr style={{ marginTop:"80px", width:"100%"}}/>
    <img style={{marginTop:'20px'}} src={customerdata}></img>

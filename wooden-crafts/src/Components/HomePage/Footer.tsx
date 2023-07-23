@@ -8,12 +8,14 @@ export const Footer = () => {
     <div className="contanier">
         <div className="row">
             <div className="footer-col">
-                <h4>About</h4>
+                <h4>OUR COMPANY</h4>
                 <ul>
                     <li><a href="">Our story</a></li>
                     <li><a href="">Contact us</a></li>
-                    <li><a href="">Careers</a></li>
-                    <li><a href="">Privacy policy</a></li>
+                    <li><a href="">Media</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Career</a></li>
+                    <li><a href="">Costumer Stories</a></li>
                 </ul>
             </div>
             <div className="footer-col">
@@ -30,7 +32,7 @@ export const Footer = () => {
                 <ul>
                     <li><h5>Timings: 10AM - 6PM (Mon-Sat)</h5></li>
                     <li><h5>Call: +91 7011263423</h5></li>
-                    <li><h5>E-Mail: care@shopspree.com</h5></li>
+                    <li><h5>E-Mail: furnitur@woodenCrafts.com</h5></li>
                 </ul>
             </div>
             <div className="footer-col">
@@ -39,6 +41,7 @@ export const Footer = () => {
                     <li>
                         <h5>
                             Enter your email below to be the first to know about new collections and product launches.
+                            <input type='url' style={{width:'300px',padding:'20px 10px',backgroundColor:'white'}} placeholder='Enter Email'></input>
                         </h5>
                     </li>
                 </ul>
@@ -46,14 +49,8 @@ export const Footer = () => {
         </div>
     </div>
     <div className="footer-2">
-        <div className="social-links" >
-            <a href=""><i className="fa-brands fa-facebook-f"></i></a>
-        </div>
-        <div className="social-links" >
-            <a href=""><i className="fa-brands fa-instagram"></i></a>
-        </div>
         <div className="copyright">
-            <p>© SHOPSPREE PRIVATE LIMITED</p>
+            <p>© WOODEN CRAFTS PRIVATE LIMITED</p>
         </div>
     </div>
 </footer>

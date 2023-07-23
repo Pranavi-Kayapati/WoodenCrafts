@@ -156,8 +156,9 @@ const CartPage: React.FC = () => {
 export default CartPage;
 
 const DIV = styled.div`
+margin-top:150px;
   *{
-    margin: 0px;
+    margin-top: 0px;
     padding:0px;
     box-sizing:0px;
    
