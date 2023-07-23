@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
   adminproductReducer,
   usersReducer,
   cartReducer,
+  productReducer,
 });
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
