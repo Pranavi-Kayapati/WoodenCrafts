@@ -30,12 +30,17 @@ const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setDat
   const [count,setCount]=useState<number>(1)
  
   const dispatch = useDispatch();
+  console.log(product.price)
+
   let price:any=product.price.split(",")
   
    price=Number(price[0]+price[1])
-    
+
+   console.log(price)
+
   useEffect(()=>{
     setTotal((prev:any)=>prev+price)    
+
   },[count,price])
 
  

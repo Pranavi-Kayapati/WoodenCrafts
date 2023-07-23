@@ -14,14 +14,14 @@ import { getCartProduct } from "../redux/cartReducer/action";
 
 // Helper function to calculate the total price of all items in the cart
 
-function calculateTotalPrice(data: { product: Product; quantity: number }[]): number {
-  let total = 0;
-  data.forEach((item) => {
-    const price = parseInt(item.product.price.replace(",", ""));
-    total += price * item.quantity;
-  });
-  return total;
-}
+// function calculateTotalPrice(data: { product: Product; quantity: number }[]): number {
+//   let total = 0;
+//   data.forEach((item) => {
+//     const price = parseInt(item.product.price.replace(",", ""));
+//     total += price * item.quantity;
+//   });
+//   return total;
+// }
 
 
 
@@ -68,7 +68,7 @@ const CartPage: React.FC = () => {
    },[total])
 
   
- 
+   console.log(total)
 
   return (
     <DIV>
