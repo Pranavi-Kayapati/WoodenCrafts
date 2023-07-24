@@ -102,8 +102,6 @@ const CartItem: React.FC<CartItemProps> = ({
   };
   return (
     <DIV>
-      <hr />
-
       <div className="cartItem">
         <div className="cartItemimage">
           <img src={product.image} alt="ErrorImage" />
@@ -135,12 +133,14 @@ const CartItem: React.FC<CartItemProps> = ({
               </span>
             </span>
           </div>
+
           <div className="cartButton">
             <span className="saveforlater">Save for later</span>{" "}
             <span className="remove" onClick={handleRemoveFromCart}>
               Remove
             </span>
           </div>
+          <br />
         </div>
       </div>
     </DIV>
@@ -151,50 +151,55 @@ export default CartItem;
 
 const DIV = styled.div`
   .cartItem {
-    margin-top: 15px;
+    /* margin-top: 15px; */
+    border-top: 1px solid gray;
     width: 100%;
-    height: 200px;
+    height: 250px;
     display: flex;
-    align-items: center;
+    justify-content: space-evenly;
+    /* align-items: center; */
     gap: 10px;
   }
 
   .cartItemimage {
     width: 30%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative;
+    top: -130px; */
   }
-  .cartItemimage img {
+  /* .cartItemimage img {
     position: absolute;
     left: 0px;
     top: 20px;
-  }
+  } */
   .cartItemdetail {
     width: 70%;
-    position: relative;
+    /* position: relative; */
   }
 
-  .cartItemdetail div {
+  /* .cartItemdetail div {
     position: absolute;
     left: 0px;
-  }
+  } */
 
-  .cartTitle {
+  /* /* .cartTitle {
     position: absolute;
     top: 20px;
-  }
+  } */
 
   .cartQantity {
-    position: absolute;
+    margin: 10px auto;
+    padding: 10px;
+    /* position: absolute; */
     top: 80px;
   }
   .cartButton {
-    position: absolute;
+    /* position: absolute; */
     bottom: 20px;
   }
-
-  .qant {
+  */ .qant {
     padding: 0px;
     margin-left: 15px;
     margin-right: 10px;
@@ -219,7 +224,7 @@ const DIV = styled.div`
     color: #ff9800;
   }
   .qauntity {
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     padding: 5px 7px;
   }
   .price {
@@ -232,14 +237,18 @@ const DIV = styled.div`
     margin-left: 15px;
   }
   .saving {
+    border: 1px solid #ff9800;
+    padding: 5px;
+    width: 100px;
     color: orange;
   }
   .cuponCode h1 {
-    position: absolute;
-    right: -130px;
   }
 
   .remove {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ff9800;
     margin-left: 50px;
     cursor: pointer;
   }

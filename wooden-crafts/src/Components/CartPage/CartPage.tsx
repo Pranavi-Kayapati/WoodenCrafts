@@ -11,11 +11,11 @@ import { getCartProduct } from "../redux/cartReducer/action";
 
 // Helper function to calculate the total price of all items in the cart
 
-// function calculateTotalPrice(data:any){
+// function calculateTotalPrice(data: { product: Product; quantity: number }[]): number {
 //   let total = 0;
-//   data.reduce((item:any,ind:number) => {
-//     const price = parseInt(item.singleProductprice.replace(",", ""));
-//     total += Number(price) ;
+//   data.forEach((item) => {
+//     const price = parseInt(item.product.price.replace(",", ""));
+//     total += price * item.quantity;
 //   });
 //   return total;
 // }
@@ -151,21 +151,14 @@ const CartPage: React.FC = () => {
 export default CartPage;
 
 const DIV = styled.div`
-  margin-top: 130px;
-  width: 100%;
+  margin-top: 150px;
   * {
     margin-top: 0px;
     padding: 0px;
     box-sizing: 0px;
   }
-  h1 {
-    font-size: 22px;
-    text-align: center;
-    font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
   .cart {
+    margin-top: 300px;
     display: flex;
     width: 100%;
     margin: auto;
@@ -173,9 +166,9 @@ const DIV = styled.div`
   }
   .cartleft1 {
     width: 69%;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid grey;
-    /* position: relative; */
+    position: relative;
     overflow-wrap: none;
   }
 
@@ -187,37 +180,23 @@ const DIV = styled.div`
     padding: 15px;
   }
   .cl2 {
-    display: flex;
-    align-items: center;
+    position: absolute;
     right: 0px;
   }
   .cl2 input {
-    padding-left: 5px;
-    margin-bottom: 5px;
     width: 160px;
-    height: 33px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
     border: none;
   }
   .deliver {
-    font-size: 20px;
-    margin-right: 20px;
+    margin-right: 40px;
   }
   .check {
-    display: flex;
-    align-items: center;
     border: 1px solid grey;
-    height: 35px;
     border-radius: 3px;
+    padding: 5px;
   }
   .check button {
-    width: 90px;
-    height: 33px;
-    background: #ff9800;
-    color: white;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    color: #ff9800;
   }
 
   /* ------------------------------------------------------cart right------------------------------------------------------  */
