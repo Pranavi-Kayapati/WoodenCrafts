@@ -1,114 +1,114 @@
 
 
-import React, { useEffect, useState,SetStateAction } from 'react'
-import {  useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, SetStateAction } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-type initState={
-    fullName:string;
-    email:string;
-    mobile:number;
-    postalCoded:string;
-    area:string;
-    landmark?:string;
-    state?:string;
+type initState = {
+    fullName: string;
+    email: string;
+    mobile: number;
+    postalCoded: string;
+    area: string;
+    landmark?: string;
+    state?: string;
 }
 
-const addresDetail={
-    fullName:"",
-    email:"",
-    mobile:91,
-    postalCoded:"",
-    area:"",
-    landmark:"",
-    state:"",
+const addresDetail = {
+    fullName: "",
+    email: "",
+    mobile: 91,
+    postalCoded: "",
+    area: "",
+    landmark: "",
+    state: "",
 }
 
 
 
 export const Payment = () => {
-   
 
 
-    const [total,setTotal]=useState<SetStateAction<undefined>>()
-    const [item,setItme]=useState<string>()
-   
 
-    const [address,setAddress]=useState<initState>(
+    const [total, setTotal] = useState<SetStateAction<undefined>>()
+    const [item, setItme] = useState<string>()
+
+
+    const [address, setAddress] = useState<initState>(
         addresDetail
     )
 
-    const [check,setChekc]=useState<boolean>(false)
+    const [check, setChekc] = useState<boolean>(false)
 
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
-    const hanndleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
-        const {name,value}=e.target;
-        setAddress((prev)=>{
-            return {...prev,[name]:value}
+    const hanndleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setAddress((prev) => {
+            return { ...prev, [name]: value }
         })
     }
 
-    const handleSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(address)
-       if(!address.fullName || address.mobile===91 || address.email=="" || !address.postalCoded || !address.mobile){
-        alert("Please fill all the field")
-       }else{
-        
-        alert("Your data is saved click on Save")
-        setChekc(true)
-        setAddress(addresDetail)
-       }
+        if (!address.fullName || address.mobile === 91 || address.email == "" || !address.postalCoded || !address.mobile) {
+            alert("Please fill all the field")
+        } else {
+
+            alert("Your data is saved click on Save")
+            setChekc(true)
+            setAddress(addresDetail)
+        }
 
     }
 
-    const handleChekcOut=()=>{
-        if(check){
+    const handleChekcOut = () => {
+        if (check) {
             navigate("/checkout")
-        }else{
+        } else {
             alert("please fill the detail")
         }
-       
+
     }
 
     let storedValue = localStorage.getItem('total')
     let length = localStorage.getItem('totalItem');
 
 
-    useEffect(()=>{
-       
-      
-    },[])
+    useEffect(() => {
+
+
+    }, [])
 
     return (
         <DIV >
 
             <div className="cart">
 
-          
- 
-               
-               <div className="cartleft1">
-               <div className='deliveryADD'><b>Delivery & Billing Address</b></div>
-               {/* <hr /> */}
-               
-               <form onSubmit={handleSubmit}>
-                   <span><span className='detail'>Full Name*</span><input value={address.fullName} name='fullName' placeholder='eg Sharad Paradhi' onChange={(e)=>hanndleChange(e)}/></span>
-                   <span><span className='detail'>Email*</span><input value={address.email} name='email' placeholder='eg shard@gmail.com'  onChange={(e)=>hanndleChange(e)}/></span>
-                   <span><span className='detail'>Mobile Number*</span><input type='number' name='mobile' value={address.mobile} 
-                    maxLength={10} placeholder='eg 7377727'  onChange={(e)=>hanndleChange(e)}/></span>
-                   <span><span className='detail'>Postal Code*</span><input name='postalCoded' value={address.postalCoded} placeholder='eg spahle'  onChange={(e)=>hanndleChange(e)}/></span>
-                   <span><span className='detail'>Area*</span><input value={address.area} name='area' placeholder='eg palghar'  onChange={(e)=>hanndleChange(e)}/></span>
-                   <span><span className='detail'>LanndMark</span><input value={address.landmark} name='landmark' placeholder='eg pargoan'  onChange={(e)=>hanndleChange(e)}/></span>
-                   <span><span className='detail'>State</span><input value={address.state}name='state' placeholder='eg maharashtra'
-                    onChange={(e)=>hanndleChange(e)}/></span>
-                    <button className='submitBtn' type='submit'>Submit</button>
 
-               </form>
 
-           </div>
-               
+
+                <div className="cartleft1">
+                    <div className='deliveryADD'><b>Delivery & Billing Address</b></div>
+                    {/* <hr /> */}
+
+                    <form onSubmit={handleSubmit}>
+                        <span><label className='detail'>Full Name*</label><input value={address.fullName} name='fullName' placeholder='Enter Your Name' onChange={(e) => hanndleChange(e)} /></span>
+                        <span><span className='detail'>Email*</span><input value={address.email} name='email' placeholder='Enter Your Email' onChange={(e) => hanndleChange(e)} /></span>
+                        <span><span className='detail'>Mobile Number*</span><input type='number' name='mobile' value={address.mobile}
+                            maxLength={10} placeholder='Enter Your Mobile number' onChange={(e) => hanndleChange(e)} /></span>
+                        <span><span className='detail'>Postal Code*</span><input name='postalCoded' value={address.postalCoded} placeholder='eg spahle' onChange={(e) => hanndleChange(e)} /></span>
+                        <span><span className='detail'>Area*</span><input value={address.area} name='area' placeholder='Distric' onChange={(e) => hanndleChange(e)} /></span>
+                        <span><span className='detail'>LanndMark</span><input value={address.landmark} name='landmark' placeholder='colony' onChange={(e) => hanndleChange(e)} /></span>
+                        <span><span className='detail'>State</span><input value={address.state} name='state' placeholder='State'
+                            onChange={(e) => hanndleChange(e)} /></span>
+                        <button className='submitBtn' type='submit'>Submit</button>
+
+                    </form>
+
+                </div>
+
 
 
                 {/* ---------------------------------------------cart right side--------------------------------------------------- */}
@@ -160,6 +160,7 @@ const DIV = styled.div`
                                         display: flex;
                                     width: 80%;
                                     margin: auto;
+                                    margin-top:200px;
                                     gap:20px;
                                     background-color:white;
   
@@ -200,7 +201,6 @@ const DIV = styled.div`
    
     border:1px solid grey;
     padding:20px;
-    margin-top: 17px;
     width: 65%;
     
   }

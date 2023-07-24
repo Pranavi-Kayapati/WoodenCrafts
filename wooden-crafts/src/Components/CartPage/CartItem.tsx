@@ -33,18 +33,19 @@ const del = (id: number) => {
 }
 
 const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setData}) => {
+  const dispatch=useDispatch()
  
   const [count,setCount]=useState<number>(1)
- 
-  const dispatch = useDispatch();
+
+
   console.log(product.price);
+  let price: any = product.price.split(",").join("");
+  price=Number(price)
+  console.log(price)
 
-  let price: any = product.price.split(",");
-
-   console.log(price)
   useEffect(()=>{
-    setTotal((prev:any)=>prev+price)
-  },[count,price])
+    //setTotal((prev:any)=>prev+price)
+  },[count])
 
  
   const FetchData=()=>{
@@ -82,10 +83,13 @@ const CartItem:React.FC<CartItemProps> = ({id,product,quantity=1,setTotal,setDat
     //   console.log(res.data)
     //   dispatch(increaseQuantity(res.data))
 
+    let newprice: any = product.price.split(",").join("");
+        newprice=Number(newprice)
+
     setCount(prev=>prev+1)
-    price=price*count
-    setTotal((prev:any)=>prev+price)
-    //dispatch(increaseQuantity(product.id));
+   
+    setTotal((prev:any)=>prev+newprice)
+    //dispatch(increaseQuantity(product.id))
   };
 
   const handleDecreaseQuantity = () => {
