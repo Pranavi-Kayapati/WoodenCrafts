@@ -41,6 +41,25 @@ const SingleProductPage = () => {
     return <div>Loading...</div>;
   }
 
+
+  const FetchData = () => {
+  
+    axios
+      .post("https://all-products-wjqd.onrender.com/cart", {singleProduct})
+      .then((res) => {
+        alert("product is added successfully");
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleAddToCart = () => {
+    console.log(singleProduct)
+    FetchData();
+  };
+
   return (
     <div className="single-product-container">
       <div className="single-product">
@@ -109,7 +128,7 @@ const SingleProductPage = () => {
             </div>
           </div>
           <div className="add-to-cart">
-            <button>Add To Cart</button>
+            <button onClick={handleAddToCart}>Add To Cart</button>
           </div>
           <div className="special-offers">
             <h1>

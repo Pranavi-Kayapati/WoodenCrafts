@@ -14,11 +14,11 @@ import { getCartProduct } from "../redux/cartReducer/action";
 
 // Helper function to calculate the total price of all items in the cart
 
-// function calculateTotalPrice(data: { product: Product; quantity: number }[]): number {
+// function calculateTotalPrice(data:any){
 //   let total = 0;
-//   data.forEach((item) => {
-//     const price = parseInt(item.product.price.replace(",", ""));
-//     total += price * item.quantity;
+//   data.reduce((item:any,ind:number) => {
+//     const price = parseInt(item.singleProductprice.replace(",", ""));
+//     total += Number(price) ;
 //   });
 //   return total;
 // }
@@ -99,20 +99,18 @@ const CartPage: React.FC = () => {
 
           {/* -------------------------------------------------cart itme----------------------------------------------------- */}
 
-
-
-
-          {data?.map((item:any,ind:any) => (
+         {data?.map((item:any,ind:any) => (
             <CartItem key={ind}
-             product={item.product} 
+             product={item.singleProduct} 
              quantity={1} 
             setTotal={setTotal}
             id={item.id}
             setData={setData}
             />
-          ))}
-         
+          ))} 
 
+          {/* <h1>total{calculateTotalPrice(data)}</h1> */}
+          
 
         </div>
 
