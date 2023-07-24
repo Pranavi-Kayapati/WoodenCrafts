@@ -89,12 +89,13 @@ const Sidebar=()=>{
             
 
             <div onChange={HandleChange}>
-                <input type="radio" value={"asc"} name="order" defaultChecked={initOrder=="asc"}/>
-                <label htmlFor="">Price (Low to High)
-                
+            <label  htmlFor="">
+                <input  type="radio" value={"asc"} name="order" defaultChecked={initOrder=="asc"}/>
+                Price (Low to High) </label>
+                <label style={{marginRight:'-30px'}} >
                 <input type="radio" value={"desc"} name="order" defaultChecked={initOrder=="desc"}/>
-                </label>
-                <label >Price (High to Low)</label>
+               
+               Price (High to Low)</label>
             </div>
             <br />
             
@@ -102,11 +103,13 @@ const Sidebar=()=>{
             <h2  style={{padding:"10px"}}>Filter</h2>
             <hr />
             <br />
-            <h2>PRICE RANGE</h2>
+            {/* <h2>PRICE RANGE</h2>
             <br />
             <div>
-                <input type="checkbox" value="19,999"/> 
-                <label >Under ₹ 19,999</label>
+                <label >
+                <input type="checkbox" value="19,999"></input> 
+                Under ₹ 19,999
+                </label>
             </div>
             <div>
                 <input type="checkbox" value="20,000 - 29,999" /> 
@@ -125,7 +128,7 @@ const Sidebar=()=>{
                 <label >Over ₹ 50,000</label>
             </div>
             <br />
-            <hr />
+            <hr /> */}
             <br />
             <h2>MATERIAL</h2>
             <br />
