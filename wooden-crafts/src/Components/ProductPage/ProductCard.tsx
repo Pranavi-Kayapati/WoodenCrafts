@@ -62,7 +62,7 @@ export let ProductCard = ({ product }: any) => {
               {Array(5)
                 .fill("")
                 .map((_, i) => (
-                  <StarIcon key={i} color={"#F3601E"} />
+                  <StarIcon key={i} color={"#f9a92c"} />
                 ))}
             </Box>
 
@@ -73,7 +73,7 @@ export let ProductCard = ({ product }: any) => {
           <div style={{ position: "relative", bottom: "30px" }}>
             <Box ml="150px">
               <Link href={`/product/${product.id}`}>
-                <Button background="#F3601E" color="white" w="19vh" h="6vh">
+                <Button background="#f9a92c" color="white" w="19vh" h="6vh">
                   View Products
                 </Button>
               </Link>

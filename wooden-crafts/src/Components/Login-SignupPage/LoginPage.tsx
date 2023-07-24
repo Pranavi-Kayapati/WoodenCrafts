@@ -45,7 +45,7 @@ setPassword("")
   // }
 
   return (
-    <div>
+    <div style={{marginTop:'120px'}}>
       <div style={{ backgroundImage: "url('https://i.pinimg.com/originals/49/16/ba/4916baf0575b121dac9bb85e23f80c21.jpg')" ,width:"100%",height:"630px",opacity:"4"}}>
         {/* Your content here */}
         <div className={styles.logo}>
@@ -54,16 +54,16 @@ setPassword("")
           <h1 style={{color:"white"}}>Behance</h1> */}
         </div>
         <div className={styles.input}>
-          <div style={{position:"relative",top:"40px",left:"-140px"}}>
+          <div style={{position:"relative",top:"40px",right:'20'}}>
               
               <h1 style={{marginLeft:"7px",marginTop:"15px"}}>Sign in</h1>
               </div>
-              <div style={{marginTop:"30px",marginLeft:"-280px",}}>
+              <div style={{marginTop:"30px",marginLeft:"11px",}}>
              
               <p>New user? <Link to="/signup"><span style={{color:"#1473e6"}}>Create an account</span></Link></p>
           </div>
           
-          <div style={{position:"relative",left:"-12px"}}>
+          <div style={{position:"relative",left:'55px'}}>
               <form action="">
              
               <Input required type="email" name="email" variant='flushed' w='370px' mt="15px" ml="5px" placeholder="email address" value={email} onChange={(e)=>setEmail(e.target.value)}/>
