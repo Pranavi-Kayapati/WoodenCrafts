@@ -7,12 +7,22 @@ import { FiUsers } from "react-icons/fi";
 import { BsClipboard2Check } from "react-icons/bs";
 import { LuLayoutList } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
+import { LogoutSuccess } from "../../redux/authReducer/action";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   setActiveList: (activeList: string) => void;
 };
 
 const AdminSidebar = ({ setActiveList }: Props) => {
+  const navigate=useNavigate()
+  const dispatch=useDispatch()
+  const handleLogout=()=>{
+    dispatch(LogoutSuccess())
+    navigate('/')
+    
+  }
   const handleChangeActive = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -77,7 +87,7 @@ const AdminSidebar = ({ setActiveList }: Props) => {
         <div className="active-btn">
           <button className="sub-head">
             <MdLogout color="white" />
-            <span className="padd-15">Logout</span>
+            <span className="padd-15" onClick={handleLogout}>Logout</span>
           </button>
         </div>
       </div>

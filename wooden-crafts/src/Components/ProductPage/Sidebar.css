@@ -4,9 +4,12 @@
     flex-direction:column;
     align-items:flex-start;
     margin-right: 5px;
+    /* margin-top: 50px; */
 }
-
-
+/* 
+.Product_container div{
+    display: flex;
+} */
 hr{
    
     width: 110%; 

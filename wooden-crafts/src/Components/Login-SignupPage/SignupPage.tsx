@@ -45,7 +45,7 @@ else {
 
 
     return (
-        <div>
+        <div style={{marginTop:'130px'}}>
           <div style={{ backgroundImage: "url('https://i.pinimg.com/originals/49/16/ba/4916baf0575b121dac9bb85e23f80c21.jpg')" ,width:"100%",height:"630px"}}>
             {/* Your content here */}
            
@@ -57,8 +57,8 @@ else {
             <div className={styles.input}>
            
               <div style={{position:"relative",left:"-37px"}}>
-                  <p style={{position:"relative",left:"-115px"}}>Step 1 of 2</p>
-                  <h1>Create an account</h1>
+                  <p style={{position:"relative",left:"100px"}}>Step 1 of 2</p>
+                  <h1 style={{marginLeft:'95px'}}>Create an account</h1>
                   </div>
                   <HStack spacing="1"  ml="10px" mt="20px">      
                       <button style={{marginTop:"6px"}}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoZBdB0NcrWNlzdXQCMSs9qEdNi-lRty88veNsiRBV&s" alt="" width="40px"/></button>
@@ -77,7 +77,7 @@ else {
                   <p>Already have an account? <Link to="/login"><span style={{color:"#1473e6"}}>Sign in</span></Link></p>
               </div>
               {err&& <p style={{color:"red",marginLeft:"57px",marginTop:"30px"}}>Please fill in all fields</p>}
-              <div style={{position:"relative",left:"-10px"}}>
+              <div style={{position:"relative",left:"46px"}}>
                   <form action="" >
                   <Input variant='flushed' w='370px' mt="15px" ml="5px" placeholder="username" name="username" value={username} onChange={(e)=>setUsername(e.target.value)}/>
                   <Input required type="email" variant='flushed' w='370px' mt="15px" ml="5px" placeholder="email address" name="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
