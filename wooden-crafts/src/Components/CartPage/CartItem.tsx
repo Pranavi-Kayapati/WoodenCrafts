@@ -47,7 +47,7 @@ const CartItem: React.FC<CartItemProps> = ({
   console.log(price);
 
   useEffect(() => {
-    //setTotal((prev:any)=>prev+price)
+    setTotal((prev: any) => prev + price);
   }, [count]);
 
   const FetchData = () => {
@@ -239,7 +239,6 @@ const DIV = styled.div`
   .saving {
     border: 1px solid #ff9800;
     padding: 5px;
-    width: 100px;
     color: orange;
   }
   .cuponCode h1 {

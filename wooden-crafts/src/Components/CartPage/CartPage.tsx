@@ -191,6 +191,8 @@ const DIV = styled.div`
     margin-right: 40px;
   }
   .check {
+    display: flex;
+    align-items: center;
     border: 1px solid grey;
     border-radius: 3px;
     padding: 5px;
