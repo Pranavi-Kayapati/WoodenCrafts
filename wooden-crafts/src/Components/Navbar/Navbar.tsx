@@ -1,21 +1,9 @@
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Heading,
-  Center,
-  Container,
-  Button,
-  useDisclosure,
-} from "@chakra-ui/react";
+
 import {
   Link,
-  NavLink,
-  Navigate,
+ 
   useNavigate,
-  useSearchParams,
+ 
 } from "react-router-dom";
 
 import "./Navbar.css";
@@ -23,7 +11,7 @@ import logo2 from "./logo/logo2.png";
 import { BiUserCircle } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiCartAlt } from "react-icons/bi";
-import { useRef, useState } from "react";
+import {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import {
@@ -33,26 +21,11 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
+  Heading,
 } from "@chakra-ui/react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-} from "@chakra-ui/react";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Input,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+
+
+
 
 import { LogoutSuccess } from "../redux/authReducer/action";
 import Burgermenu from "./Burgermenu";
@@ -96,7 +69,7 @@ export const Navbar = () => {
         <nav>
           <div className="uppernav">
             <Link to="/">
-              <img id="logo" src={logo2}></img>
+              <img id="logo" alt="Logo" src={logo2}></img>
             </Link>
             <input
               className="search-div"
@@ -196,7 +169,7 @@ export const Navbar = () => {
                 color: "white",
                 height: "34px",
                 width: "100px",
-                marginTop: "30px",
+                // marginTop: "30px",
                 // marginLeft: "-50px",
               }}
               onClick={handleClick}
@@ -325,6 +298,7 @@ export const Navbar = () => {
                           <img
                             className="navimage"
                             src="https://hometown.gumlet.io/media/product/97/2073/47584/1.jpg?mode=fill&h=360&w=360&dpr=1.5"
+                            alt="Sofas"
                           ></img>
                         </section>
                       </div>
@@ -504,6 +478,7 @@ export const Navbar = () => {
                         <section>
                           <img
                             className="navimage"
+                            alt="Beds"
                             src="https://img.buzzfeed.com/buzzfeed-static/static/2020-12/2/23/asset/84cac33dd28b/sub-buzz-12698-1606950145-13.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto"
                           ></img>
                         </section>
@@ -690,6 +665,7 @@ export const Navbar = () => {
                         <section>
                           <img
                             className="navimage"
+                            alt="Lights"
                             src="https://m.economictimes.com/thumb/msid-99768075,width-1500,height-1300,resizemode-4,imgsize-123788/1.jpg"
                           ></img>
                         </section>
@@ -841,6 +817,7 @@ export const Navbar = () => {
                         <section>
                           <img
                             className="navimage"
+                            alt="KitchenWare"
                             src="https://images.woodenstreet.de/image/cache/data%2Fdining-set%2F2-seater%2Fpaul-2-seater-dining-set%2Fhoney%2Fupdated%2F1-810x702.jpg"
                           ></img>
                         </section>
@@ -963,6 +940,7 @@ export const Navbar = () => {
                         <section>
                           <img
                             className="navimage"
+                            alt="KidsRoom"
                             src="https://images.woodenstreet.de/image/cache/data%2Fbunk-beds%2Fblossom-bunk-bed%2Fupdated%2Fhoney%2F1-750x650.jpg"
                           ></img>
                         </section>
@@ -1064,6 +1042,7 @@ export const Navbar = () => {
                         <section>
                           <img
                             className="navimage"
+                            alt="StudyRoom"
                             src="https://images.woodenstreet.de/image/cache/data%2Foffice-table%2Fclifton-wood-and-metal-workstation-table%2Fupdated%2Fupdated%2F13-810x702.jpg"
                           ></img>
                         </section>
@@ -1171,6 +1150,7 @@ export const Navbar = () => {
                         <section>
                           <img
                             className="navimage"
+                            alt="Lamp&Lighting"
                             src="https://images.woodenstreet.de/image/cache/data%2FSapphire%2Fcontemporary-fabric-shade-shelf-floor-lamp-with-wood-base%2Fbeige%2F1-810x702.jpg"
                           ></img>
                         </section>
@@ -1296,6 +1276,7 @@ export const Navbar = () => {
                         <section>
                           <img
                             className="navimage"
+                            alt="Furnishing"
                             src="https://images.woodenstreet.de/image/cache/data%2Fpresto-bazaar%2Forange-black-and-grey-color-geometric-hand-tufted-round-wool-carpet-4-4-feet%2F1-810x702.jpg"
                           ></img>
                         </section>

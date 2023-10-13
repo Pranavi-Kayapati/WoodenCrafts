@@ -114,7 +114,7 @@ const HomePage = () => {
     <GridSlider/>
       <Heading  size='xl' textAlign={"center"} marginBottom={"20px"}>Top Picks For You</Heading>
       <Text  textAlign={"center"} fontSize='2xl'>Impressive Collection For Your Dream Home</Text>
-<SimpleGrid  maxWidth={"80%"} margin={"auto"} marginTop={"30px"} columns={[2, null, 6]} spacing='40px'>
+<SimpleGrid  maxWidth={"80%"} margin={"auto"} marginTop={"30px"} columns={{base:2,sm:2,md:3,lg:6,xl:6,"2xl":6}} spacing='40px'>
   <VStack>
   <Box  marginBottom={"50px"} height='100px'><img src="https://www.woodenstreet.com/images/home-new1/icon1.jpg" alt='broken'  ></img></Box>
   <Text fontSize='sm' marginTop={"20px"} >Sofa Sets</Text>
@@ -172,7 +172,7 @@ const HomePage = () => {
   offerings or get it customized to match your requirements. Buy furniture online and find the features, functionality, dimensions of the products, all with great ease. You can also avail the exciting deals and discount offers on our online furniture store. </Text>
 </Container>
 
-<SimpleGrid columns={[2, null, 3]} maxW={"90%"} margin={"auto"} marginTop={"40px"} spacing='40px'>
+<SimpleGrid columns={{base:1,sm:1,md:2,lg:3,xl:3,"2xl":3}} maxW={"90%"} margin={"auto"} marginTop={"40px"} spacing='40px'>
   <Box  > <Link to={'/product'} > <img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/beds-banner.jpg?v=19"}></img></Link></Box>
   <Box > <Link to={'/product'} > <img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/wfh-banner.jpg?v=2"}></img></Link></Box>
   <Box > <Link to={'/product'} ><img className="zoom"  alt='broken'  height='500px' src={"https://www.woodenstreet.com/images/home-new1/space-save-banner.jpg?v=19"}></img></Link> </Box>
@@ -187,10 +187,10 @@ const HomePage = () => {
 <hr style={{ marginTop:"80px", width:"100%"}}/>
 <Heading  size='xl'  marginTop={"60px"} marginBottom={"10px"}>Living Room Furniture</Heading>
 <Text fontSize='lg' marginBottom={'20px'}>Let’s Brew N Binge</Text>
-<Flex gap={'20px'} >
-    <Box   width={'50%'}><img  alt='broken' style={{height:'640px'}} src="https://www.woodenstreet.com/images/furniture-new/living-furniture1.jpg"></img></Box>
-    <Box  width={'50%'}>
- <SimpleGrid h={'200px'} columns={[2, null, 2]} spacing='20px'>
+<Flex direction={{base:"column",sm:"column",md:"column",lg:"row",xl:"row","2xl":"row"}}  gap={'20px'} >
+    <Box   width={{base:"100%",sm:"100%",md:"100%",lg:"50%",xl:"50%","2xl":"50%"}}><img  alt='broken' style={{height:'640px'}} src="https://www.woodenstreet.com/images/furniture-new/living-furniture1.jpg"></img></Box>
+    <Box  width={{base:"100%",sm:"100%",md:"100%",lg:"50%",xl:"50%","2xl":"50%"}}>
+ <SimpleGrid  columns={[2, null, 2]} spacing='20px'>
   <div style={{height:'310px'}} className="image-box"><img alt='broken' style={{height:'100%'}} src="https://images.woodenstreet.de/image/cache/data%2Ffabric-sofa%2Fadrick-3-seater-sofa%2Fproduct%2FDark-olive-green%2F2-750x650.jpg"></img></div>
   <div style={{height:'310px'}} className="image-box"><img alt='broken' style={{height:'100%'}} src="https://images.woodenstreet.de/image/cache/data%2Ftv-units-mdf%2Fhailey-wall-mounted-tv-unit%2Fexotic%2Fupdated+new%2Fupdated%2Fupda%2F1-750x650.jpg"></img></div>
   <div style={{height:'310px'}} className="image-box"><img alt='broken' style={{height:'100%'}} src="https://www.woodenstreet.com/images/home-new1/side-end-look.jpg"></img></div>
@@ -211,10 +211,10 @@ const HomePage = () => {
    <Heading  size='xl'  marginTop={"60px"} marginBottom={"20px"}>Dining Room Furniture</Heading>
    <Text fontSize='lg' marginBottom={'20px'}>To Experience The Luxury Dining</Text>
   
-<Flex gap={'20px'} >
-    <Box   width={'50%'}><img  alt='broken' style={{height:'640px'}} src="https://www.woodenstreet.com/images/furniture-new/dining-furniture1.jpg"></img></Box>
-    <Box  width={'50%'}>
- <SimpleGrid h={'200px'} columns={[2, null, 2]} spacing='20px'>
+<Flex direction={{base:"column",sm:"column",md:"column",lg:"row",xl:"row","2xl":"row"}}  gap={'20px'} >
+    <Box   width={{base:"100%",sm:"100%",md:"100%",lg:"50%",xl:"50%","2xl":"50%"}}><img  alt='broken' style={{height:'640px'}} src="https://www.woodenstreet.com/images/furniture-new/dining-furniture1.jpg"></img></Box>
+    <Box  width={{base:"100%",sm:"100%",md:"100%",lg:"50%",xl:"50%","2xl":"50%"}}>
+ <SimpleGrid  columns={[2, null, 2]} spacing='20px'>
   <div style={{height:'310px'}} className="image-box"><img alt='broken' style={{height:'100%'}} src="https://images.woodenstreet.de/image/cache/data%2Fdining-chairs%2Fadolph-dining-chairs-set-of-2-honey-finish%2Fhoney-finish%2F1-750x650.jpg"></img></div>
   <div style={{height:'310px'}} className="image-box"><img alt='broken' style={{height:'100%'}} src="https://images.woodenstreet.de/image/cache/data%2Fbar-cabinets%2Fauric-large-bar-cabinet-revised%2Fhoney%2Fupdated%2F1-810x702.jpg"></img></div>
   <div style={{height:'310px'}} className="image-box"><img alt='broken' style={{height:'100%'}} src="https://images.woodenstreet.de/image/cache/data%2Fkitchen-cabinet%2Fmonarch-kitchen-cabinet-revised%2Frevised%2Fhoney-finish%2Fupdated%2Fupdated%2F1-750x650.jpg"></img></div>
