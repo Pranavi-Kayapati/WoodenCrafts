@@ -66,7 +66,7 @@ console.log(product);
  }
 
 return (
-  <div className="product_container">
+  <div  className="product_container">
     
     {
       product.map((ele:any)=>(
@@ -83,6 +83,3 @@ return (
 
 export default ProductPage;
 
-// const DIV=styled.div`
-  
-// `

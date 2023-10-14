@@ -1,15 +1,12 @@
-.Product_container{
+/* #Product_container{
     padding:0 20px;
     display:flex;
     flex-direction:column;
     align-items:flex-start;
     margin-right: 5px;
-    /* margin-top: 50px; */
+    border: 2px solid green;
 }
-/* 
-.Product_container div{
-    display: flex;
-} */
+
 hr{
    
     width: 110%; 
@@ -20,5 +17,6 @@ input{
     top: 2.2px;
     width: 5vh;
     height: 2.8vh;
+    display: inline;
     
-}
+} */

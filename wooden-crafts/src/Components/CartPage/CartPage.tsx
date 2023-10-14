@@ -118,7 +118,7 @@ const CartPage: React.FC = () => {
             </h1>
             <hr />
             <span>MRP</span>
-            <span className="priceright">Rs 2324</span>
+            <span className="priceright">Rs {total}</span>
             <hr />
             <span>Discount</span>
             <span className="priceright">
@@ -128,10 +128,10 @@ const CartPage: React.FC = () => {
             <span>
               <b>Total Paybale</b>
             </span>
-            <span className="priceright">Rs {total}</span>
+            <span className="priceright">Rs {total-2324}</span>
             <hr />
             <span className="green">
-              Congratulations! You’ve just saved Rs 3,288 on your order.
+              Congratulations! You’ve just saved Rs 2,324 on your order.
             </span>
           </div>
           <div>
@@ -151,11 +151,16 @@ const CartPage: React.FC = () => {
 export default CartPage;
 
 const DIV = styled.div`
+  width: 90%;
+  margin: auto;
   margin-top: 150px;
   * {
     margin-top: 0px;
     padding: 0px;
     box-sizing: 0px;
+  }
+  .check input{
+    background-color:white
   }
   .cart {
     margin-top: 300px;
@@ -196,6 +201,8 @@ const DIV = styled.div`
     border: 1px solid grey;
     border-radius: 3px;
     padding: 5px;
+    margin-right:10px;
+    margin-bottom:20px
   }
   .check button {
     color: #ff9800;
@@ -222,20 +229,22 @@ const DIV = styled.div`
   }
   .cupon input {
     width: 70%;
-    padding: 15px;
+    padding: 5px;
     border: 1px solid grey;
   }
   .cuponCode {
     width: 70%;
-    padding: 5px;
+    /* padding: 0px; */
+    background-color:white;
     border: 1px solid grey;
   }
   .cupon button {
-    width: 30%;
+    width: 20%;
     border: 1px solid grey;
     margin-top: 4px;
+    margin-left:5px;
     color: white;
-    padding: 4px;
+    padding: 2px;
     background-color: orange;
   }
 

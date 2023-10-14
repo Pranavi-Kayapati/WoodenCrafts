@@ -112,7 +112,7 @@ const CartItem: React.FC<CartItemProps> = ({
               <b>{product.title}</b>
             </h1>
           </div>
-          <div className="cartQantity">
+          <div  className="cartQantity">
             <span>
               Quantity
               <span className="incDec">
@@ -154,50 +154,46 @@ const DIV = styled.div`
     /* margin-top: 15px; */
     border-top: 1px solid gray;
     width: 100%;
-    height: 250px;
+    height: 90%;
     display: flex;
     justify-content: space-evenly;
     /* align-items: center; */
     gap: 10px;
   }
-
+  span{
+    border:none
+  }
   .cartItemimage {
     width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: relative;
-    top: -130px; */
+    padding:10px
+    
   }
-  /* .cartItemimage img {
-    position: absolute;
-    left: 0px;
-    top: 20px;
-  } */
+  .cartItemimage img{
+    height: 180px;
+    width: 220px;
+  }
   .cartItemdetail {
     width: 70%;
-    /* position: relative; */
+    
   }
-
-  /* .cartItemdetail div {
-    position: absolute;
-    left: 0px;
-  } */
-
-  /* /* .cartTitle {
-    position: absolute;
-    top: 20px;
-  } */
+  .cartTitle{
+    margin-top:10px
+  }
+ 
 
   .cartQantity {
     margin: 10px auto;
     padding: 10px;
-    /* position: absolute; */
+    /* border:2px solid red; */
     top: 80px;
   }
   .cartButton {
-    /* position: absolute; */
+   margin-top:-20px;
     bottom: 20px;
+    margin-left:6px
   }
   */ .qant {
     padding: 0px;
@@ -210,8 +206,8 @@ const DIV = styled.div`
   .incDec {
     margin: 10px;
     border: 1px solid grey;
-    width: 30px;
-    padding: 5px;
+    width: 25px;
+    padding: 0 2px;
   }
   .incDec button {
     margin-left: 10px;
@@ -235,6 +231,7 @@ const DIV = styled.div`
   }
   .cuponCode {
     margin-left: 15px;
+    border:none
   }
   .saving {
     border: 1px solid #ff9800;
@@ -242,6 +239,7 @@ const DIV = styled.div`
     color: orange;
   }
   .cuponCode h1 {
+    margin-top:5px
   }
 
   .remove {
