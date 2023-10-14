@@ -286,7 +286,7 @@
   .search-div{
     height: 35px;
     padding: 5px 20px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     
   }
   input::placeholder {
@@ -346,14 +346,16 @@ input:focus{
       .fullmenu{
         display: none;
       }
-      .lowernav{
+      /* .lowernav{
         border: 2px solid yellow;
         
-      }
+      } */
       .tablet-search{
         display: flex;
         justify-content:space-between;
         align-self: center;
+        margin-left: 50px;
+        gap:10px
       }
       .react-icons{
         display: none;
