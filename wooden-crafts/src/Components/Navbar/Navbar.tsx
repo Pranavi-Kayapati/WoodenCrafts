@@ -180,7 +180,7 @@ export const Navbar = () => {
             <div className="fullmenu">
               <ul className="menu-items">
                 <li>
-                  <Link to="../HTML/product.html" className="menu-item-1">
+                  <Link to="/product" className="menu-item-1">
                     Sofas
                   </Link>
                   <div className="mega-menu">
