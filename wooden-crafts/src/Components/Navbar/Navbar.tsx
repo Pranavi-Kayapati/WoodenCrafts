@@ -84,7 +84,7 @@ export const Navbar = () => {
                 color: "white",
                 height: "34px",
                 width: "8%",
-                marginTop: "30px",
+                marginTop: "27px",
                 marginLeft: "-50px",
               }}
               onClick={handleClick}
