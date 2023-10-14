@@ -1,17 +1,51 @@
 #container{
     display: flex;
-    margin-top: 150px;
+    margin-top: 10%;
+}
+#filter{
+    display: none;
 }
 .sidebar{
     width:21%;
     position:sticky;
     height: 23%;
-    top:20px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-right: 1px solid black;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
 }
 
 .product{
     width:85%;
     position:relative;
-    top:32px
+    padding: 0 1%;
+   
 }
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    #container{
+        margin-top: 20%;
+    }
+    #filter{
+        display: block;
+    }
+    
+    .sidebar{
+        display: none;
+    }
+    .product{
+        margin: auto;
+    }
+  }
+  @media only screen and (max-width: 426px) {
+    #container{
+        margin-top: 40%;
+    }
+    #filter{
+        display: block;
+    }
+    .sidebar{
+        display: none;
+    }
+    .product{
+        margin: auto;
+    }
+  }

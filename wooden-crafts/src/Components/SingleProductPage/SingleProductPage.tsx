@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import React from "react";
@@ -61,6 +61,7 @@ const SingleProductPage = () => {
   };
 
   return (
+    <Container maxW='container.xl'>
     <div className="single-product-container">
       <div className="single-product">
         <div className="product-img">
@@ -79,7 +80,7 @@ const SingleProductPage = () => {
               694 Ratings & 144 Reviews
             </p>
             <p className="wishlist-btn">
-              <AiOutlineHeart color="#ff5702" size="25px" />
+              <AiOutlineHeart color="#f9a92c" size="20px" />
               <span>Add To Wishlist</span>
             </p>
           </div>
@@ -93,7 +94,7 @@ const SingleProductPage = () => {
             </div>
             <div>
               <p className="warning">
-                <MdAccessAlarm color="#ff5702" size="20px" />
+                <MdAccessAlarm color="#f9a92c" size="20px" />
                 <span> Sale Ends On 1d 9h 59m 5s</span>
               </p>
             </div>
@@ -101,7 +102,7 @@ const SingleProductPage = () => {
           <div className="special-offers">
             <h1>
               {" "}
-              <BiSolidOffer color="#ff5702" size="25px" />
+              <BiSolidOffer color="#f9a92c" size="24px" style={{marginRight:'5px'}}  />
               <span>Special Offers</span>
             </h1>
             <div>
@@ -133,7 +134,7 @@ const SingleProductPage = () => {
           <div className="special-offers">
             <h1>
               {" "}
-              <BsArrowDownCircleFill color="#ff5702" size="25px" />
+              <BsArrowDownCircleFill color="#f9a92c" size="23px" style={{marginRight:'5px'}} />
               <span>Product Overview</span>
             </h1>
             <div>
@@ -190,6 +191,7 @@ const SingleProductPage = () => {
         </div>
       </div>
     </div>
+    </Container>
   );
 };
 

@@ -2,16 +2,15 @@ import React, { useRef } from 'react'
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    Box,Accordion,AccordionItem,AccordionButton,AccordionIcon,AccordionPanel,useDisclosure
+    Box,Accordion,AccordionItem,AccordionButton,AccordionIcon,AccordionPanel,useDisclosure, Flex
   } from '@chakra-ui/react'
   import { Link } from 'react-router-dom'
   import { HamburgerIcon } from '@chakra-ui/icons'
   import logo2 from "./logo/logo2.png";
+  import { BiUserCircle } from "react-icons/bi";
 
 const Burgermenu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,14 +20,26 @@ const Burgermenu = () => {
     <Box cursor={"pointer"}  p={4} width={'50px'} onClick={onOpen}>
       <HamburgerIcon w={'30px'} height={'30px'} />
     </Box>
+  
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
+        <Flex justifyContent={'space-around'} marginTop={'10px'}>
         <Link to="/">
           <img id="Burgerlogo" src={logo2}></img>
         </Link>
-
+        <Link to="/login">
+                <BiUserCircle
+                  className="icon"
+                  style={{ margin: "20px" }}
+                  size={"25px"}
+                  color="#fba720"
+                  opacity={0.8}
+                />
+              </Link>
+        </Flex>
+       
         <DrawerBody>
           <Accordion allowToggle>
             <AccordionItem>
